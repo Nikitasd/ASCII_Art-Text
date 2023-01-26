@@ -1,0 +1,697 @@
+\hypertarget{sys__vim_8c}{}\doxysection{sys\+\_\+vim.\+c File Reference}
+\label{sys__vim_8c}\index{sys\_vim.c@{sys\_vim.c}}
+
+
+VIM Driver Implementation File.  
+
+
+{\ttfamily \#include \char`\"{}sys\+\_\+vim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esm.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvim_ram}{vim\+Ram}}
+\begin{DoxyCompactList}\small\item\em Vim Ram Definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sys__vim_8c_ac108e3dc05b50d92e7d6247e572273ce}\label{sys__vim_8c_ac108e3dc05b50d92e7d6247e572273ce}} 
+\#define {\bfseries vim\+RAM}~((\mbox{\hyperlink{sys__vim_8c_a12def721b2d5d6a14e3a868aa8b9ae98}{vim\+RAM\+\_\+t}} $\ast$)0x\+FFF82000U)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef volatile struct \mbox{\hyperlink{structvim_ram}{vim\+Ram}} \mbox{\hyperlink{sys__vim_8c_a12def721b2d5d6a14e3a868aa8b9ae98}{vim\+RAM\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Vim Ram Type Definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sys__vim_8c_a0d4a6e31bdf5afa6235140739421d5cf}{vim\+Parity\+Error\+Handler}} (void)
+\item 
+void \mbox{\hyperlink{sys__vim_8c_a894b6f212b72787bfa97f1ac62877167}{vim\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes VIM module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__vim_8c_a1a269c8383f7cbf75df048bb812307bb}{vim\+Channel\+Map}} (uint32 request, uint32 channel, t\+\_\+isr\+Func\+PTR handler)
+\begin{DoxyCompactList}\small\item\em Map selected interrupt request to the selected channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__vim_8c_adcc56ba4e8e75c39f782b78f4022bf7a}{vim\+Enable\+Interrupt}} (uint32 channel, system\+Interrupt\+\_\+t inttype)
+\item 
+void \mbox{\hyperlink{sys__vim_8c_ac4c74a2a1d17f9c7ec4cc3ba156a230e}{vim\+Disable\+Interrupt}} (uint32 channel)
+\begin{DoxyCompactList}\small\item\em Disable interrupt for the the selected channel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__vim_8c_ae8b4aff17dfb436d01775ae6fce955c1}{vim\+Get\+Config\+Value}} (vim\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+VIM Driver Implementation File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01 
+\end{DoxyVersion}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{sys__vim_8c_a12def721b2d5d6a14e3a868aa8b9ae98}\label{sys__vim_8c_a12def721b2d5d6a14e3a868aa8b9ae98}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimRAM\_t@{vimRAM\_t}}
+\index{vimRAM\_t@{vimRAM\_t}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimRAM\_t}{vimRAM\_t}}
+{\footnotesize\ttfamily \mbox{\hyperlink{sys__vim_8c_a12def721b2d5d6a14e3a868aa8b9ae98}{vim\+RAM\+\_\+t}}}
+
+
+
+Vim Ram Type Definition. 
+
+This type is used to access the Vim Ram. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys__vim_8c_a1a269c8383f7cbf75df048bb812307bb}\label{sys__vim_8c_a1a269c8383f7cbf75df048bb812307bb}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimChannelMap@{vimChannelMap}}
+\index{vimChannelMap@{vimChannelMap}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimChannelMap()}{vimChannelMap()}}
+{\footnotesize\ttfamily void vim\+Channel\+Map (\begin{DoxyParamCaption}\item[{uint32}]{request,  }\item[{uint32}]{channel,  }\item[{t\+\_\+isr\+Func\+PTR}]{handler }\end{DoxyParamCaption})}
+
+
+
+Map selected interrupt request to the selected channel. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em request} & Interrupt request number 2..95 \\
+\hline
+\mbox{\texttt{ in}}  & {\em channel} & VIM Channel number 2..95 \\
+\hline
+\mbox{\texttt{ in}}  & {\em handler} & Address of the interrupt handler\\
+\hline
+\end{DoxyParams}
+This function will map selected interrupt request to the selected channel. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00485\ \{}
+\DoxyCodeLine{00486\ \ \ \ \ uint32\ i,j;}
+\DoxyCodeLine{00487\ \ \ \ \ i\ =\ channel\ >>\ 2U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Find\ the\ register\ to\ configure\ */}}
+\DoxyCodeLine{00488\ \ \ \ \ j\ =\ channel\ -\/\ (i\ <<\ 2U);\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Find\ the\ offset\ of\ the\ type\ \ \ \ */}}
+\DoxyCodeLine{00489\ \ \ \ \ j\ =\ 3U\ -\/\ j;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ reverse\ the\ byte\ order\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00490\ \ \ \ \ j\ =\ j\ <<\ 3U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ find\ the\ bit\ location\ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{comment}{/*Mapping\ the\ required\ interrupt\ request\ to\ the\ required\ channel*/}}
+\DoxyCodeLine{00493\ \ \ \ \ vimREG-\/>CHANCTRL[i]\ \&=\ \string~(uint32)((uint32)0xFFU\ <<\ j);}
+\DoxyCodeLine{00494\ \ \ \ \ vimREG-\/>CHANCTRL[i]\ |=\ (request\ <<\ j);}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{comment}{/*Updating\ VIMRAM*/}}
+\DoxyCodeLine{00497\ \ \ \ \ vimRAM-\/>ISR[channel\ +\ 1U]\ =\ handler;}
+\DoxyCodeLine{00498\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__vim_8c_ac4c74a2a1d17f9c7ec4cc3ba156a230e}\label{sys__vim_8c_ac4c74a2a1d17f9c7ec4cc3ba156a230e}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimDisableInterrupt@{vimDisableInterrupt}}
+\index{vimDisableInterrupt@{vimDisableInterrupt}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimDisableInterrupt()}{vimDisableInterrupt()}}
+{\footnotesize\ttfamily void vim\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{uint32}]{channel }\end{DoxyParamCaption})}
+
+
+
+Disable interrupt for the the selected channel. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channel} & VIM Channel number 2..95\\
+\hline
+\end{DoxyParams}
+This function will disable interrupt for the selected channel. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00570\ \{}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keywordflow}{if}\ (channel\ >=\ 64U)}
+\DoxyCodeLine{00572\ \ \ \ \ \{}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKCLR2\ =\ (uint32)1U\ <<\ (channel-\/64U);}
+\DoxyCodeLine{00574\ \ \ \ \ \}}
+\DoxyCodeLine{00575\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (channel\ >=32U)}
+\DoxyCodeLine{00576\ \ \ \ \ \{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKCLR1\ =\ (uint32)1U\ <<\ (channel-\/32U);}
+\DoxyCodeLine{00578\ \ \ \ \ \}}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (channel\ >=\ 2U)}
+\DoxyCodeLine{00580\ \ \ \ \ \{}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKCLR0\ =\ (uint32)1U\ <<\ channel;}
+\DoxyCodeLine{00582\ \ \ \ \ \}}
+\DoxyCodeLine{00583\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00584\ \ \ \ \ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Empty\ */}}
+\DoxyCodeLine{00586\ \ \ \ \ \}}
+\DoxyCodeLine{00587\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__vim_8c_adcc56ba4e8e75c39f782b78f4022bf7a}\label{sys__vim_8c_adcc56ba4e8e75c39f782b78f4022bf7a}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimEnableInterrupt@{vimEnableInterrupt}}
+\index{vimEnableInterrupt@{vimEnableInterrupt}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimEnableInterrupt()}{vimEnableInterrupt()}}
+{\footnotesize\ttfamily void vim\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{uint32}]{channel,  }\item[{system\+Interrupt\+\_\+t}]{inttype }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00515\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordflow}{if}\ (channel\ >=\ 64U)}
+\DoxyCodeLine{00517\ \ \ \ \ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(inttype\ ==\ SYS\_IRQ)}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>FIRQPR2\ \&=\ \string~(uint32)((uint32)1U\ <<\ (channel-\/64U));}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>FIRQPR2\ |=\ ((uint32)1U\ <<\ (channel-\/64U));}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKSET2\ =\ (uint32)1U\ <<\ (channel-\/64U);}
+\DoxyCodeLine{00527\ \ \ \ \ \}}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (channel\ >=\ 32U)}
+\DoxyCodeLine{00529\ \ \ \ \ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(inttype\ ==\ SYS\_IRQ)}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>FIRQPR1\ \&=\ \string~(uint32)((uint32)1U\ <<\ (channel-\/32U));}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>FIRQPR1\ |=\ ((uint32)1U\ <<\ (channel-\/32U));}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKSET1\ =\ (uint32)1U\ <<\ (channel-\/32U);}
+\DoxyCodeLine{00539\ \ \ \ \ \}}
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (channel\ >=\ 2U)}
+\DoxyCodeLine{00541\ \ \ \ \ \{}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(inttype\ ==\ SYS\_IRQ)}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>FIRQPR0\ \&=\ \string~(uint32)((uint32)1U\ <<\ channel);}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>FIRQPR0\ |=\ ((uint32)1U\ <<\ channel);}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKSET0\ =\ (uint32)1U\ <<\ channel;}
+\DoxyCodeLine{00551\ \ \ \ \ \}}
+\DoxyCodeLine{00552\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00553\ \ \ \ \ \{}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Empty\ */}}
+\DoxyCodeLine{00555\ \ \ \ \ \}}
+\DoxyCodeLine{00556\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__vim_8c_ae8b4aff17dfb436d01775ae6fce955c1}\label{sys__vim_8c_ae8b4aff17dfb436d01775ae6fce955c1}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimGetConfigValue@{vimGetConfigValue}}
+\index{vimGetConfigValue@{vimGetConfigValue}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimGetConfigValue()}{vimGetConfigValue()}}
+{\footnotesize\ttfamily void vim\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{vim\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00608\ \{\ \ }
+\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00610\ \ \ \ \ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR0\ =\ VIM\_FIRQPR0\_CONFIGVALUE;}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR1\ =\ VIM\_FIRQPR1\_CONFIGVALUE;}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR2\ =\ VIM\_FIRQPR2\_CONFIGVALUE;}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR3\ =\ VIM\_FIRQPR3\_CONFIGVALUE;}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET0\ =\ VIM\_REQMASKSET0\_CONFIGVALUE;}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET1\ =\ VIM\_REQMASKSET1\_CONFIGVALUE;}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET2\ =\ VIM\_REQMASKSET2\_CONFIGVALUE;}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET3\ =\ VIM\_REQMASKSET3\_CONFIGVALUE;}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET0\ =\ VIM\_WAKEMASKSET0\_CONFIGVALUE;}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET1\ =\ VIM\_WAKEMASKSET1\_CONFIGVALUE;}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET2\ =\ VIM\_WAKEMASKSET2\_CONFIGVALUE;}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET3\ =\ VIM\_WAKEMASKSET3\_CONFIGVALUE;}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CAPEVT\ =\ VIM\_CAPEVT\_CONFIGVALUE;}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[0U]\ =\ VIM\_CHANCTRL0\_CONFIGVALUE;}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[1U]\ =\ VIM\_CHANCTRL1\_CONFIGVALUE;}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[2U]\ =\ VIM\_CHANCTRL2\_CONFIGVALUE;}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[3U]\ =\ VIM\_CHANCTRL3\_CONFIGVALUE;}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[4U]\ =\ VIM\_CHANCTRL4\_CONFIGVALUE;}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[5U]\ =\ VIM\_CHANCTRL5\_CONFIGVALUE;}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[6U]\ =\ VIM\_CHANCTRL6\_CONFIGVALUE;}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[7U]\ =\ VIM\_CHANCTRL7\_CONFIGVALUE;}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[8U]\ =\ VIM\_CHANCTRL8\_CONFIGVALUE;}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[9U]\ =\ VIM\_CHANCTRL9\_CONFIGVALUE;}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[10U]\ =\ VIM\_CHANCTRL10\_CONFIGVALUE;}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[11U]\ =\ VIM\_CHANCTRL11\_CONFIGVALUE;}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[12U]\ =\ VIM\_CHANCTRL12\_CONFIGVALUE;}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[13U]\ =\ VIM\_CHANCTRL13\_CONFIGVALUE;}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[14U]\ =\ VIM\_CHANCTRL14\_CONFIGVALUE;}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[15U]\ =\ VIM\_CHANCTRL15\_CONFIGVALUE;}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[16U]\ =\ VIM\_CHANCTRL16\_CONFIGVALUE;}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[17U]\ =\ VIM\_CHANCTRL17\_CONFIGVALUE;}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[18U]\ =\ VIM\_CHANCTRL18\_CONFIGVALUE;}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[19U]\ =\ VIM\_CHANCTRL19\_CONFIGVALUE;}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[20U]\ =\ VIM\_CHANCTRL20\_CONFIGVALUE;}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[21U]\ =\ VIM\_CHANCTRL21\_CONFIGVALUE;}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[22U]\ =\ VIM\_CHANCTRL22\_CONFIGVALUE;}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[23U]\ =\ VIM\_CHANCTRL23\_CONFIGVALUE;}
+\DoxyCodeLine{00648\ \ \ \ \ \}}
+\DoxyCodeLine{00649\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00650\ \ \ \ \ \{}
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR0\ =\ vimREG-\/>FIRQPR0;}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR1\ =\ vimREG-\/>FIRQPR1;}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR2\ =\ vimREG-\/>FIRQPR2;}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FIRQPR3\ =\ vimREG-\/>FIRQPR3;}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET0\ =\ vimREG-\/>REQMASKSET0;}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET1\ =\ vimREG-\/>REQMASKSET1;}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET2\ =\ vimREG-\/>REQMASKSET2;}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_REQMASKSET3\ =\ vimREG-\/>REQMASKSET3;}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET0\ =\ vimREG-\/>WAKEMASKSET0;}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET1\ =\ vimREG-\/>WAKEMASKSET1;}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET2\ =\ vimREG-\/>WAKEMASKSET2;}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_WAKEMASKSET3\ =\ vimREG-\/>WAKEMASKSET3;}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CAPEVT\ =\ vimREG-\/>CAPEVT;}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[0U]\ =\ vimREG-\/>CHANCTRL[0U];}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[1U]\ =\ vimREG-\/>CHANCTRL[1U];}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[2U]\ =\ vimREG-\/>CHANCTRL[2U];}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[3U]\ =\ vimREG-\/>CHANCTRL[3U];}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[4U]\ =\ vimREG-\/>CHANCTRL[4U];}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[5U]\ =\ vimREG-\/>CHANCTRL[5U];}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[6U]\ =\ vimREG-\/>CHANCTRL[6U];}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[7U]\ =\ vimREG-\/>CHANCTRL[7U];}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[8U]\ =\ vimREG-\/>CHANCTRL[8U];}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[9U]\ =\ vimREG-\/>CHANCTRL[9U];}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[10U]\ =\ vimREG-\/>CHANCTRL[10U];}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[11U]\ =\ vimREG-\/>CHANCTRL[11U];}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[12U]\ =\ vimREG-\/>CHANCTRL[12U];}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[13U]\ =\ vimREG-\/>CHANCTRL[13U];}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[14U]\ =\ vimREG-\/>CHANCTRL[14U];}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[15U]\ =\ vimREG-\/>CHANCTRL[15U];}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[16U]\ =\ vimREG-\/>CHANCTRL[16U];}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[17U]\ =\ vimREG-\/>CHANCTRL[17U];}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[18U]\ =\ vimREG-\/>CHANCTRL[18U];}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[19U]\ =\ vimREG-\/>CHANCTRL[19U];}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[20U]\ =\ vimREG-\/>CHANCTRL[20U];}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[21U]\ =\ vimREG-\/>CHANCTRL[21U];}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[22U]\ =\ vimREG-\/>CHANCTRL[22U];}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CHANCTRL[23U]\ =\ vimREG-\/>CHANCTRL[23U];}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00692\ \ \ \ \ \}}
+\DoxyCodeLine{00693\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__vim_8c_a894b6f212b72787bfa97f1ac62877167}\label{sys__vim_8c_a894b6f212b72787bfa97f1ac62877167}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimInit@{vimInit}}
+\index{vimInit@{vimInit}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimInit()}{vimInit()}}
+{\footnotesize\ttfamily void vim\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes VIM module. 
+
+This function initializes VIM RAM and registers 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00180\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{comment}{/*\ VIM\ RAM\ Parity\ Enable\ */}}
+\DoxyCodeLine{00182\ \ \ \ \ VIM\_PARCTL\ =\ 0xAU;}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ VIM\ table\ */}}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ uint32\ i;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0U;\ i\ <\ VIM\_CHANNELS;\ i++)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ vimRAM-\/>ISR[i]\ =\ s\_vim\_init[i];}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{comment}{/*\ Set\ Fall-\/Back\ Address\ Parity\ Error\ Register\ */}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 439\ S\ MR:11.3\ <APPROVED>\ "{}\ Need\ to\ store\ the\ address\ of\ a\ function\ in\ a\ 32\ bit\ register\ -\/\ Advisory\ as\ per\ MISRA"{}\ */}}
+\DoxyCodeLine{00196\ \ \ \ \ VIM\_FBPARERR\ =\ (uint32)\&vimParityErrorHandler;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{/*\ set\ IRQ/FIQ\ priorities\ */}}
+\DoxyCodeLine{00199\ \ \ \ \ vimREG-\/>FIRQPR0\ =\ (uint32)((uint32)SYS\_FIQ\ <<\ 0U)}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_FIQ\ <<\ 1U)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 2U)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 3U)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 4U)}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 5U)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 6U)}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 7U)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 8U)}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 9U)}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 10U)}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 11U)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 12U)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 13U)}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 14U)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 15U)}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 16U)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 17U)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 18U)}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 19U)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 20U)}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 21U)}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 22U)}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 23U)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 24U)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 25U)}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 26U)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 27U)}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 28U)}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 29U)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 30U)}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 31U);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ vimREG-\/>FIRQPR1\ =\ (uint32)((uint32)SYS\_IRQ\ <<\ 0U)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 1U)}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 2U)}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 3U)}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 4U)}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 5U)}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 6U)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 7U)}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 8U)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 9U)}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 10U)}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 11U)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 12U)}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 13U)}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 14U)}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 15U)}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 16U)}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 17U)}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 18U)}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 19U)}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 20U)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 21U)}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 22U)}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 23U)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 24U)}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 25U)}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 26U)}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 27U)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 28U)}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 29U)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 30U)}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 31U);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ vimREG-\/>FIRQPR2\ =\ (uint32)((uint32)SYS\_IRQ\ <<\ 0U)}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 1U)}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 2U)}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 3U)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 4U)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 5U)}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 6U)}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 7U)}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 8U)}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 9U)}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 10U)}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 11U)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 12U)}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 13U)}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 14U)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 15U)}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 16U)}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 17U)}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 18U)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 19U)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 20U)}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 21U)}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 22U)}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 23U)}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 24U)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 25U)}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 26U)}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 27U)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 28U)}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 29U)}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 30U)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 31U);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ vimREG-\/>FIRQPR3\ =\ (uint32)((uint32)SYS\_IRQ\ <<\ 0U)}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 1U)}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 2U)}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 3U)}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 4U)}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 5U)}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 6U)}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 7U)}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 8U)}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 9U)}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 10U)}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 11U)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 12U)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 13U)}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 14U)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 15U)}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 16U)}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 17U)}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 18U)}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 19U)}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 20U)}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 21U)}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 22U)}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 23U)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 24U)}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 25U)}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 26U)}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 27U)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 28U)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 29U)}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 30U)}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_IRQ\ <<\ 31U);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{comment}{/*\ enable\ interrupts\ */}}
+\DoxyCodeLine{00334\ \ \ \ \ vimREG-\/>REQMASKSET0\ =\ (uint32)((uint32)1U\ <<\ 0U)}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 1U)}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 2U)}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 3U)}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 4U)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 5U)}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 6U)}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 7U)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 8U)}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 9U)}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 13U)}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 31U);}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ vimREG-\/>REQMASKSET1\ =\ (uint32)((uint32)0U\ <<\ 0U)}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U)}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 2U)}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 3U)}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 4U)}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 5U)}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 6U)}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 7U)}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 8U)}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 9U)}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 31U);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ vimREG-\/>REQMASKSET2\ =\ (uint32)((uint32)0U\ <<\ 0U)}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U)}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 2U)}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 3U)}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 4U)}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 5U)}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 6U)}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 7U)}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 8U)}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 9U)}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 31U);}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00433\ \ \ \ \ vimREG-\/>REQMASKSET3\ =\ (uint32)((uint32)0U\ <<\ 0U)}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U)}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 2U)}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 3U)}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 4U)}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 5U)}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 6U)}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 7U)}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 8U)}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 9U)}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 31U);\ \ \ \ }
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{comment}{/*\ Set\ Capture\ event\ sources\ */}}
+\DoxyCodeLine{00467\ \ \ \ \ vimREG-\/>CAPEVT\ =\ ((uint32)((uint32)0U\ <<\ 0U)}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |(uint32)((uint32)0U\ <<\ 16U));}
+\DoxyCodeLine{00469\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__vim_8c_a0d4a6e31bdf5afa6235140739421d5cf}\label{sys__vim_8c_a0d4a6e31bdf5afa6235140739421d5cf}} 
+\index{sys\_vim.c@{sys\_vim.c}!vimParityErrorHandler@{vimParityErrorHandler}}
+\index{vimParityErrorHandler@{vimParityErrorHandler}!sys\_vim.c@{sys\_vim.c}}
+\doxysubsubsection{\texorpdfstring{vimParityErrorHandler()}{vimParityErrorHandler()}}
+{\footnotesize\ttfamily void vim\+Parity\+Error\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00704\ \{}
+\DoxyCodeLine{00705\ \ \ \ \ uint32\ vec;}
+\DoxyCodeLine{00706\ \ \ \ \ }
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{comment}{/*\ Identify\ the\ corrupted\ address\ */}}
+\DoxyCodeLine{00708\ \ \ \ \ uint32\ error\_addr\ =\ VIM\_ADDERR;}
+\DoxyCodeLine{00709\ }
+\DoxyCodeLine{00710\ \ \ \ \ \textcolor{comment}{/*\ Identify\ the\ channel\ number\ */}}
+\DoxyCodeLine{00711\ \ \ \ \ uint32\ error\_channel\ =\ ((error\_addr\ \&\ 0x1FFU)\ >>\ 2U);}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00713\ \ \ \ \ \textcolor{keywordflow}{if}(error\_channel\ >=\ VIM\_CHANNELS)}
+\DoxyCodeLine{00714\ \ \ \ \ \{}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Index\ is\ out\ of\ bonds\ */}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ condition\ should\ never\ be\ true\ since\ the\ HW\ only\ implements\ VIM\_CHANNELS\ (96)\ channels\ */}}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ However,\ it\ was\ added\ due\ to\ defensive\ programming\ */}}
+\DoxyCodeLine{00718\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (2)\ */}}
+\DoxyCodeLine{00719\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00720\ \ \ \ \ \}}
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00722\ \ \ \ \ \{}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Correct\ the\ corrupted\ location\ */}}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ vimRAM-\/>ISR[error\_channel]\ =\ s\_vim\_init[error\_channel];}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ Parity\ Error\ Flag\ */}}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ VIM\_PARFLG\ =\ 1U;}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ and\ enable\ the\ highest\ priority\ pending\ channel\ */}}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vimREG-\/>FIQINDEX\ !=\ 0U)}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ vec\ =\ vimREG-\/>FIQINDEX\ -\/\ 1U;}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Read\ 32\ bit\ volatile\ register"{}\ */}}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ vec\ =\ vimREG-\/>IRQINDEX\ -\/\ 1U;}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(vec\ ==\ 0U)}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>INTREQ0\ =\ 1U;}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ vec\ =\ esmREG-\/>IOFFHR\ -\/\ 1U;}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vec\ <\ 32U)}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ (uint32)1U\ <<\ vec;}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmGroup1Notification(vec);}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vec\ <\ 64U)}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ =\ (uint32)1U\ <<\ (vec-\/32U);}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmGroup2Notification(vec-\/32U);}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vec\ <\ 96U)}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ (uint32)1U\ <<\ (vec-\/64U);}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmGroup1Notification(vec-\/32U);}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR4[1U]\ =\ (uint32)1U\ <<\ (vec-\/96U);}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmGroup2Notification(vec-\/64U);}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vec\ <\ 32U)}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKCLR0\ =\ (uint32)1U\ <<\ vec;}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKSET0\ =\ (uint32)1U\ <<\ vec;}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vec\ <\ 64U)}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKCLR1\ =\ (uint32)1U\ <<\ (vec-\/32U);}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKSET1\ =\ (uint32)1U\ <<\ (vec-\/32U);}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKCLR2\ =\ (uint32)1U\ <<\ (vec-\/64U);}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ vimREG-\/>REQMASKSET2\ =\ (uint32)1U\ <<\ (vec-\/64U);}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00780\ \ \ \ \ \}}
+\DoxyCodeLine{00781\ \}}
+
+\end{DoxyCode}

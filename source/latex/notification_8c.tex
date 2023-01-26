@@ -1,0 +1,116 @@
+\hypertarget{notification_8c}{}\doxysection{notification.\+c File Reference}
+\label{notification_8c}\index{notification.c@{notification.c}}
+
+
+User Notification Definition File.  
+
+
+{\ttfamily \#include \char`\"{}esm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+selftest.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sci.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Ascii\+\_\+\+Convert.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{notification_8c_a47f1650e27c094120e414ad3332ea311}{esm\+Group1\+Notification}} (uint32 channel)
+\item 
+void \mbox{\hyperlink{notification_8c_a7d5d25716f0d945f9d5ae0e6ae387d67}{esm\+Group2\+Notification}} (uint32 channel)
+\item 
+void \mbox{\hyperlink{notification_8c_a01f1d76b843e64acb8bb464d79b9cd45}{memory\+Port0\+Test\+Fail\+Notification}} (uint32 group\+Select, uint32 data\+Select, uint32 address, uint32 data)
+\item 
+void \mbox{\hyperlink{notification_8c_a27770bcd3ed64bdd085157a5c99a3502}{memory\+Port1\+Test\+Fail\+Notification}} (uint32 group\+Select, uint32 data\+Select, uint32 address, uint32 data)
+\item 
+void \mbox{\hyperlink{notification_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sci\+Notification}} (sci\+BASE\+\_\+t $\ast$sci, uint32 flags)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+User Notification Definition File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01
+\end{DoxyVersion}
+This file defines empty notification routines to avoid linker errors, Driver expects user to define the notification. The user needs to either remove this file and use their custom notification function or place their code sequence in this file between the provided USER CODE BEGIN and USER CODE END. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{notification_8c_a47f1650e27c094120e414ad3332ea311}\label{notification_8c_a47f1650e27c094120e414ad3332ea311}} 
+\index{notification.c@{notification.c}!esmGroup1Notification@{esmGroup1Notification}}
+\index{esmGroup1Notification@{esmGroup1Notification}!notification.c@{notification.c}}
+\doxysubsubsection{\texorpdfstring{esmGroup1Notification()}{esmGroup1Notification()}}
+{\footnotesize\ttfamily void esm\+Group1\+Notification (\begin{DoxyParamCaption}\item[{uint32}]{channel }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \textcolor{comment}{/*\ \ enter\ user\ code\ between\ the\ USER\ CODE\ BEGIN\ and\ USER\ CODE\ END.\ */}}
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (1)\ */}}
+\DoxyCodeLine{00063\ \ \ \ \ return\ ;}
+\DoxyCodeLine{00064\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{notification_8c_a7d5d25716f0d945f9d5ae0e6ae387d67}\label{notification_8c_a7d5d25716f0d945f9d5ae0e6ae387d67}} 
+\index{notification.c@{notification.c}!esmGroup2Notification@{esmGroup2Notification}}
+\index{esmGroup2Notification@{esmGroup2Notification}!notification.c@{notification.c}}
+\doxysubsubsection{\texorpdfstring{esmGroup2Notification()}{esmGroup2Notification()}}
+{\footnotesize\ttfamily void esm\+Group2\+Notification (\begin{DoxyParamCaption}\item[{uint32}]{channel }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \textcolor{comment}{/*\ \ enter\ user\ code\ between\ the\ USER\ CODE\ BEGIN\ and\ USER\ CODE\ END.\ */}}
+\DoxyCodeLine{00073\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00074\ \ \ \ \ return\ ;}
+\DoxyCodeLine{00075\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{notification_8c_a01f1d76b843e64acb8bb464d79b9cd45}\label{notification_8c_a01f1d76b843e64acb8bb464d79b9cd45}} 
+\index{notification.c@{notification.c}!memoryPort0TestFailNotification@{memoryPort0TestFailNotification}}
+\index{memoryPort0TestFailNotification@{memoryPort0TestFailNotification}!notification.c@{notification.c}}
+\doxysubsubsection{\texorpdfstring{memoryPort0TestFailNotification()}{memoryPort0TestFailNotification()}}
+{\footnotesize\ttfamily void memory\+Port0\+Test\+Fail\+Notification (\begin{DoxyParamCaption}\item[{uint32}]{group\+Select,  }\item[{uint32}]{data\+Select,  }\item[{uint32}]{address,  }\item[{uint32}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \textcolor{comment}{/*\ \ enter\ user\ code\ between\ the\ USER\ CODE\ BEGIN\ and\ USER\ CODE\ END.\ */}}
+\DoxyCodeLine{00084\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (5)\ */}}
+\DoxyCodeLine{00085\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{notification_8c_a27770bcd3ed64bdd085157a5c99a3502}\label{notification_8c_a27770bcd3ed64bdd085157a5c99a3502}} 
+\index{notification.c@{notification.c}!memoryPort1TestFailNotification@{memoryPort1TestFailNotification}}
+\index{memoryPort1TestFailNotification@{memoryPort1TestFailNotification}!notification.c@{notification.c}}
+\doxysubsubsection{\texorpdfstring{memoryPort1TestFailNotification()}{memoryPort1TestFailNotification()}}
+{\footnotesize\ttfamily void memory\+Port1\+Test\+Fail\+Notification (\begin{DoxyParamCaption}\item[{uint32}]{group\+Select,  }\item[{uint32}]{data\+Select,  }\item[{uint32}]{address,  }\item[{uint32}]{data }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \textcolor{comment}{/*\ \ enter\ user\ code\ between\ the\ USER\ CODE\ BEGIN\ and\ USER\ CODE\ END.\ */}}
+\DoxyCodeLine{00094\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (7)\ */}}
+\DoxyCodeLine{00095\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{notification_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}\label{notification_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}} 
+\index{notification.c@{notification.c}!sciNotification@{sciNotification}}
+\index{sciNotification@{sciNotification}!notification.c@{notification.c}}
+\doxysubsubsection{\texorpdfstring{sciNotification()}{sciNotification()}}
+{\footnotesize\ttfamily void sci\+Notification (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{flags }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \textcolor{comment}{/*\ \ enter\ user\ code\ between\ the\ USER\ CODE\ BEGIN\ and\ USER\ CODE\ END.\ */}}
+\DoxyCodeLine{00105\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ (29)\ */}}
+\DoxyCodeLine{00108\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,2774 @@
+\hypertarget{sys__selftest_8c}{}\doxysection{sys\+\_\+selftest.\+c File Reference}
+\label{sys__selftest_8c}\index{sys\_selftest.c@{sys\_selftest.c}}
+
+
+Selftest Source File.  
+
+
+{\ttfamily \#include \char`\"{}sys\+\_\+selftest.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+core.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+pmu.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftest\+Fail\+Notification}} (uint32 flag)
+\begin{DoxyCompactList}\small\item\em Self test fail service routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a2f7aaa1d96319ecb5d7b6cec31c56670}{ccm\+Self\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em CCM module self check Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a3184dfe0846903e1111348942160dfe7}{memory\+Init}} (uint32 ram)
+\begin{DoxyCompactList}\small\item\em Memory Initialization Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a54f7309e862bab7a63c2c176c4b7cee9}{stc\+Self\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em STC module self check Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a27cee1191b0027e90cbb9c66983596b9}{cpu\+Self\+Test}} (uint32 no\+\_\+of\+\_\+intervals, uint32 max\+\_\+timeout, boolean restart\+\_\+test)
+\begin{DoxyCompactList}\small\item\em CPU self test Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_ac9b7e2d9da2b5166a9ea002d431e54ef}{pbist\+Self\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em PBIST self test Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}{pbist\+Run}} (uint32 raminfoL, uint32 algomask)
+\begin{DoxyCompactList}\small\item\em CPU self test Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}{pbist\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to stop PBIST test enabled. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}{pbist\+Is\+Test\+Completed}} (void)
+\begin{DoxyCompactList}\small\item\em Checks to see if the PBIST test is completed. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}{pbist\+Is\+Test\+Passed}} (void)
+\begin{DoxyCompactList}\small\item\em Checks to see if the PBIST test is completed successfully. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{sys__selftest_8c_a3edbda42e27655bb5e9a3d067ab09caf}{pbist\+Port\+Test\+Status}} (uint32 port)
+\begin{DoxyCompactList}\small\item\em Checks to see if the PBIST Port test is completed successfully. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{sys__selftest_8c_a646eb27315f3ce47edde97c563389f76}{efc\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em EFUSE module self check Driver. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{sys__selftest_8c_a9973f032c29389602b684d30ea390fad}{efc\+Stuck\+Zero\+Test}} (void)
+\begin{DoxyCompactList}\small\item\em Checks to see if the EFUSE Stuck at zero test is completed successfully. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_afd6cec31a44e7c8e325a744e9bcbf601}{efc\+Self\+Test}} (void)
+\begin{DoxyCompactList}\small\item\em EFUSE module self check Driver. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{sys__selftest_8c_ad44409ae54516ba10303dd5c011f4fa6}{checkefc\+Self\+Test}} (void)
+\begin{DoxyCompactList}\small\item\em EFUSE module self check Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a3248a50d5c0516f336b46aa0114ba9be}{fmc\+Bus2\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Self Check Flash Bus2 Interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a183a0d9f1300394cff2f8fe0aa034d4b}{fmc\+ECCcheck}} (void)
+\begin{DoxyCompactList}\small\item\em Check Flash ECC Single Bit and multi Bit errors detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_ad4cbf907aa7750c1c3601ed191842dd9}{check\+B0\+RAMECC}} (void)
+\begin{DoxyCompactList}\small\item\em Check TCRAM1 ECC error detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_ab5e986484f3be2af5cd3a7595ba346c2}{check\+B1\+RAMECC}} (void)
+\begin{DoxyCompactList}\small\item\em Check TCRAM2 ECC error detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a02bb81fd1b585ba20d4c6e7ed427a4ac}{check\+Flash\+ECC}} (void)
+\begin{DoxyCompactList}\small\item\em Check Flash ECC error detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a58597c65615a9a0f05d48135ad48c0d6}{custom\+\_\+dabort}} (void)
+\begin{DoxyCompactList}\small\item\em Custom Data abort routine for the application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a2c1518db428c8ab63a56048cadfb4e6e}{stc\+Self\+Check\+Fail}} (void)
+\begin{DoxyCompactList}\small\item\em STC Self test check fail service routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a932e8fff5749ae8038f0fbbe9029ec44}{cpu\+Self\+Test\+Fail}} (void)
+\begin{DoxyCompactList}\small\item\em CPU Self test check fail service routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_af7297818ebd5ffd62488091aa9633bf9}{vim\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check VIM RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a66f658578435dc4d3984c76a3d2ed959}{het1\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check HET1 RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a5f69665c7b7abb003cfb4a314ce1e943}{htu1\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check HTU1 RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a0267c576250cc80c1ffafae379fcd937}{adc1\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check ADC1 RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a034e78d72a2a9231d27d78256d3d194e}{can1\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check CAN1 RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a0b4bb222e016b734e702da6a1ec5ab8a}{can2\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check CAN2 RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a050e0c2257b541e651eb35d32f10c98d}{mibspi1\+Parity\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em Routine to check MIBSPI1 RAM parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a421594cf13d3b5ca42435c5a5604721c}{check\+RAMECC}} (void)
+\begin{DoxyCompactList}\small\item\em Check TCRAM ECC error detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a012696be6fb67f7debf6f1ff6f9e3331}{check\+Clock\+Monitor}} (void)
+\begin{DoxyCompactList}\small\item\em Check clock monitor failure detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a239d7544f8bb38fc73056467dbeb9e7c}{check\+Flash\+EEPROMECC}} (void)
+\begin{DoxyCompactList}\small\item\em Check Flash EEPROM ECC error detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a08d6355b5f4052d4ef5d2d995032ba22}{check\+PLL1\+Slip}} (void)
+\begin{DoxyCompactList}\small\item\em Check PLL1 Slip detection logic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a85eb55d96d4a491e84a930dbea0e89a5}{check\+RAMAddr\+Parity}} (void)
+\begin{DoxyCompactList}\small\item\em Check TCRAM Address parity error detection and signaling mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a7e5bbec947e5db02df2bda4ba2230677}{check\+RAMUERRTest}} (void)
+\begin{DoxyCompactList}\small\item\em Run RAM test. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_aa035d17d1ecb2d6bb095a5c0b44a2143}{fmc\+Bus1\+Parity\+Check}} (void)
+\item 
+void \mbox{\hyperlink{sys__selftest_8c_adc8a571e336b788da775b5279597c9f9}{pbist\+Fail}} (void)
+\item 
+void \mbox{\hyperlink{sys__selftest_8c_a1edb8a500b4ad0f3e87b93245856a937}{pbist\+Get\+Config\+Value}} (pbist\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_afb360fa06ebe94d06978d25371ed2140}{stc\+Get\+Config\+Value}} (stc\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_ac76ed167d7b4b27eedea0eb37de6acc2}{efc\+Get\+Config\+Value}} (efc\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_ab288da76a8169e1a92586cd06079358f}{ccmr4\+Get\+Config\+Value}} (ccmr4\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a1f3b71a00b6347cb5f7f6eb922c36c9e}{errata\+\_\+\+PBIST\+\_\+4}} (void)
+\begin{DoxyCompactList}\small\item\em Workaround for the Errata PBIST\#4. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_af9ecd48548d7a3d98d5dcc44d1e7ca51}{enable\+Parity}} (void)
+\begin{DoxyCompactList}\small\item\em Enable peripheral RAM parity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__selftest_8c_a15b66d583493adf7dc0ce8e3a89f00f5}{disable\+Parity}} (void)
+\begin{DoxyCompactList}\small\item\em Disable peripheral RAM parity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Selftest Source File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01
+\end{DoxyVersion}
+This file contains\+:
+\begin{DoxyItemize}
+\item Selftest API\textquotesingle{}s 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys__selftest_8c_a0267c576250cc80c1ffafae379fcd937}\label{sys__selftest_8c_a0267c576250cc80c1ffafae379fcd937}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!adc1ParityCheck@{adc1ParityCheck}}
+\index{adc1ParityCheck@{adc1ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{adc1ParityCheck()}{adc1ParityCheck()}}
+{\footnotesize\ttfamily void adc1\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check ADC1 RAM parity error detection and signaling mechanism. 
+
+Routine to check ADC1 RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01361\ \{}
+\DoxyCodeLine{01362\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ adcramread\ =\ 0U;}
+\DoxyCodeLine{01363\ \ \ \ \ uint32\ adcparcr\_bk\ =\ adcREG1-\/>PARCR;}
+\DoxyCodeLine{01364\ }
+\DoxyCodeLine{01365\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (61)\ */}}
+\DoxyCodeLine{01366\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01367\ }
+\DoxyCodeLine{01368\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ TEST\ bit\ in\ the\ PARCR\ and\ enable\ parity\ checking\ */}}
+\DoxyCodeLine{01369\ \ \ \ \ adcREG1-\/>PARCR\ =\ 0x10AU;}
+\DoxyCodeLine{01370\ }
+\DoxyCodeLine{01371\ \ \ \ \ \textcolor{comment}{/*\ Invert\ the\ parity\ bits\ inside\ the\ ADC1\ RAM's\ first\ location\ */}}
+\DoxyCodeLine{01372\ \ \ \ \ adcPARRAM1\ =\ \string~(adcPARRAM1);}
+\DoxyCodeLine{01373\ }
+\DoxyCodeLine{01374\ \ \ \ \ \textcolor{comment}{/*\ clear\ the\ TEST\ bit\ */}}
+\DoxyCodeLine{01375\ \ \ \ \ adcREG1-\/>PARCR\ =\ 0x00AU;}
+\DoxyCodeLine{01376\ }
+\DoxyCodeLine{01377\ \ \ \ \ \textcolor{comment}{/*\ This\ read\ is\ expected\ to\ trigger\ a\ parity\ error\ */}}
+\DoxyCodeLine{01378\ \ \ \ \ adcramread\ =\ adcRAM1;}
+\DoxyCodeLine{01379\ }
+\DoxyCodeLine{01380\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ ESM\ group1\ channel\ 19\ to\ be\ flagged\ */}}
+\DoxyCodeLine{01381\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x80000U)\ ==0U)}
+\DoxyCodeLine{01382\ \ \ \ \ \{}
+\DoxyCodeLine{01383\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ no\ ADC1\ RAM\ parity\ error\ was\ flagged\ to\ ESM\ */}}
+\DoxyCodeLine{01384\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(ADC1PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01385\ \ \ \ \ \}}
+\DoxyCodeLine{01386\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01387\ \ \ \ \ \{}
+\DoxyCodeLine{01388\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ADC1\ RAM\ parity\ error\ flag\ */}}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x80000U;}
+\DoxyCodeLine{01390\ }
+\DoxyCodeLine{01391\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ TEST\ bit\ in\ the\ PARCR\ and\ enable\ parity\ checking\ */}}
+\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ adcREG1-\/>PARCR\ =\ 0x10AU;}
+\DoxyCodeLine{01393\ }
+\DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ the\ parity\ bits\ to\ correct\ data\ */}}
+\DoxyCodeLine{01395\ \ \ \ \ \ \ \ \ adcPARRAM1\ =\ \string~(adcPARRAM1);}
+\DoxyCodeLine{01396\ \ \ \ \ \}}
+\DoxyCodeLine{01397\ }
+\DoxyCodeLine{01398\ \ \ \ \ \textcolor{comment}{/*\ Restore\ parity\ control\ register\ */}}
+\DoxyCodeLine{01399\ \ \ \ \ adcREG1-\/>PARCR\ =\ adcparcr\_bk;}
+\DoxyCodeLine{01400\ }
+\DoxyCodeLine{01401\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (62)\ */}}
+\DoxyCodeLine{01402\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01403\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a034e78d72a2a9231d27d78256d3d194e}\label{sys__selftest_8c_a034e78d72a2a9231d27d78256d3d194e}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!can1ParityCheck@{can1ParityCheck}}
+\index{can1ParityCheck@{can1ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{can1ParityCheck()}{can1ParityCheck()}}
+{\footnotesize\ttfamily void can1\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check CAN1 RAM parity error detection and signaling mechanism. 
+
+Routine to check CAN1 RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01419\ \{}
+\DoxyCodeLine{01420\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ canread\ =\ 0U;}
+\DoxyCodeLine{01421\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{01422\ \ \ \ \ uint32\ canctl\_bk\ =\ \ canREG1-\/>CTL;}
+\DoxyCodeLine{01423\ }
+\DoxyCodeLine{01424\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (65)\ */}}
+\DoxyCodeLine{01425\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01426\ }
+\DoxyCodeLine{01427\ \ \ \ \ \textcolor{comment}{/*\ Disable\ parity,\ init\ mode,\ TEST\ mode\ */}}
+\DoxyCodeLine{01428\ \ \ \ \ canREG1-\/>CTL\ =\ 0x00001481U;}
+\DoxyCodeLine{01429\ }
+\DoxyCodeLine{01430\ \ \ \ \ \textcolor{comment}{/*\ Enable\ RAM\ Direct\ Access\ mode\ */}}
+\DoxyCodeLine{01431\ \ \ \ \ canREG1-\/>TEST\ =\ 0x00000200U;}
+\DoxyCodeLine{01432\ }
+\DoxyCodeLine{01433\ \ \ \ \ \textcolor{comment}{/*\ flip\ the\ parity\ bit\ */}}
+\DoxyCodeLine{01434\ \ \ \ \ canPARRAM1\ \string^=\ 0x00001000U;}
+\DoxyCodeLine{01435\ }
+\DoxyCodeLine{01436\ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity,\ disable\ init,\ still\ TEST\ mode\ */}}
+\DoxyCodeLine{01437\ \ \ \ \ canREG1-\/>CTL\ =\ 0x00002880U;}
+\DoxyCodeLine{01438\ }
+\DoxyCodeLine{01439\ \ \ \ \ \textcolor{comment}{/*\ Read\ location\ with\ parity\ error\ */}}
+\DoxyCodeLine{01440\ \ \ \ \ canread\ =\ canRAM1;}
+\DoxyCodeLine{01441\ }
+\DoxyCodeLine{01442\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ group1\ channel\ 21\ is\ flagged\ */}}
+\DoxyCodeLine{01443\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x00200000U)\ ==\ 0U)}
+\DoxyCodeLine{01444\ \ \ \ \ \{}
+\DoxyCodeLine{01445\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ DCAN1\ RAM\ parity\ error\ was\ flagged\ to\ ESM\ */}}
+\DoxyCodeLine{01446\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CAN1PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01447\ \ \ \ \ \}}
+\DoxyCodeLine{01448\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01449\ \ \ \ \ \{}
+\DoxyCodeLine{01450\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 21\ flag\ */}}
+\DoxyCodeLine{01451\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x00200000U;}
+\DoxyCodeLine{01452\ }
+\DoxyCodeLine{01453\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ parity,\ init\ mode,\ TEST\ mode\ */}}
+\DoxyCodeLine{01454\ \ \ \ \ \ \ \ \ canREG1-\/>CTL\ =\ 0x00001481U;}
+\DoxyCodeLine{01455\ }
+\DoxyCodeLine{01456\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ to\ correct\ data,\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01457\ \ \ \ \ \ \ \ \ canPARRAM1\ \string^=\ 0x00001000U;}
+\DoxyCodeLine{01458\ \ \ \ \ \}}
+\DoxyCodeLine{01459\ }
+\DoxyCodeLine{01460\ \ \ \ \ \textcolor{comment}{/*\ Disable\ RAM\ Direct\ Access\ mode\ */}}
+\DoxyCodeLine{01461\ \ \ \ \ canREG1-\/>TEST\ =\ 0x00000000U;}
+\DoxyCodeLine{01462\ }
+\DoxyCodeLine{01463\ \ \ \ \ \textcolor{comment}{/*\ Restore\ CTL\ register\ */}}
+\DoxyCodeLine{01464\ \ \ \ \ canREG1-\/>CTL\ =\ canctl\_bk;}
+\DoxyCodeLine{01465\ }
+\DoxyCodeLine{01466\ \ \ \ \ \textcolor{comment}{/*\ Read\ Error\ and\ Status\ register\ to\ clear\ Parity\ Error\ bit\ */}}
+\DoxyCodeLine{01467\ \ \ \ \ canread\ =\ canREG1-\/>ES;}
+\DoxyCodeLine{01468\ }
+\DoxyCodeLine{01469\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (66)\ */}}
+\DoxyCodeLine{01470\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01471\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a0b4bb222e016b734e702da6a1ec5ab8a}\label{sys__selftest_8c_a0b4bb222e016b734e702da6a1ec5ab8a}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!can2ParityCheck@{can2ParityCheck}}
+\index{can2ParityCheck@{can2ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{can2ParityCheck()}{can2ParityCheck()}}
+{\footnotesize\ttfamily void can2\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check CAN2 RAM parity error detection and signaling mechanism. 
+
+Routine to check CAN2 RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01483\ \{}
+\DoxyCodeLine{01484\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ canread\ =\ 0U;}
+\DoxyCodeLine{01485\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{01486\ \ \ \ \ uint32\ canctl\_bk\ =\ canREG2-\/>CTL;}
+\DoxyCodeLine{01487\ }
+\DoxyCodeLine{01488\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (67)\ */}}
+\DoxyCodeLine{01489\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01490\ }
+\DoxyCodeLine{01491\ \ \ \ \ \textcolor{comment}{/*\ Disable\ parity,\ init\ mode,\ TEST\ mode\ */}}
+\DoxyCodeLine{01492\ \ \ \ \ canREG2-\/>CTL\ =\ 0x00001481U;}
+\DoxyCodeLine{01493\ }
+\DoxyCodeLine{01494\ \ \ \ \ \textcolor{comment}{/*\ Enable\ RAM\ Direct\ Access\ mode\ */}}
+\DoxyCodeLine{01495\ \ \ \ \ canREG2-\/>TEST\ =\ 0x00000200U;}
+\DoxyCodeLine{01496\ }
+\DoxyCodeLine{01497\ \ \ \ \ \textcolor{comment}{/*\ flip\ the\ parity\ bit\ */}}
+\DoxyCodeLine{01498\ \ \ \ \ canPARRAM2\ \string^=\ 0x00001000U;}
+\DoxyCodeLine{01499\ }
+\DoxyCodeLine{01500\ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity,\ disable\ init,\ still\ TEST\ mode\ */}}
+\DoxyCodeLine{01501\ \ \ \ \ canREG2-\/>CTL\ =\ 0x00002880U;}
+\DoxyCodeLine{01502\ }
+\DoxyCodeLine{01503\ \ \ \ \ \textcolor{comment}{/*\ Read\ location\ with\ parity\ error\ */}}
+\DoxyCodeLine{01504\ \ \ \ \ canread\ =\ canRAM2;}
+\DoxyCodeLine{01505\ }
+\DoxyCodeLine{01506\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ group1\ channel\ 23\ is\ flagged\ */}}
+\DoxyCodeLine{01507\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x00800000U)\ ==\ 0U)}
+\DoxyCodeLine{01508\ \ \ \ \ \{}
+\DoxyCodeLine{01509\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ DCAN2\ RAM\ parity\ error\ was\ flagged\ to\ ESM\ */}}
+\DoxyCodeLine{01510\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CAN2PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01511\ \ \ \ \ \}}
+\DoxyCodeLine{01512\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01513\ \ \ \ \ \{}
+\DoxyCodeLine{01514\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 23\ flag\ */}}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x00800000U;}
+\DoxyCodeLine{01516\ }
+\DoxyCodeLine{01517\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ parity,\ init\ mode,\ TEST\ mode\ */}}
+\DoxyCodeLine{01518\ \ \ \ \ \ \ \ \ canREG2-\/>CTL\ =\ 0x00001481U;}
+\DoxyCodeLine{01519\ }
+\DoxyCodeLine{01520\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ to\ correct\ data,\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01521\ \ \ \ \ \ \ \ \ canPARRAM2\ \string^=\ 0x00001000U;}
+\DoxyCodeLine{01522\ \ \ \ \ \}}
+\DoxyCodeLine{01523\ }
+\DoxyCodeLine{01524\ \ \ \ \ \textcolor{comment}{/*\ Disable\ RAM\ Direct\ Access\ mode\ */}}
+\DoxyCodeLine{01525\ \ \ \ \ canREG2-\/>TEST\ =\ 0x00000000U;}
+\DoxyCodeLine{01526\ }
+\DoxyCodeLine{01527\ \ \ \ \ \textcolor{comment}{/*\ disable\ TEST\ mode\ */}}
+\DoxyCodeLine{01528\ \ \ \ \ canREG2-\/>CTL\ =\ canctl\_bk;}
+\DoxyCodeLine{01529\ }
+\DoxyCodeLine{01530\ \ \ \ \ \textcolor{comment}{/*\ Read\ Error\ and\ Status\ register\ to\ clear\ Parity\ Error\ bit\ */}}
+\DoxyCodeLine{01531\ \ \ \ \ canread\ =\ canREG2-\/>ES;}
+\DoxyCodeLine{01532\ }
+\DoxyCodeLine{01533\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (68)\ */}}
+\DoxyCodeLine{01534\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01535\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ab288da76a8169e1a92586cd06079358f}\label{sys__selftest_8c_ab288da76a8169e1a92586cd06079358f}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!ccmr4GetConfigValue@{ccmr4GetConfigValue}}
+\index{ccmr4GetConfigValue@{ccmr4GetConfigValue}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{ccmr4GetConfigValue()}{ccmr4GetConfigValue()}}
+{\footnotesize\ttfamily void ccmr4\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{ccmr4\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02308\ \{}
+\DoxyCodeLine{02309\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{02310\ \ \ \ \ \{}
+\DoxyCodeLine{02311\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CCMKEYR\ =\ CCMR4\_CCMKEYR\_CONFIGVALUE;}
+\DoxyCodeLine{02312\ \ \ \ \ \}}
+\DoxyCodeLine{02313\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02314\ \ \ \ \ \{}
+\DoxyCodeLine{02315\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{02316\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CCMKEYR\ =\ CCMKEYR;}
+\DoxyCodeLine{02317\ \ \ \ \ \}}
+\DoxyCodeLine{02318\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a2f7aaa1d96319ecb5d7b6cec31c56670}\label{sys__selftest_8c_a2f7aaa1d96319ecb5d7b6cec31c56670}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!ccmSelfCheck@{ccmSelfCheck}}
+\index{ccmSelfCheck@{ccmSelfCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{ccmSelfCheck()}{ccmSelfCheck()}}
+{\footnotesize\ttfamily void ccm\+Self\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+CCM module self check Driver. 
+
+This function self checks the CCM module. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00080\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{/*\ Run\ a\ diagnostic\ check\ on\ the\ CCM-\/R4F\ module\ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{/*\ This\ step\ ensures\ that\ the\ CCM-\/R4F\ can\ actually\ indicate\ an\ error\ */}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{/*\ Configure\ CCM\ in\ self-\/test\ mode\ */}}
+\DoxyCodeLine{00086\ \ \ \ \ CCMKEYR\ =\ 0x6U;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ CCM\ self-\/test\ to\ complete\ */}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{while}\ ((CCMSR\ \&\ 0x100U)\ !=\ 0x100U)}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (4)\ */}}
+\DoxyCodeLine{00094\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ there\ was\ an\ error\ during\ the\ self-\/test\ */}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{if}\ ((CCMSR\ \&\ 0x1U)\ ==\ 0x1U)}
+\DoxyCodeLine{00098\ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ STE\ is\ set\ */}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CCMSELFCHECK\_FAIL1);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00103\ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ CCM-\/R4\ self-\/test\ error\ flag\ by\ itself\ (without\ compare\ error)\ */}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x80000000U)\ ==\ 0x80000000U)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ESM\ flag\ is\ not\ set\ */}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CCMSELFCHECK\_FAIL2);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Configure\ CCM\ in\ error-\/forcing\ mode\ */}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ CCMKEYR\ =\ 0x9U;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ error-\/forcing\ is\ completed.\ */}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (CCMKEYR\ !=\ 0U)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ if\ compare\ error\ flag\ is\ set\ */}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[1U]\ \&\ 0x4U)\ !=\ 0x4U)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ESM\ flag\ is\ not\ set\ */}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CCMSELFCHECK\_FAIL3);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ FIQIVEC\ to\ ESM\ High\ Interrupt\ flag\ is\ set\ */}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((vimREG-\/>FIQINDEX\ \&\ 0x000000FFU)\ !=\ 1U)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ESM\ High\ Interrupt\ flag\ is\ not\ set\ in\ VIM*/}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CCMSELFCHECK\_FAIL4);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group2\ channel\ 2\ flag\ */}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ =\ 0x4U;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group2\ shadow\ status\ flag\ */}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SSR2\ =\ 0x4U;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ESM\ self-\/test\ error\ needs\ to\ also\ be\ cleared\ */}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x80000000U;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ nERROR\ pin\ will\ become\ inactive\ once\ the\ LTC\ counter\ expires\ */}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Configure\ CCM\ in\ selftest\ error-\/forcing\ mode\ */}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CCMKEYR\ =\ 0xFU;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ selftest\ error-\/forcing\ is\ completed.\ */}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (CCMKEYR\ !=\ 0U)}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR1[0U]\ \&\ 0x80000000U)\ !=\ 0x80000000U)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ESM\ flag\ not\ set\ */}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CCMSELFCHECK\_FAIL2);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ flag\ */}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x80000000U;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ad4cbf907aa7750c1c3601ed191842dd9}\label{sys__selftest_8c_ad4cbf907aa7750c1c3601ed191842dd9}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkB0RAMECC@{checkB0RAMECC}}
+\index{checkB0RAMECC@{checkB0RAMECC}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkB0RAMECC()}{checkB0RAMECC()}}
+{\footnotesize\ttfamily void check\+B0\+RAMECC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check TCRAM1 ECC error detection logic. 
+
+This function checks TCRAM1 ECC error detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00848\ \{}
+\DoxyCodeLine{00849\ \ \ \ \ \textcolor{keyword}{volatile}\ uint64\ ramread\ =\ 0U;}
+\DoxyCodeLine{00850\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ regread\ =\ 0U;}
+\DoxyCodeLine{00851\ \ \ \ \ uint32\ tcram1ErrStat,\ tcram2ErrStat\ =\ 0U;}
+\DoxyCodeLine{00852\ \ \ \ \ }
+\DoxyCodeLine{00853\ \ \ \ \ uint64\ tcramA1\_bk\ =\ tcramA1bit;}
+\DoxyCodeLine{00854\ \ \ \ \ uint64\ tcramA2\_bk\ =\ tcramA2bit;}
+\DoxyCodeLine{00855\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i;}
+\DoxyCodeLine{00856\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (36)\ */}}
+\DoxyCodeLine{00857\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \ \ \ \ \textcolor{comment}{/*\ enable\ writes\ to\ ECC\ RAM,\ enable\ ECC\ error\ response\ */}}
+\DoxyCodeLine{00860\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{00861\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00863\ \ \ \ \ \textcolor{comment}{/*\ the\ first\ 1-\/bit\ error\ will\ cause\ an\ error\ response\ */}}
+\DoxyCodeLine{00864\ \ \ \ \ tcram1REG-\/>RAMTHRESHOLD\ =\ 0x1U;}
+\DoxyCodeLine{00865\ \ \ \ \ tcram2REG-\/>RAMTHRESHOLD\ =\ 0x1U;}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00867\ \ \ \ \ \textcolor{comment}{/*\ allow\ SERR\ to\ be\ reported\ to\ ESM\ */}}
+\DoxyCodeLine{00868\ \ \ \ \ tcram1REG-\/>RAMINTCTRL\ =\ 0x1U;}
+\DoxyCodeLine{00869\ \ \ \ \ tcram2REG-\/>RAMINTCTRL\ =\ 0x1U;}
+\DoxyCodeLine{00870\ }
+\DoxyCodeLine{00871\ \ \ \ \ \textcolor{comment}{/*\ cause\ a\ 1-\/bit\ ECC\ error\ */}}
+\DoxyCodeLine{00872\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{00873\ \ \ \ \ tcramA1bitError\ \string^=\ 0x1U;}
+\DoxyCodeLine{00874\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{00875\ }
+\DoxyCodeLine{00876\ \ \ \ \ \textcolor{comment}{/*\ disable\ writes\ to\ ECC\ RAM\ */}}
+\DoxyCodeLine{00877\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{00878\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{00879\ }
+\DoxyCodeLine{00880\ \ \ \ \ \textcolor{comment}{/*\ read\ from\ location\ with\ 1-\/bit\ ECC\ error\ */}}
+\DoxyCodeLine{00881\ \ \ \ \ ramread\ =\ tcramA1bit;}
+\DoxyCodeLine{00882\ }
+\DoxyCodeLine{00883\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ error\ status\ */}}
+\DoxyCodeLine{00884\ \ \ \ \ tcram1ErrStat\ =\ tcram1REG-\/>RAMERRSTATUS\ \&\ 0x1U;}
+\DoxyCodeLine{00885\ \ \ \ \ tcram2ErrStat\ =\ tcram2REG-\/>RAMERRSTATUS\ \&\ 0x1U;}
+\DoxyCodeLine{00886\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00887\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00888\ \ \ \ \ \textcolor{keywordflow}{if}((tcram1ErrStat\ ==\ 0U)\ \&\&\ (tcram2ErrStat\ ==\ 0U))}
+\DoxyCodeLine{00889\ \ \ \ \ \{}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ TCRAM\ module\ does\ not\ reflect\ 1-\/bit\ error\ reported\ by\ CPU\ */}}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKB0RAMECC\_FAIL1);}
+\DoxyCodeLine{00892\ \ \ \ \ \}}
+\DoxyCodeLine{00893\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00894\ \ \ \ \ \{}
+\DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ SERR\ flag\ */}}
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ tcram1REG-\/>RAMERRSTATUS\ =\ 0x1U;}
+\DoxyCodeLine{00897\ \ \ \ \ \ \ \ \ tcram2REG-\/>RAMERRSTATUS\ =\ 0x1U;}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ status\ flags\ for\ ESM\ group1\ channels\ 26\ and\ 28\ */}}
+\DoxyCodeLine{00900\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x14000000U;}
+\DoxyCodeLine{00901\ \ \ \ \ \}}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00903\ \ \ \ \ \textcolor{comment}{/*\ enable\ writes\ to\ ECC\ RAM,\ enable\ ECC\ error\ response\ */}}
+\DoxyCodeLine{00904\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{00905\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00907\ \ \ \ \ \textcolor{comment}{/*\ cause\ a\ 2-\/bit\ ECC\ error\ */}}
+\DoxyCodeLine{00908\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{00909\ \ \ \ \ tcramA2bitError\ \string^=\ 0x3U;}
+\DoxyCodeLine{00910\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ \ \ \ \ \textcolor{comment}{/*\ read\ from\ location\ with\ 2-\/bit\ ECC\ error\ this\ will\ cause\ a\ data\ abort\ to\ be\ generated\ */}}
+\DoxyCodeLine{00913\ \ \ \ \ ramread\ =\ tcramA2bit;}
+\DoxyCodeLine{00914\ }
+\DoxyCodeLine{00915\ \ \ \ \ \textcolor{comment}{/*\ delay\ before\ restoring\ the\ ram\ value\ */}}
+\DoxyCodeLine{00916\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00918\ \ \ \ \ \textcolor{keywordflow}{for}(i=0U;i<10U;i++)}
+\DoxyCodeLine{00919\ \ \ \ \ \{}
+\DoxyCodeLine{00920\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00922\ \ \ \ \ regread\ =\ tcram1REG-\/>RAMUERRADDR;}
+\DoxyCodeLine{00923\ \ \ \ \ regread\ =\ tcram2REG-\/>RAMUERRADDR;}
+\DoxyCodeLine{00924\ }
+\DoxyCodeLine{00925\ \ \ \ \ \textcolor{comment}{/*\ disable\ writes\ to\ ECC\ RAM\ */}}
+\DoxyCodeLine{00926\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{00927\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00929\ \ \ \ \ \textcolor{comment}{/*\ Compute\ correct\ ECC\ */}}
+\DoxyCodeLine{00930\ \ \ \ \ tcramA1bit\ =\ tcramA1\_bk;}
+\DoxyCodeLine{00931\ \ \ \ \ tcramA2bit\ =\ tcramA2\_bk;}
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00933\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (37)\ */}}
+\DoxyCodeLine{00934\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00935\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ab5e986484f3be2af5cd3a7595ba346c2}\label{sys__selftest_8c_ab5e986484f3be2af5cd3a7595ba346c2}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkB1RAMECC@{checkB1RAMECC}}
+\index{checkB1RAMECC@{checkB1RAMECC}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkB1RAMECC()}{checkB1RAMECC()}}
+{\footnotesize\ttfamily void check\+B1\+RAMECC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check TCRAM2 ECC error detection logic. 
+
+This function checks TCRAM2 ECC error detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00946\ \{}
+\DoxyCodeLine{00947\ \ \ \ \ \textcolor{keyword}{volatile}\ uint64\ ramread\ =\ 0U;}
+\DoxyCodeLine{00948\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ regread\ =\ 0U;}
+\DoxyCodeLine{00949\ \ \ \ \ uint32\ tcram1ErrStat,\ tcram2ErrStat\ =\ 0U;}
+\DoxyCodeLine{00950\ }
+\DoxyCodeLine{00951\ \ \ \ \ uint64\ tcramB1\_bk\ =\ tcramB1bit;}
+\DoxyCodeLine{00952\ \ \ \ \ uint64\ tcramB2\_bk\ =\ tcramB2bit;}
+\DoxyCodeLine{00953\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i;}
+\DoxyCodeLine{00954\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (38)\ */}}
+\DoxyCodeLine{00955\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00956\ }
+\DoxyCodeLine{00957\ \ \ \ \ \textcolor{comment}{/*\ enable\ writes\ to\ ECC\ RAM,\ enable\ ECC\ error\ response\ */}}
+\DoxyCodeLine{00958\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{00959\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{00960\ }
+\DoxyCodeLine{00961\ \ \ \ \ \textcolor{comment}{/*\ the\ first\ 1-\/bit\ error\ will\ cause\ an\ error\ response\ */}}
+\DoxyCodeLine{00962\ \ \ \ \ tcram1REG-\/>RAMTHRESHOLD\ =\ 0x1U;}
+\DoxyCodeLine{00963\ \ \ \ \ tcram2REG-\/>RAMTHRESHOLD\ =\ 0x1U;}
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00965\ \ \ \ \ \textcolor{comment}{/*\ allow\ SERR\ to\ be\ reported\ to\ ESM\ */}}
+\DoxyCodeLine{00966\ \ \ \ \ tcram1REG-\/>RAMINTCTRL\ =\ 0x1U;}
+\DoxyCodeLine{00967\ \ \ \ \ tcram2REG-\/>RAMINTCTRL\ =\ 0x1U;}
+\DoxyCodeLine{00968\ }
+\DoxyCodeLine{00969\ \ \ \ \ \textcolor{comment}{/*\ cause\ a\ 1-\/bit\ ECC\ error\ */}}
+\DoxyCodeLine{00970\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{00971\ \ \ \ \ tcramB1bitError\ \string^=\ 0x1U;}
+\DoxyCodeLine{00972\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00974\ \ \ \ \ \textcolor{comment}{/*\ disable\ writes\ to\ ECC\ RAM\ */}}
+\DoxyCodeLine{00975\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{00976\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00978\ \ \ \ \ \textcolor{comment}{/*\ read\ from\ location\ with\ 1-\/bit\ ECC\ error\ */}}
+\DoxyCodeLine{00979\ \ \ \ \ ramread\ =\ tcramB1bit;}
+\DoxyCodeLine{00980\ }
+\DoxyCodeLine{00981\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ error\ status\ */}}
+\DoxyCodeLine{00982\ \ \ \ \ tcram1ErrStat\ =\ tcram1REG-\/>RAMERRSTATUS\ \&\ 0x1U;}
+\DoxyCodeLine{00983\ \ \ \ \ tcram2ErrStat\ =\ tcram2REG-\/>RAMERRSTATUS\ \&\ 0x1U;}
+\DoxyCodeLine{00984\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00985\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00986\ \ \ \ \ \textcolor{keywordflow}{if}((tcram1ErrStat\ ==\ 0U)\ \&\&\ (tcram2ErrStat\ ==\ 0U))}
+\DoxyCodeLine{00987\ \ \ \ \ \{}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ TCRAM\ module\ does\ not\ reflect\ 1-\/bit\ error\ reported\ by\ CPU\ */}}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKB1RAMECC\_FAIL1);}
+\DoxyCodeLine{00990\ \ \ \ \ \}}
+\DoxyCodeLine{00991\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00992\ \ \ \ \ \{}
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ SERR\ flag\ */}}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ tcram1REG-\/>RAMERRSTATUS\ =\ 0x1U;}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ tcram2REG-\/>RAMERRSTATUS\ =\ 0x1U;}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ status\ flags\ for\ ESM\ group1\ channels\ 26\ and\ 28\ */}}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x14000000U;}
+\DoxyCodeLine{00999\ \ \ \ \ \}}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01001\ \ \ \ \ \textcolor{comment}{/*\ enable\ writes\ to\ ECC\ RAM,\ enable\ ECC\ error\ response\ */}}
+\DoxyCodeLine{01002\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{01003\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{01004\ }
+\DoxyCodeLine{01005\ \ \ \ \ \textcolor{comment}{/*\ cause\ a\ 2-\/bit\ ECC\ error\ */}}
+\DoxyCodeLine{01006\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{01007\ \ \ \ \ tcramB2bitError\ \string^=\ 0x3U;}
+\DoxyCodeLine{01008\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{01009\ }
+\DoxyCodeLine{01010\ \ \ \ \ \textcolor{comment}{/*\ read\ from\ location\ with\ 2-\/bit\ ECC\ error\ this\ will\ cause\ a\ data\ abort\ to\ be\ generated\ */}}
+\DoxyCodeLine{01011\ \ \ \ \ ramread\ =\ tcramB2bit;}
+\DoxyCodeLine{01012\ }
+\DoxyCodeLine{01013\ \ \ \ \ \textcolor{comment}{/*\ delay\ before\ restoring\ the\ ram\ value\ */}}
+\DoxyCodeLine{01014\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{01015\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{01016\ \ \ \ \ \textcolor{keywordflow}{for}(i=0U;i<10U;i++)}
+\DoxyCodeLine{01017\ \ \ \ \ \{}
+\DoxyCodeLine{01018\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ \ \ \ \ regread\ =\ tcram1REG-\/>RAMUERRADDR;}
+\DoxyCodeLine{01021\ \ \ \ \ regread\ =\ tcram2REG-\/>RAMUERRADDR;}
+\DoxyCodeLine{01022\ }
+\DoxyCodeLine{01023\ \ \ \ \ \textcolor{comment}{/*\ disable\ writes\ to\ ECC\ RAM\ */}}
+\DoxyCodeLine{01024\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{01025\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{01026\ }
+\DoxyCodeLine{01027\ \ \ \ \ \textcolor{comment}{/*\ Compute\ correct\ ECC\ */}}
+\DoxyCodeLine{01028\ \ \ \ \ tcramB1bit\ =\ tcramB1\_bk;}
+\DoxyCodeLine{01029\ \ \ \ \ tcramB2bit\ =\ tcramB2\_bk;}
+\DoxyCodeLine{01030\ }
+\DoxyCodeLine{01031\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (39)\ */}}
+\DoxyCodeLine{01032\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01033\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a012696be6fb67f7debf6f1ff6f9e3331}\label{sys__selftest_8c_a012696be6fb67f7debf6f1ff6f9e3331}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkClockMonitor@{checkClockMonitor}}
+\index{checkClockMonitor@{checkClockMonitor}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkClockMonitor()}{checkClockMonitor()}}
+{\footnotesize\ttfamily void check\+Clock\+Monitor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check clock monitor failure detection logic. 
+
+This function checks clock monitor failure detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01721\ \{}
+\DoxyCodeLine{01722\ \ \ \ \ uint32\ ghvsrc\_bk;}
+\DoxyCodeLine{01723\ }
+\DoxyCodeLine{01724\ \ \ \ \ \textcolor{comment}{/*\ Enable\ clock\ monitor\ range\ detection\ circuitry\ */}}
+\DoxyCodeLine{01725\ \ \ \ \ systemREG1-\/>CLKTEST\ |=\ 0x03000000U;}
+\DoxyCodeLine{01726\ }
+\DoxyCodeLine{01727\ \ \ \ \ \textcolor{comment}{/*\ Backup\ register\ GHVSRC\ */}}
+\DoxyCodeLine{01728\ \ \ \ \ ghvsrc\_bk\ =\ systemREG1-\/>GHVSRC;}
+\DoxyCodeLine{01729\ }
+\DoxyCodeLine{01730\ \ \ \ \ \textcolor{comment}{/*\ Switch\ all\ clock\ domains\ to\ HF\ LPO\ */}}
+\DoxyCodeLine{01731\ \ \ \ \ systemREG1-\/>GHVSRC\ =\ 0x05050005U;}
+\DoxyCodeLine{01732\ }
+\DoxyCodeLine{01733\ \ \ \ \ \textcolor{comment}{/*\ Disable\ oscillator\ to\ cause\ a\ oscillator\ fail\ */}}
+\DoxyCodeLine{01734\ \ \ \ \ systemREG1-\/>CSDISSET\ =\ 0x1U;}
+\DoxyCodeLine{01735\ }
+\DoxyCodeLine{01736\ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ oscillator\ fail\ flag\ is\ set\ */}}
+\DoxyCodeLine{01737\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01738\ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>GBLSTAT\ \&\ 0x1U)\ ==\ 0U)}
+\DoxyCodeLine{01739\ \ \ \ \ \{}
+\DoxyCodeLine{01740\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01741\ }
+\DoxyCodeLine{01742\ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR1[0U]\ \&\ 0x800U)\ !=\ 0x800U)}
+\DoxyCodeLine{01743\ \ \ \ \ \{}
+\DoxyCodeLine{01744\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKCLOCKMONITOR\_FAIL1);}
+\DoxyCodeLine{01745\ \ \ \ \ \}}
+\DoxyCodeLine{01746\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01747\ \ \ \ \ \{}
+\DoxyCodeLine{01748\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ flag\ */}}
+\DoxyCodeLine{01749\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x800U;}
+\DoxyCodeLine{01750\ }
+\DoxyCodeLine{01751\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ clock\ monitor\ range\ detection\ circuitry\ */}}
+\DoxyCodeLine{01752\ \ \ \ \ \ \ \ \ systemREG1-\/>CLKTEST\ \&=\ \string~(0x03000000U);}
+\DoxyCodeLine{01753\ }
+\DoxyCodeLine{01754\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ oscillator\ */}}
+\DoxyCodeLine{01755\ \ \ \ \ \ \ \ \ systemREG1-\/>CSDISCLR\ =\ 0x1U;}
+\DoxyCodeLine{01756\ }
+\DoxyCodeLine{01757\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ until\ oscillator\ is\ enabled\ */}}
+\DoxyCodeLine{01758\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01759\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>CSVSTAT\ \&\ 0x3U)\ ==\ 0U)}
+\DoxyCodeLine{01760\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01761\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01762\ }
+\DoxyCodeLine{01763\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ oscillator\ fail\ flag\ and\ PLL\ slip\ flag\ if\ any*/}}
+\DoxyCodeLine{01764\ \ \ \ \ \ \ \ \ systemREG1-\/>GBLSTAT\ =\ 0x301U;}
+\DoxyCodeLine{01765\ }
+\DoxyCodeLine{01766\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Switch\ back\ all\ clock\ domains\ */}}
+\DoxyCodeLine{01767\ \ \ \ \ \ \ \ \ systemREG1-\/>GHVSRC\ =\ ghvsrc\_bk;}
+\DoxyCodeLine{01768\ \ \ \ \ \}}
+\DoxyCodeLine{01769\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ad44409ae54516ba10303dd5c011f4fa6}\label{sys__selftest_8c_ad44409ae54516ba10303dd5c011f4fa6}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkefcSelfTest@{checkefcSelfTest}}
+\index{checkefcSelfTest@{checkefcSelfTest}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkefcSelfTest()}{checkefcSelfTest()}}
+{\footnotesize\ttfamily boolean checkefc\+Self\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+EFUSE module self check Driver. 
+
+\begin{DoxyReturn}{Returns}
+Returns TRUE if EFC Selftest was a PASS, else FALSE
+\end{DoxyReturn}
+This function returns the status of efc\+Self\+Test. Note\+: This function can be called only after calling efc\+Self\+Test 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00718\ \{}
+\DoxyCodeLine{00719\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (31)\ */}}
+\DoxyCodeLine{00720\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keywordtype}{boolean}\ result\ =\ FALSE;}
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00723\ \ \ \ \ uint32\ EFC\_PINS,\ EFC\_ERROR;}
+\DoxyCodeLine{00724\ \ \ \ \ uint32\ esmCh40Stat,\ esmCh41Stat\ =\ 0U;}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00726\ \ \ \ \ \textcolor{comment}{/*\ wait\ until\ EFC\ self-\/test\ is\ done\ */}}
+\DoxyCodeLine{00727\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00728\ \ \ \ \ \textcolor{keywordflow}{while}((efcREG-\/>PINS\ \&\ EFC\_SELF\_TEST\_DONE)\ ==\ 0U)}
+\DoxyCodeLine{00729\ \ \ \ \ \{}
+\DoxyCodeLine{00730\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ EFC\ self-\/test\ error\ occurred\ */}}
+\DoxyCodeLine{00733\ \ \ \ \ EFC\_PINS\ =\ efcREG-\/>PINS;}
+\DoxyCodeLine{00734\ \ \ \ \ EFC\_ERROR\ =\ efcREG-\/>ERROR;}
+\DoxyCodeLine{00735\ \ \ \ \ \textcolor{keywordflow}{if}(((EFC\_PINS\ \&\ EFC\_SELF\_TEST\_ERROR)\ ==\ 0U)\ \&\&\ ((EFC\_ERROR\ \&\ 0x1FU)\ ==\ 0U))}
+\DoxyCodeLine{00736\ \ \ \ \ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ if\ EFC\ self-\/test\ error\ is\ set\ */}}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ esmCh40Stat\ =\ esmREG-\/>SR4[0U]\ \&\ 0x100U;}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ esmCh41Stat\ =\ esmREG-\/>SR4[0U]\ \&\ 0x200U;}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmCh40Stat\ ==\ 0U)\ \&\&\ (esmCh41Stat\ ==\ 0U))}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ result\ =\ TRUE;}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00744\ \ \ \ \ \}}
+\DoxyCodeLine{00745\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00746\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a02bb81fd1b585ba20d4c6e7ed427a4ac}\label{sys__selftest_8c_a02bb81fd1b585ba20d4c6e7ed427a4ac}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkFlashECC@{checkFlashECC}}
+\index{checkFlashECC@{checkFlashECC}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkFlashECC()}{checkFlashECC()}}
+{\footnotesize\ttfamily void check\+Flash\+ECC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check Flash ECC error detection logic. 
+
+This function checks Flash ECC error detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01044\ \{}
+\DoxyCodeLine{01045\ \ \ \ \ \textcolor{comment}{/*\ Routine\ to\ check\ operation\ of\ ECC\ logic\ inside\ CPU\ for\ accesses\ to\ program\ flash\ */}}
+\DoxyCodeLine{01046\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ flashread\ =\ 0U;}
+\DoxyCodeLine{01047\ }
+\DoxyCodeLine{01048\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (40)\ */}}
+\DoxyCodeLine{01049\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01050\ }
+\DoxyCodeLine{01051\ \ \ \ \ \textcolor{comment}{/*\ Flash\ Module\ ECC\ Response\ enabled\ */}}
+\DoxyCodeLine{01052\ \ \ \ \ flashWREG-\/>FEDACCTRL1\ =\ 0x000A060AU;}
+\DoxyCodeLine{01053\ }
+\DoxyCodeLine{01054\ \ \ \ \ \textcolor{comment}{/*\ Enable\ diagnostic\ mode\ and\ select\ diag\ mode\ 7\ */}}
+\DoxyCodeLine{01055\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x00050007U;}
+\DoxyCodeLine{01056\ }
+\DoxyCodeLine{01057\ \ \ \ \ \textcolor{comment}{/*\ Select\ ECC\ diagnostic\ mode,\ single-\/bit\ to\ be\ corrupted\ */}}
+\DoxyCodeLine{01058\ \ \ \ \ flashWREG-\/>FPAROVR\ =\ 0x00005A01U;}
+\DoxyCodeLine{01059\ }
+\DoxyCodeLine{01060\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ trigger\ for\ the\ diagnostic\ mode\ */}}
+\DoxyCodeLine{01061\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ |=\ 0x01000000U;}
+\DoxyCodeLine{01062\ }
+\DoxyCodeLine{01063\ \ \ \ \ \textcolor{comment}{/*\ read\ a\ flash\ location\ from\ the\ mirrored\ memory\ map\ */}}
+\DoxyCodeLine{01064\ \ \ \ \ flashread\ =\ flashBadECC1;}
+\DoxyCodeLine{01065\ }
+\DoxyCodeLine{01066\ \ \ \ \ \textcolor{comment}{/*\ disable\ diagnostic\ mode\ */}}
+\DoxyCodeLine{01067\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x000A0007U;}
+\DoxyCodeLine{01068\ }
+\DoxyCodeLine{01069\ \ \ \ \ \textcolor{comment}{/*\ this\ will\ have\ caused\ a\ single-\/bit\ error\ to\ be\ generated\ and\ corrected\ by\ CPU\ */}}
+\DoxyCodeLine{01070\ \ \ \ \ \textcolor{comment}{/*\ single-\/bit\ error\ not\ captured\ in\ flash\ module\ */}}
+\DoxyCodeLine{01071\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01072\ \ \ \ \ \textcolor{keywordflow}{if}\ ((flashWREG-\/>FEDACSTATUS\ \&\ 0x2U)\ ==\ 0U)}
+\DoxyCodeLine{01073\ \ \ \ \ \{}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKFLASHECC\_FAIL1);}
+\DoxyCodeLine{01075\ \ \ \ \ \}}
+\DoxyCodeLine{01076\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01077\ \ \ \ \ \{}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ single-\/bit\ error\ flag\ */}}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ flashWREG-\/>FEDACSTATUS\ =\ 0x2U;}
+\DoxyCodeLine{01080\ }
+\DoxyCodeLine{01081\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ flag\ */}}
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x40U;}
+\DoxyCodeLine{01083\ }
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ diagnostic\ mode\ and\ select\ diag\ mode\ 7\ */}}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x00050007U;}
+\DoxyCodeLine{01086\ }
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Select\ ECC\ diagnostic\ mode,\ two\ bits\ of\ ECC\ to\ be\ corrupted\ */}}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ flashWREG-\/>FPAROVR\ =\ 0x00005A03U;}
+\DoxyCodeLine{01089\ }
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ trigger\ for\ the\ diagnostic\ mode\ */}}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ flashWREG-\/>FDIAGCTRL\ |=\ 0x01000000U;}
+\DoxyCodeLine{01092\ }
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ from\ flash\ location\ from\ mirrored\ memory\ map\ this\ will\ cause\ a\ data\ abort\ */}}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ \ \ flashread\ =\ flashBadECC2;}
+\DoxyCodeLine{01095\ }
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ FUNCERRADD\ register\ */}}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ flashread\ =\ flashWREG-\/>FUNCERRADD;}
+\DoxyCodeLine{01098\ }
+\DoxyCodeLine{01099\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ disable\ diagnostic\ mode\ */}}
+\DoxyCodeLine{01100\ \ \ \ \ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x000A0007U;}
+\DoxyCodeLine{01101\ \ \ \ \ \}}
+\DoxyCodeLine{01102\ }
+\DoxyCodeLine{01103\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (41)\ */}}
+\DoxyCodeLine{01104\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01105\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a239d7544f8bb38fc73056467dbeb9e7c}\label{sys__selftest_8c_a239d7544f8bb38fc73056467dbeb9e7c}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkFlashEEPROMECC@{checkFlashEEPROMECC}}
+\index{checkFlashEEPROMECC@{checkFlashEEPROMECC}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkFlashEEPROMECC()}{checkFlashEEPROMECC()}}
+{\footnotesize\ttfamily void check\+Flash\+EEPROMECC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check Flash EEPROM ECC error detection logic. 
+
+This function checks Flash EEPROM ECC error detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01780\ \{}
+\DoxyCodeLine{01781\ \ \ \ \ uint32\ ecc;}
+\DoxyCodeLine{01782\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ regread;}
+\DoxyCodeLine{01783\ }
+\DoxyCodeLine{01784\ \ \ \ \ \textcolor{comment}{/*\ Set\ Single\ Error\ Correction\ Threshold\ as\ 1\ */}}
+\DoxyCodeLine{01785\ \ \ \ \ flashWREG-\/>EECTRL2\ |=\ 1U;}
+\DoxyCodeLine{01786\ }
+\DoxyCodeLine{01787\ \ \ \ \ \textcolor{comment}{/*\ Enable\ EEPROM\ Emulation\ Error\ Profiling\ */}}
+\DoxyCodeLine{01788\ \ \ \ \ flashWREG-\/>EECTRL1\ |=\ 0x00000100U;}
+\DoxyCodeLine{01789\ }
+\DoxyCodeLine{01790\ \ \ \ \ \textcolor{comment}{/*\ Load\ FEMU\_XX\ regs\ in\ order\ to\ generate\ ECC\ */}}
+\DoxyCodeLine{01791\ \ \ \ \ flashWREG-\/>FEMUADDR\ =\ 0xF0200000U;}
+\DoxyCodeLine{01792\ \ \ \ \ flashWREG-\/>FEMUDMSW\ =\ 0U;}
+\DoxyCodeLine{01793\ \ \ \ \ flashWREG-\/>FEMUDLSW\ =\ 0U;}
+\DoxyCodeLine{01794\ }
+\DoxyCodeLine{01795\ \ \ \ \ \textcolor{comment}{/*\ ECC\ for\ the\ correct\ data*/}}
+\DoxyCodeLine{01796\ \ \ \ \ ecc\ =\ flashWREG-\/>FEMUECC;}
+\DoxyCodeLine{01797\ }
+\DoxyCodeLine{01798\ \ \ \ \ \textcolor{comment}{/*\ Load\ data\ with\ 1\ bit\ error\ */}}
+\DoxyCodeLine{01799\ \ \ \ \ flashWREG-\/>FEMUDMSW\ =\ 0U;}
+\DoxyCodeLine{01800\ \ \ \ \ flashWREG-\/>FEMUDLSW\ =\ 1U;}
+\DoxyCodeLine{01801\ }
+\DoxyCodeLine{01802\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Diagnostic\ ECC\ data\ correction\ mode\ and\ select\ FEE\ SECDED\ for\ diagnostic\ testing\ */}}
+\DoxyCodeLine{01803\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x00055001U;}
+\DoxyCodeLine{01804\ }
+\DoxyCodeLine{01805\ \ \ \ \ flashWREG-\/>FEMUECC\ =\ ecc;}
+\DoxyCodeLine{01806\ }
+\DoxyCodeLine{01807\ \ \ \ \ \textcolor{comment}{/*\ Diagnostic\ trigger\ */}}
+\DoxyCodeLine{01808\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ |=\ 0x01000000U;}
+\DoxyCodeLine{01809\ }
+\DoxyCodeLine{01810\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01811\ \ \ \ \ \textcolor{keywordflow}{if}((flashWREG-\/>EESTATUS\ \&\ 0x1U)\ !=\ 0x1U)}
+\DoxyCodeLine{01812\ \ \ \ \ \{}
+\DoxyCodeLine{01813\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ single\ bit\ error\ was\ detected\ */}}
+\DoxyCodeLine{01814\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKFLASHEEPROMECC\_FAIL1);}
+\DoxyCodeLine{01815\ \ \ \ \ \}}
+\DoxyCodeLine{01816\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01817\ \ \ \ \ \{}
+\DoxyCodeLine{01818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR4[0U]\ \&\ 0x8U)\ !=\ 0x8U)}
+\DoxyCodeLine{01819\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01820\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ EEPROM\ single\ bit\ error\ not\ captured\ in\ ESM\ */}}
+\DoxyCodeLine{01821\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKFLASHEEPROMECC\_FAIL2);}
+\DoxyCodeLine{01822\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01823\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01824\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01825\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ single\ bit\ error\ flag\ in\ flash\ wrapper\ */}}
+\DoxyCodeLine{01826\ \ \ \ \ \ \ \ \ \ \ \ \ flashWREG-\/>EESTATUS\ =\ 0xFU;}
+\DoxyCodeLine{01827\ }
+\DoxyCodeLine{01828\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ flag\ */}}
+\DoxyCodeLine{01829\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ 0x8U;}
+\DoxyCodeLine{01830\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01831\ \ \ \ \ \}}
+\DoxyCodeLine{01832\ }
+\DoxyCodeLine{01833\ \ \ \ \ \textcolor{comment}{/*\ Load\ data\ with\ 2\ bit\ error\ */}}
+\DoxyCodeLine{01834\ \ \ \ \ flashWREG-\/>FEMUDMSW\ =\ 0U;}
+\DoxyCodeLine{01835\ \ \ \ \ flashWREG-\/>FEMUDLSW\ =\ 3U;}
+\DoxyCodeLine{01836\ }
+\DoxyCodeLine{01837\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Diagnostic\ ECC\ data\ correction\ mode\ and\ select\ FEE\ SECDED\ for\ diagnostic\ testing\ */}}
+\DoxyCodeLine{01838\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x00055001U;}
+\DoxyCodeLine{01839\ }
+\DoxyCodeLine{01840\ \ \ \ \ flashWREG-\/>FEMUECC\ =\ ecc;}
+\DoxyCodeLine{01841\ }
+\DoxyCodeLine{01842\ \ \ \ \ \textcolor{comment}{/*\ Diagnostic\ trigger\ */}}
+\DoxyCodeLine{01843\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ |=\ 0x01000000U;}
+\DoxyCodeLine{01844\ }
+\DoxyCodeLine{01845\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01846\ \ \ \ \ \textcolor{keywordflow}{if}((flashWREG-\/>EESTATUS\ \&\ 0x100U)\ !=\ 0x100U)}
+\DoxyCodeLine{01847\ \ \ \ \ \{}
+\DoxyCodeLine{01848\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ double\ bit\ error\ was\ detected\ */}}
+\DoxyCodeLine{01849\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKFLASHEEPROMECC\_FAIL3);}
+\DoxyCodeLine{01850\ \ \ \ \ \}}
+\DoxyCodeLine{01851\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01852\ \ \ \ \ \{}
+\DoxyCodeLine{01853\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR4[0U]\ \&\ 0x10U)\ !=\ 0x10U)}
+\DoxyCodeLine{01854\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01855\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ EEPROM\ double\ bit\ error\ not\ captured\ in\ ESM\ */}}
+\DoxyCodeLine{01856\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKFLASHEEPROMECC\_FAIL4);}
+\DoxyCodeLine{01857\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01858\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01859\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01860\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ uncorrectable\ error\ flag\ in\ flash\ wrapper\ */}}
+\DoxyCodeLine{01861\ \ \ \ \ \ \ \ \ \ \ \ \ flashWREG-\/>EESTATUS\ =\ 0x1100U;}
+\DoxyCodeLine{01862\ }
+\DoxyCodeLine{01863\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ EEUNCERRADD\ register\ */}}
+\DoxyCodeLine{01864\ \ \ \ \ \ \ \ \ \ \ \ \ regread\ =\ flashWREG-\/>EEUNCERRADD;}
+\DoxyCodeLine{01865\ }
+\DoxyCodeLine{01866\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ flag\ */}}
+\DoxyCodeLine{01867\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ 0x10U;}
+\DoxyCodeLine{01868\ }
+\DoxyCodeLine{01869\ }
+\DoxyCodeLine{01870\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01871\ \ \ \ \ \}}
+\DoxyCodeLine{01872\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a08d6355b5f4052d4ef5d2d995032ba22}\label{sys__selftest_8c_a08d6355b5f4052d4ef5d2d995032ba22}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkPLL1Slip@{checkPLL1Slip}}
+\index{checkPLL1Slip@{checkPLL1Slip}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkPLL1Slip()}{checkPLL1Slip()}}
+{\footnotesize\ttfamily void check\+PLL1\+Slip (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check PLL1 Slip detection logic. 
+
+This function checks PLL1 Slip detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01883\ \{}
+\DoxyCodeLine{01884\ \ \ \ \ uint32\ ghvsrc\_bk,\ pllctl1\_bk;}
+\DoxyCodeLine{01885\ }
+\DoxyCodeLine{01886\ \ \ \ \ \textcolor{comment}{/*\ Back\ up\ the\ the\ registers\ GHVSRC\ and\ PLLCTRL1\ */}}
+\DoxyCodeLine{01887\ \ \ \ \ ghvsrc\_bk\ =\ systemREG1-\/>GHVSRC;}
+\DoxyCodeLine{01888\ \ \ \ \ pllctl1\_bk\ =\ systemREG1-\/>PLLCTL1;}
+\DoxyCodeLine{01889\ }
+\DoxyCodeLine{01890\ \ \ \ \ \textcolor{comment}{/*\ Switch\ all\ clock\ domains\ to\ oscillator\ */}}
+\DoxyCodeLine{01891\ \ \ \ \ systemREG1-\/>GHVSRC\ =\ 0x00000000U;}
+\DoxyCodeLine{01892\ }
+\DoxyCodeLine{01893\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Reset\ on\ PLL\ Slip\ and\ enable\ Bypass\ on\ PLL\ slip\ */}}
+\DoxyCodeLine{01894\ \ \ \ \ systemREG1-\/>PLLCTL1\ \&=\ 0x1FFFFFFFU;}
+\DoxyCodeLine{01895\ }
+\DoxyCodeLine{01896\ \ \ \ \ \textcolor{comment}{/*\ Force\ a\ PLL\ Slip\ */}}
+\DoxyCodeLine{01897\ \ \ \ \ systemREG1-\/>PLLCTL1\ \string^=\ 0x8000U;}
+\DoxyCodeLine{01898\ }
+\DoxyCodeLine{01899\ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ PLL\ slip\ flag\ is\ set\ */}}
+\DoxyCodeLine{01900\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01901\ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>GBLSTAT\ \&\ 0x300U)\ ==\ 0U)}
+\DoxyCodeLine{01902\ \ \ \ \ \{}
+\DoxyCodeLine{01903\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01904\ }
+\DoxyCodeLine{01905\ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR1[0U]\ \&\ 0x400U)\ !=\ 0x400U)}
+\DoxyCodeLine{01906\ \ \ \ \ \{}
+\DoxyCodeLine{01907\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ESM\ flag\ not\ set\ */}}
+\DoxyCodeLine{01908\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKPLL1SLIP\_FAIL1);}
+\DoxyCodeLine{01909\ \ \ \ \ \}}
+\DoxyCodeLine{01910\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01911\ \ \ \ \ \{}
+\DoxyCodeLine{01912\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PLL1\ */}}
+\DoxyCodeLine{01913\ \ \ \ \ \ \ \ \ systemREG1-\/>CSDISSET\ =\ 0x2U;}
+\DoxyCodeLine{01914\ }
+\DoxyCodeLine{01915\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ PLL1\ is\ disabled\ */}}
+\DoxyCodeLine{01916\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01917\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>CSDIS\ \&\ 0x2U)\ ==\ 0U)}
+\DoxyCodeLine{01918\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01919\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01920\ }
+\DoxyCodeLine{01921\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Restore\ the\ PLL\ multiplier\ value\ */}}
+\DoxyCodeLine{01922\ \ \ \ \ \ \ \ \ systemREG1-\/>PLLCTL1\ \string^=\ 0x8000U;}
+\DoxyCodeLine{01923\ }
+\DoxyCodeLine{01924\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ PLL1\ */}}
+\DoxyCodeLine{01925\ \ \ \ \ \ \ \ \ systemREG1-\/>CSDISCLR\ =\ 0x2U;}
+\DoxyCodeLine{01926\ }
+\DoxyCodeLine{01927\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ PLL1\ is\ disabled\ */}}
+\DoxyCodeLine{01928\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{01929\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>CSDIS\ \&\ 0x2U)\ !=\ 0U)}
+\DoxyCodeLine{01930\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01931\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01932\ }
+\DoxyCodeLine{01933\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Switch\ back\ to\ the\ initial\ clock\ source\ */}}
+\DoxyCodeLine{01934\ \ \ \ \ \ \ \ \ systemREG1-\/>GHVSRC\ =\ ghvsrc\_bk;}
+\DoxyCodeLine{01935\ }
+\DoxyCodeLine{01936\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ PLL\ slip\ flag\ */}}
+\DoxyCodeLine{01937\ \ \ \ \ \ \ \ \ systemREG1-\/>GBLSTAT\ =\ 0x300U;}
+\DoxyCodeLine{01938\ }
+\DoxyCodeLine{01939\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ flag\ */}}
+\DoxyCodeLine{01940\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x400U;}
+\DoxyCodeLine{01941\ }
+\DoxyCodeLine{01942\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Restore\ the\ PLLCTL1\ register\ */}}
+\DoxyCodeLine{01943\ \ \ \ \ \ \ \ \ systemREG1-\/>PLLCTL1\ =\ pllctl1\_bk;}
+\DoxyCodeLine{01944\ \ \ \ \ \}}
+\DoxyCodeLine{01945\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a85eb55d96d4a491e84a930dbea0e89a5}\label{sys__selftest_8c_a85eb55d96d4a491e84a930dbea0e89a5}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkRAMAddrParity@{checkRAMAddrParity}}
+\index{checkRAMAddrParity@{checkRAMAddrParity}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkRAMAddrParity()}{checkRAMAddrParity()}}
+{\footnotesize\ttfamily void check\+RAMAddr\+Parity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check TCRAM Address parity error detection and signaling mechanism. 
+
+This function TCRAM Address parity error detection and signaling mechanism. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01957\ \{}
+\DoxyCodeLine{01958\ \ \ \ \ \textcolor{keyword}{register}\ uint64\ ramread;}
+\DoxyCodeLine{01959\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ regread;}
+\DoxyCodeLine{01960\ \ \ \ \ uint32\ tcram1ErrStat,\ tcram2ErrStat;}
+\DoxyCodeLine{01961\ \ \ \ \ }
+\DoxyCodeLine{01962\ \ \ \ \ \textcolor{comment}{/*\ Invert\ Address\ parity\ scheme\ */}}
+\DoxyCodeLine{01963\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0D05000AU;}
+\DoxyCodeLine{01964\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0D05000AU;}
+\DoxyCodeLine{01965\ }
+\DoxyCodeLine{01966\ \ \ \ \ \textcolor{comment}{/*\ Read\ from\ both\ RAM\ banks\ */}}
+\DoxyCodeLine{01967\ \ \ \ \ ramread\ =\ tcramA1bit;}
+\DoxyCodeLine{01968\ \ \ \ \ ramread\ =\ ramread\ |\ tcramB1bit;\ \textcolor{comment}{/*\ XOR-\/ing\ with\ ramread\ to\ avoid\ warnings\ */}}
+\DoxyCodeLine{01969\ }
+\DoxyCodeLine{01970\ \ \ \ \ \textcolor{comment}{/*\ Switch\ back\ to\ Address\ parity\ scheme\ */}}
+\DoxyCodeLine{01971\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{01972\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{01973\ }
+\DoxyCodeLine{01974\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ error\ status\ */}}
+\DoxyCodeLine{01975\ \ \ \ \ tcram1ErrStat\ =\ tcram1REG-\/>RAMERRSTATUS\ \&\ 0x100U;}
+\DoxyCodeLine{01976\ \ \ \ \ tcram2ErrStat\ =\ tcram2REG-\/>RAMERRSTATUS\ \&\ 0x100U;}
+\DoxyCodeLine{01977\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{01978\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{01979\ \ \ \ \ \textcolor{keywordflow}{if}((tcram1ErrStat\ ==\ 0U)\ ||\ (tcram2ErrStat\ ==\ 0U))}
+\DoxyCodeLine{01980\ \ \ \ \ \{}
+\DoxyCodeLine{01981\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ Address\ parity\ error\ detected\ */}}
+\DoxyCodeLine{01982\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKRAMADDRPARITY\_FAIL1);}
+\DoxyCodeLine{01983\ \ \ \ \ \}}
+\DoxyCodeLine{01984\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01985\ \ \ \ \ \{}
+\DoxyCodeLine{01986\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR1[1U]\ \&\ 0x1400U)\ !=\ 0x1400U)}
+\DoxyCodeLine{01987\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01988\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Address\ parity\ error\ not\ reported\ to\ ESM\ */}}
+\DoxyCodeLine{01989\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKRAMADDRPARITY\_FAIL2);}
+\DoxyCodeLine{01990\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01991\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01992\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01993\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ Address\ parity\ error\ flag\ */}}
+\DoxyCodeLine{01994\ \ \ \ \ \ \ \ \ \ \ \ \ tcram1REG-\/>RAMERRSTATUS\ =\ 0x300U;}
+\DoxyCodeLine{01995\ \ \ \ \ \ \ \ \ \ \ \ \ tcram2REG-\/>RAMERRSTATUS\ =\ 0x300U;}
+\DoxyCodeLine{01996\ }
+\DoxyCodeLine{01997\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ flag\ */}}
+\DoxyCodeLine{01998\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ =\ 0x1400U;}
+\DoxyCodeLine{01999\ }
+\DoxyCodeLine{02000\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ nERROR\ pin\ will\ become\ inactive\ once\ the\ LTC\ counter\ expires\ */}}
+\DoxyCodeLine{02001\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{02002\ }
+\DoxyCodeLine{02003\ \ \ \ \ \ \ \ \ \ \ \ \ regread\ =\ tcram1REG-\/>RAMPERADDR;}
+\DoxyCodeLine{02004\ \ \ \ \ \ \ \ \ \ \ \ \ regread\ =\ tcram2REG-\/>RAMPERADDR;}
+\DoxyCodeLine{02005\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02006\ \ \ \ \ \}}
+\DoxyCodeLine{02007\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a421594cf13d3b5ca42435c5a5604721c}\label{sys__selftest_8c_a421594cf13d3b5ca42435c5a5604721c}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkRAMECC@{checkRAMECC}}
+\index{checkRAMECC@{checkRAMECC}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkRAMECC()}{checkRAMECC()}}
+{\footnotesize\ttfamily void check\+RAMECC (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check TCRAM ECC error detection logic. 
+
+This function checks TCRAM ECC error detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01624\ \{}
+\DoxyCodeLine{01625\ \ \ \ \ \textcolor{keyword}{volatile}\ uint64\ ramread\ =\ 0U;}
+\DoxyCodeLine{01626\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ regread\ =\ 0U;}
+\DoxyCodeLine{01627\ \ \ \ \ uint32\ tcram1ErrStat,\ tcram2ErrStat\ =\ 0U;}
+\DoxyCodeLine{01628\ \ \ \ \ }
+\DoxyCodeLine{01629\ \ \ \ \ uint64\ tcramA1\_bk\ =\ tcramA1bit;}
+\DoxyCodeLine{01630\ \ \ \ \ uint64\ tcramB1\_bk\ =\ tcramB1bit;}
+\DoxyCodeLine{01631\ \ \ \ \ uint64\ tcramA2\_bk\ =\ tcramA2bit;}
+\DoxyCodeLine{01632\ \ \ \ \ uint64\ tcramB2\_bk\ =\ tcramB2bit;}
+\DoxyCodeLine{01633\ }
+\DoxyCodeLine{01634\ \ \ \ \ \textcolor{comment}{/*\ Clear\ RAMOCUUR\ before\ setting\ RAMTHRESHOLD\ register\ */}}
+\DoxyCodeLine{01635\ \ \ \ \ tcram1REG-\/>RAMOCCUR\ =\ 0U;}
+\DoxyCodeLine{01636\ \ \ \ \ tcram2REG-\/>RAMOCCUR\ =\ 0U;}
+\DoxyCodeLine{01637\ }
+\DoxyCodeLine{01638\ \ \ \ \ \textcolor{comment}{/*\ Set\ Single-\/bit\ Error\ Threshold\ Count\ as\ 1\ */}}
+\DoxyCodeLine{01639\ \ \ \ \ tcram1REG-\/>RAMTHRESHOLD\ =\ 1U;}
+\DoxyCodeLine{01640\ \ \ \ \ tcram2REG-\/>RAMTHRESHOLD\ =\ 1U;}
+\DoxyCodeLine{01641\ }
+\DoxyCodeLine{01642\ \ \ \ \ \textcolor{comment}{/*\ Enable\ single\ bit\ error\ generation\ */}}
+\DoxyCodeLine{01643\ \ \ \ \ tcram1REG-\/>RAMINTCTRL\ =\ 1U;}
+\DoxyCodeLine{01644\ \ \ \ \ tcram2REG-\/>RAMINTCTRL\ =\ 1U;}
+\DoxyCodeLine{01645\ }
+\DoxyCodeLine{01646\ \ \ \ \ \textcolor{comment}{/*\ Enable\ writes\ to\ ECC\ RAM,\ enable\ ECC\ error\ response\ */}}
+\DoxyCodeLine{01647\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{01648\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005010AU;}
+\DoxyCodeLine{01649\ }
+\DoxyCodeLine{01650\ \ \ \ \ \textcolor{comment}{/*\ Force\ a\ single\ bit\ error\ in\ both\ the\ banks\ */}}
+\DoxyCodeLine{01651\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{01652\ \ \ \ \ tcramA1bitError\ \string^=\ 1U;}
+\DoxyCodeLine{01653\ \ \ \ \ tcramB1bitError\ \string^=\ 1U;}
+\DoxyCodeLine{01654\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{01655\ }
+\DoxyCodeLine{01656\ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ corrupted\ data\ to\ generate\ single\ bit\ error\ */}}
+\DoxyCodeLine{01657\ \ \ \ \ ramread\ =\ tcramA1bit;}
+\DoxyCodeLine{01658\ \ \ \ \ ramread\ =\ tcramB1bit;}
+\DoxyCodeLine{01659\ }
+\DoxyCodeLine{01660\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ error\ status\ */}}
+\DoxyCodeLine{01661\ \ \ \ \ tcram1ErrStat\ =\ tcram1REG-\/>RAMERRSTATUS\ \&\ 0x1U;}
+\DoxyCodeLine{01662\ \ \ \ \ tcram2ErrStat\ =\ tcram2REG-\/>RAMERRSTATUS\ \&\ 0x1U;}
+\DoxyCodeLine{01663\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{01664\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ \ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{01665\ \ \ \ \ \textcolor{keywordflow}{if}((tcram1ErrStat\ ==\ 0U)\ ||\ (tcram2ErrStat\ ==\ 0U))}
+\DoxyCodeLine{01666\ \ \ \ \ \{}
+\DoxyCodeLine{01667\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ TCRAM\ module\ does\ not\ reflect\ 1-\/bit\ error\ reported\ by\ CPU\ */}}
+\DoxyCodeLine{01668\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKRAMECC\_FAIL1);}
+\DoxyCodeLine{01669\ \ \ \ \ \}}
+\DoxyCodeLine{01670\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01671\ \ \ \ \ \{}
+\DoxyCodeLine{01672\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR1[0U]\ \&\ 0x14000000U)\ !=\ 0x14000000U)}
+\DoxyCodeLine{01673\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01674\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ TCRAM\ 1-\/bit\ error\ not\ flagged\ in\ ESM\ */}}
+\DoxyCodeLine{01675\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKRAMECC\_FAIL2);}
+\DoxyCodeLine{01676\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01677\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01678\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01679\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ single\ bit\ error\ flag\ in\ TCRAM\ module\ */}}
+\DoxyCodeLine{01680\ \ \ \ \ \ \ \ \ \ \ \ \ tcram1REG-\/>RAMERRSTATUS\ =\ 0x1U;}
+\DoxyCodeLine{01681\ \ \ \ \ \ \ \ \ \ \ \ \ tcram2REG-\/>RAMERRSTATUS\ =\ 0x1U;}
+\DoxyCodeLine{01682\ }
+\DoxyCodeLine{01683\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ status\ */}}
+\DoxyCodeLine{01684\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x14000000U;}
+\DoxyCodeLine{01685\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01686\ \ \ \ \ \}}
+\DoxyCodeLine{01687\ }
+\DoxyCodeLine{01688\ \ \ \ \ \textcolor{comment}{/*\ Force\ a\ double\ bit\ error\ in\ both\ the\ banks\ */}}
+\DoxyCodeLine{01689\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{01690\ \ \ \ \ tcramA2bitError\ \string^=\ 3U;}
+\DoxyCodeLine{01691\ \ \ \ \ tcramB2bitError\ \string^=\ 3U;}
+\DoxyCodeLine{01692\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{01693\ }
+\DoxyCodeLine{01694\ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ corrupted\ data\ to\ generate\ double\ bit\ error\ */}}
+\DoxyCodeLine{01695\ \ \ \ \ ramread\ =\ tcramA2bit;}
+\DoxyCodeLine{01696\ \ \ \ \ ramread\ =\ tcramB2bit;}
+\DoxyCodeLine{01697\ }
+\DoxyCodeLine{01698\ \ \ \ \ regread\ =\ tcram1REG-\/>RAMUERRADDR;}
+\DoxyCodeLine{01699\ \ \ \ \ regread\ =\ tcram2REG-\/>RAMUERRADDR;}
+\DoxyCodeLine{01700\ }
+\DoxyCodeLine{01701\ \ \ \ \ \textcolor{comment}{/*\ disable\ writes\ to\ ECC\ RAM\ */}}
+\DoxyCodeLine{01702\ \ \ \ \ tcram1REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{01703\ \ \ \ \ tcram2REG-\/>RAMCTRL\ =\ 0x0005000AU;}
+\DoxyCodeLine{01704\ }
+\DoxyCodeLine{01705\ \ \ \ \ \textcolor{comment}{/*\ Compute\ correct\ ECC\ */}}
+\DoxyCodeLine{01706\ \ \ \ \ tcramA1bit\ =\ tcramA1\_bk;}
+\DoxyCodeLine{01707\ \ \ \ \ tcramB1bit\ =\ tcramB1\_bk;}
+\DoxyCodeLine{01708\ \ \ \ \ tcramA2bit\ =\ tcramA2\_bk;}
+\DoxyCodeLine{01709\ \ \ \ \ tcramB2bit\ =\ tcramB2\_bk;}
+\DoxyCodeLine{01710\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a7e5bbec947e5db02df2bda4ba2230677}\label{sys__selftest_8c_a7e5bbec947e5db02df2bda4ba2230677}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!checkRAMUERRTest@{checkRAMUERRTest}}
+\index{checkRAMUERRTest@{checkRAMUERRTest}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{checkRAMUERRTest()}{checkRAMUERRTest()}}
+{\footnotesize\ttfamily void check\+RAMUERRTest (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Run RAM test. 
+
+This function runs RAM test to test the redundant address decode and compare logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02018\ \{}
+\DoxyCodeLine{02019\ \ \ \ \ uint32\ tcram1ErrStat,\ tcram2ErrStat\ =\ 0U;}
+\DoxyCodeLine{02020\ }
+\DoxyCodeLine{02021\ \ \ \ \ \textcolor{comment}{/*\ Trigger\ equality\ check\ */}}
+\DoxyCodeLine{02022\ \ \ \ \ tcram1REG-\/>RAMTEST\ =\ 0x018AU;}
+\DoxyCodeLine{02023\ \ \ \ \ tcram2REG-\/>RAMTEST\ =\ 0x018AU;}
+\DoxyCodeLine{02024\ }
+\DoxyCodeLine{02025\ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ test\ is\ completed\ */}}
+\DoxyCodeLine{02026\ \ \ \ \ \textcolor{keywordflow}{while}(tcram1REG-\/>RAMTEST\ !=\ 0x008AU)}
+\DoxyCodeLine{02027\ \ \ \ \ \{}
+\DoxyCodeLine{02028\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02029\ \ \ \ \ \textcolor{keywordflow}{while}(tcram2REG-\/>RAMTEST\ !=\ 0x008AU)}
+\DoxyCodeLine{02030\ \ \ \ \ \{}
+\DoxyCodeLine{02031\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02032\ }
+\DoxyCodeLine{02033\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ error\ status\ */}}
+\DoxyCodeLine{02034\ \ \ \ \ tcram1ErrStat\ =\ tcram1REG-\/>RAMERRSTATUS\ \&\ 0x10U;}
+\DoxyCodeLine{02035\ \ \ \ \ tcram2ErrStat\ =\ tcram2REG-\/>RAMERRSTATUS\ \&\ 0x10U;}
+\DoxyCodeLine{02036\ \ \ \ \ \textcolor{keywordflow}{if}((tcram1ErrStat\ ==\ 0x10U)\ ||\ (tcram2ErrStat\ ==\ 0x10U))}
+\DoxyCodeLine{02037\ \ \ \ \ \{}
+\DoxyCodeLine{02038\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ test\ failed\ */}}
+\DoxyCodeLine{02039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKRAMUERRTEST\_FAIL1);}
+\DoxyCodeLine{02040\ \ \ \ \ \}}
+\DoxyCodeLine{02041\ }
+\DoxyCodeLine{02042\ \ \ \ \ \textcolor{comment}{/*\ Trigger\ inequality\ check\ */}}
+\DoxyCodeLine{02043\ \ \ \ \ tcram1REG-\/>RAMTEST\ =\ 0x014AU;}
+\DoxyCodeLine{02044\ \ \ \ \ tcram2REG-\/>RAMTEST\ =\ 0x014AU;}
+\DoxyCodeLine{02045\ }
+\DoxyCodeLine{02046\ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ test\ is\ completed\ */}}
+\DoxyCodeLine{02047\ \ \ \ \ \textcolor{keywordflow}{while}(tcram1REG-\/>RAMTEST\ !=\ 0x004AU)}
+\DoxyCodeLine{02048\ \ \ \ \ \{}
+\DoxyCodeLine{02049\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02050\ \ \ \ \ \textcolor{keywordflow}{while}(tcram2REG-\/>RAMTEST\ !=\ 0x004AU)}
+\DoxyCodeLine{02051\ \ \ \ \ \{}
+\DoxyCodeLine{02052\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02053\ }
+\DoxyCodeLine{02054\ \ \ \ \ tcram1ErrStat\ =\ tcram1REG-\/>RAMERRSTATUS\ \&\ 0x10U;}
+\DoxyCodeLine{02055\ \ \ \ \ tcram2ErrStat\ =\ tcram2REG-\/>RAMERRSTATUS\ \&\ 0x10U;}
+\DoxyCodeLine{02056\ \ \ \ \ \textcolor{keywordflow}{if}((tcram1ErrStat\ ==\ 0x10U)\ ||\ (tcram2ErrStat\ ==\ 0x10U))}
+\DoxyCodeLine{02057\ \ \ \ \ \{}
+\DoxyCodeLine{02058\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ test\ failed\ */}}
+\DoxyCodeLine{02059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(CHECKRAMUERRTEST\_FAIL2);}
+\DoxyCodeLine{02060\ \ \ \ \ \}}
+\DoxyCodeLine{02061\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02062\ \ \ \ \ \{}
+\DoxyCodeLine{02063\ \ \ \ \ \ \ \ \ tcram1REG-\/>RAMERRSTATUS\ =\ 0x4U;}
+\DoxyCodeLine{02064\ \ \ \ \ \ \ \ \ tcram2REG-\/>RAMERRSTATUS\ =\ 0x4U;}
+\DoxyCodeLine{02065\ }
+\DoxyCodeLine{02066\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ ESM\ flag\ */}}
+\DoxyCodeLine{02067\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ =\ 0x140U;}
+\DoxyCodeLine{02068\ \ \ \ \ \ \ \ \ esmREG-\/>SSR2\ =\ 0x140U;}
+\DoxyCodeLine{02069\ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{02070\ \ \ \ \ \}}
+\DoxyCodeLine{02071\ }
+\DoxyCodeLine{02072\ \ \ \ \ \textcolor{comment}{/*\ Disable\ RAM\ test\ mode\ */}}
+\DoxyCodeLine{02073\ \ \ \ \ tcram1REG-\/>RAMTEST\ =\ 0x5U;}
+\DoxyCodeLine{02074\ \ \ \ \ tcram2REG-\/>RAMTEST\ =\ 0x5U;}
+\DoxyCodeLine{02075\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a27cee1191b0027e90cbb9c66983596b9}\label{sys__selftest_8c_a27cee1191b0027e90cbb9c66983596b9}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!cpuSelfTest@{cpuSelfTest}}
+\index{cpuSelfTest@{cpuSelfTest}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{cpuSelfTest()}{cpuSelfTest()}}
+{\footnotesize\ttfamily void cpu\+Self\+Test (\begin{DoxyParamCaption}\item[{uint32}]{no\+\_\+of\+\_\+intervals,  }\item[{uint32}]{max\+\_\+timeout,  }\item[{boolean}]{restart\+\_\+test }\end{DoxyParamCaption})}
+
+
+
+CPU self test Driver. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em no\+\_\+of\+\_\+intervals} & -\/ Number of Test Intervals to be \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+\_\+timeout} & -\/ Maximum Timeout to complete selected test Intervals \\
+\hline
+\mbox{\texttt{ in}}  & {\em restart\+\_\+test} & -\/ Restart the test from Interval 0 or Continue from where it stopped.\\
+\hline
+\end{DoxyParams}
+This function is called to perform CPU self test using STC module. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00267\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i\ =\ 0U;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (11)\ */}}
+\DoxyCodeLine{00271\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{/*\ Run\ specified\ no\ of\ test\ intervals\ starting\ from\ interval\ 0\ */}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{/*\ Start\ test\ from\ interval\ 0\ or\ continue\ the\ test.\ */}}
+\DoxyCodeLine{00275\ \ \ \ \ stcREG-\/>STCGCR0\ =\ no\_of\_intervals\ <<\ 16U;}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{if}(restart\_test)}
+\DoxyCodeLine{00277\ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ stcREG-\/>STCGCR0\ |=\ 0x00000001U;}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{comment}{/*\ Configure\ Maximum\ time-\/out\ period\ */}}
+\DoxyCodeLine{00282\ \ \ \ \ stcREG-\/>STCTPR\ =\ max\_timeout;}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{comment}{/*\ wait\ for\ 16\ VBUS\ clock\ cycles\ at\ least,\ based\ on\ HCLK\ to\ VCLK\ ratio\ */}}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{for}\ (i=0U;\ i<(16U\ +\ (16U\ *\ 0U));\ i++)\{\ \textcolor{comment}{/*\ Wait\ */}\ \}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{comment}{/*\ Enable\ self-\/test\ */}}
+\DoxyCodeLine{00290\ \ \ \ \ stcREG-\/>STCGCR1\ =\ 0xAU;}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (12)\ */}}
+\DoxyCodeLine{00293\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{comment}{/*\ Idle\ the\ CPU\ so\ that\ the\ self-\/test\ can\ start\ */}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \_gotoCPUIdle\_();}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a932e8fff5749ae8038f0fbbe9029ec44}\label{sys__selftest_8c_a932e8fff5749ae8038f0fbbe9029ec44}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!cpuSelfTestFail@{cpuSelfTestFail}}
+\index{cpuSelfTestFail@{cpuSelfTestFail}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{cpuSelfTestFail()}{cpuSelfTestFail()}}
+{\footnotesize\ttfamily void cpu\+Self\+Test\+Fail (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+CPU Self test check fail service routine. 
+
+This function is called if CPU Self test check fail. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01156\ \{}
+\DoxyCodeLine{01157\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (46)\ */}}
+\DoxyCodeLine{01158\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01159\ \ \ \ \ \textcolor{comment}{/*\ CPU\ self-\/test\ has\ failed. }}
+\DoxyCodeLine{01160\ \textcolor{comment}{\ \ \ \ \ *\ CPU\ operation\ is\ not\ reliable. }}
+\DoxyCodeLine{01161\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01162\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (47)\ */}}
+\DoxyCodeLine{01163\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01164\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 5\ C\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{01165\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 26\ S\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{01166\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{01167\ \ \ \ \ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{01168\ \ \ \ \ \{}
+\DoxyCodeLine{01169\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01170\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (48)\ */}}
+\DoxyCodeLine{01171\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01172\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a58597c65615a9a0f05d48135ad48c0d6}\label{sys__selftest_8c_a58597c65615a9a0f05d48135ad48c0d6}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!custom\_dabort@{custom\_dabort}}
+\index{custom\_dabort@{custom\_dabort}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{custom\_dabort()}{custom\_dabort()}}
+{\footnotesize\ttfamily void custom\+\_\+dabort (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Custom Data abort routine for the application. 
+
+Custom Data abort routine for the application. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01113\ \{}
+\DoxyCodeLine{01114\ \ \ \ \ \textcolor{comment}{/*\ Need\ custom\ data\ abort\ handler\ here. }}
+\DoxyCodeLine{01115\ \textcolor{comment}{\ \ \ \ \ *\ This\ data\ abort\ is\ not\ caused\ due\ to\ diagnostic\ checks\ of\ flash\ and\ TCRAM\ ECC\ logic. }}
+\DoxyCodeLine{01116\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01117\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (42)\ */}}
+\DoxyCodeLine{01118\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01119\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a15b66d583493adf7dc0ce8e3a89f00f5}\label{sys__selftest_8c_a15b66d583493adf7dc0ce8e3a89f00f5}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!disableParity@{disableParity}}
+\index{disableParity@{disableParity}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{disableParity()}{disableParity()}}
+{\footnotesize\ttfamily void disable\+Parity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable peripheral RAM parity. 
+
+This function disables RAM parity for all peripherals for which RAM parity check is enabled. This function is called after memory\+Init in the startup 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02504\ \{}
+\DoxyCodeLine{02505\ \ \ \ \ VIM\_PARCTL\ =\ 0x5U;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ VIM\ RAM\ parity\ */}}
+\DoxyCodeLine{02506\ \ \ \ \ canREG1-\/>CTL\ =\ ((uint32)0x5U\ <<\ 10U)\ |\ 1U;\ \ \ \ \textcolor{comment}{/*\ Disable\ CAN1\ RAM\ parity\ */}}
+\DoxyCodeLine{02507\ \ \ \ \ canREG2-\/>CTL\ =\ ((uint32)0x5U\ <<\ 10U)\ |\ 1U;\ \ \ \ \textcolor{comment}{/*\ Disable\ CAN2\ RAM\ parity\ */}}
+\DoxyCodeLine{02508\ \ \ \ \ adcREG1-\/>PARCR\ =\ 0x5U;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ ADC1\ RAM\ parity\ */}}
+\DoxyCodeLine{02509\ \ \ \ \ hetREG1-\/>PCR\ =\ 0x5U;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ HET1\ RAM\ parity\ */}}
+\DoxyCodeLine{02510\ \ \ \ \ htuREG1-\/>PCR\ =\ 0x5U;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ HTU1\ RAM\ parity\ */}}
+\DoxyCodeLine{02511\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a646eb27315f3ce47edde97c563389f76}\label{sys__selftest_8c_a646eb27315f3ce47edde97c563389f76}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!efcCheck@{efcCheck}}
+\index{efcCheck@{efcCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{efcCheck()}{efcCheck()}}
+{\footnotesize\ttfamily uint32 efc\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+EFUSE module self check Driver. 
+
+\begin{DoxyReturn}{Returns}
+Returns 0 if no error was detected during autoload and Stuck At Zero Test passed 1 if no error was detected during autoload but Stuck At Zero Test failed 2 if there was a single-\/bit error detected during autoload 3 if some other error occurred during autoload
+\end{DoxyReturn}
+This function self checks the EFUSE module. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00579\ \{}
+\DoxyCodeLine{00580\ \ \ \ \ uint32\ efcStatus\ =\ 0U;}
+\DoxyCodeLine{00581\ \ \ \ \ uint32\ status;}
+\DoxyCodeLine{00582\ \ \ \ \ }
+\DoxyCodeLine{00583\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (27)\ */}}
+\DoxyCodeLine{00584\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{comment}{/*\ read\ the\ EFC\ Error\ Status\ Register\ */}}
+\DoxyCodeLine{00587\ \ \ \ \ efcStatus\ =\ efcREG-\/>ERROR;}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (28)\ */}}
+\DoxyCodeLine{00590\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00592\ \ \ \ \ \textcolor{keywordflow}{if}\ (efcStatus\ ==\ 0x0U)}
+\DoxyCodeLine{00593\ \ \ \ \ \{}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ run\ stuck-\/at-\/zero\ test\ and\ check\ if\ it\ passed\ */}}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sys__selftest_8c_a9973f032c29389602b684d30ea390fad}{efcStuckZeroTest}}()==\ TRUE)}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ start\ EFC\ ECC\ logic\ self-\/test\ */}}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_afd6cec31a44e7c8e325a744e9bcbf601}{efcSelfTest}}();}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ 0U;}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ EFC\ output\ is\ stuck-\/at-\/zero,\ device\ operation\ unreliable\ */}}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(EFCCHECK\_FAIL1);}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ 1U;}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00607\ \ \ \ \ \}}
+\DoxyCodeLine{00608\ \ \ \ \ \textcolor{comment}{/*\ EFC\ Error\ Register\ is\ not\ zero\ */}}
+\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00610\ \ \ \ \ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ one-\/bit\ error\ detected\ during\ autoload\ */}}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (efcStatus\ ==\ 0x15U)}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ start\ EFC\ ECC\ logic\ self-\/test\ */}}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_afd6cec31a44e7c8e325a744e9bcbf601}{efcSelfTest}}();}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ 2U;}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Some\ other\ EFC\ error\ was\ detected\ */}}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(EFCCHECK\_FAIL1);}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ status\ =\ 3U;}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00624\ \ \ \ \ \}}
+\DoxyCodeLine{00625\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00626\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ac76ed167d7b4b27eedea0eb37de6acc2}\label{sys__selftest_8c_ac76ed167d7b4b27eedea0eb37de6acc2}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!efcGetConfigValue@{efcGetConfigValue}}
+\index{efcGetConfigValue@{efcGetConfigValue}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{efcGetConfigValue()}{efcGetConfigValue()}}
+{\footnotesize\ttfamily void efc\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{efc\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02274\ \{}
+\DoxyCodeLine{02275\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{02276\ \ \ \ \ \{}
+\DoxyCodeLine{02277\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_BOUNDARY\ =\ EFC\_BOUNDARY\_CONFIGVALUE;}
+\DoxyCodeLine{02278\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINS\ =\ EFC\_PINS\_CONFIGVALUE;}
+\DoxyCodeLine{02279\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SELFTESTCYCLES\ =\ EFC\_SELFTESTCYCLES\_CONFIGVALUE;}
+\DoxyCodeLine{02280\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SELFTESTSIGN\ =\ EFC\_SELFTESTSIGN\_CONFIGVALUE;}
+\DoxyCodeLine{02281\ \ \ \ \ \}}
+\DoxyCodeLine{02282\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02283\ \ \ \ \ \{}
+\DoxyCodeLine{02284\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{02285\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_BOUNDARY\ =\ efcREG-\/>BOUNDARY;}
+\DoxyCodeLine{02286\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINS\ =\ efcREG-\/>PINS;}
+\DoxyCodeLine{02287\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SELFTESTCYCLES\ =\ efcREG-\/>SELF\_TEST\_CYCLES;}
+\DoxyCodeLine{02288\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SELFTESTSIGN\ =\ efcREG-\/>SELF\_TEST\_SIGN;}
+\DoxyCodeLine{02289\ \ \ \ \ \}}
+\DoxyCodeLine{02290\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_afd6cec31a44e7c8e325a744e9bcbf601}\label{sys__selftest_8c_afd6cec31a44e7c8e325a744e9bcbf601}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!efcSelfTest@{efcSelfTest}}
+\index{efcSelfTest@{efcSelfTest}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{efcSelfTest()}{efcSelfTest()}}
+{\footnotesize\ttfamily void efc\+Self\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+EFUSE module self check Driver. 
+
+This function self checks the EFSUE module. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00694\ \{}
+\DoxyCodeLine{00695\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (30)\ */}}
+\DoxyCodeLine{00696\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{comment}{/*\ configure\ self-\/test\ cycles\ */}}
+\DoxyCodeLine{00698\ \ \ \ \ efcREG-\/>SELF\_TEST\_CYCLES\ =\ 0x258U;}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{comment}{/*\ configure\ self-\/test\ signature\ */}}
+\DoxyCodeLine{00701\ \ \ \ \ efcREG-\/>SELF\_TEST\_SIGN\ =\ 0x5362F97FU;}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ \textcolor{comment}{/*\ configure\ boundary\ register\ to\ start\ ECC\ self-\/test\ */}}
+\DoxyCodeLine{00704\ \ \ \ \ efcREG-\/>BOUNDARY\ =\ 0x0000200FU;}
+\DoxyCodeLine{00705\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a9973f032c29389602b684d30ea390fad}\label{sys__selftest_8c_a9973f032c29389602b684d30ea390fad}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!efcStuckZeroTest@{efcStuckZeroTest}}
+\index{efcStuckZeroTest@{efcStuckZeroTest}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{efcStuckZeroTest()}{efcStuckZeroTest()}}
+{\footnotesize\ttfamily boolean efc\+Stuck\+Zero\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks to see if the EFUSE Stuck at zero test is completed successfully. 
+
+\begin{DoxyReturn}{Returns}
+1 if EFUSE Stuck at zero test completed, otherwise 0.
+\end{DoxyReturn}
+Checks to see if the EFUSE Stuck at zero test is completed successfully. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00638\ \{}
+\DoxyCodeLine{00639\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00640\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \ \ \ \ uint32\ ESM\_ESTATUS4,\ ESM\_ESTATUS1;}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \ \ \ \ \textcolor{keywordtype}{boolean}\ result\ =\ FALSE;}
+\DoxyCodeLine{00645\ \ \ \ \ uint32\ error\_checks\ =\ EFC\_INSTRUCTION\_INFO\_EN\ \ |}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EFC\_INSTRUCTION\_ERROR\_EN\ |}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EFC\_AUTOLOAD\_ERROR\_EN\ \ \ \ \ \ |}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EFC\_SELF\_TEST\_ERROR\_EN\ \ \ ;}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{comment}{/*\ configure\ the\ output\ enable\ for\ auto\ load\ error\ ,\ instruction\ info, }}
+\DoxyCodeLine{00651\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ instruction\ error,\ and\ self\ test\ error\ using\ boundary\ register }}
+\DoxyCodeLine{00652\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ and\ drive\ values\ one\ across\ all\ the\ errors\ */}}
+\DoxyCodeLine{00653\ \ \ \ \ efcREG-\/>BOUNDARY\ =\ ((uint32)OUTPUT\_ENABLE\ |\ error\_checks);}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00655\ \ \ \ \ \textcolor{comment}{/*\ Read\ from\ the\ pin\ register.\ This\ register\ holds\ the\ current\ values }}
+\DoxyCodeLine{00656\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ of\ above\ errors.\ This\ value\ should\ be\ 0x5c00.If\ not\ at\ least\ one\ of }}
+\DoxyCodeLine{00657\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ the\ above\ errors\ is\ stuck\ at\ 0.\ */}}
+\DoxyCodeLine{00658\ \ \ \ \ \textcolor{keywordflow}{if}\ ((efcREG-\/>PINS\ \&\ 0x5C00U)\ ==\ 0x5C00U)}
+\DoxyCodeLine{00659\ \ \ \ \ \{}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ ESM\_ESTATUS4\ =\ esmREG-\/>SR4[0U];}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ ESM\_ESTATUS1\ =\ esmREG-\/>SR1[2U];}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ if\ the\ ESM\ group1\ channel\ 41\ is\ set\ and\ group3\ channel\ 1\ is\ set\ */}}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((ESM\_ESTATUS4\ \&\ 0x200U)\ ==\ 0x200U)\ \&\&\ ((ESM\_ESTATUS1\ \&\ 0x2U)\ ==\ 0x2U))}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ stuck-\/at-\/zero\ test\ passed\ */}}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ result\ =\ TRUE;}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00668\ \ \ \ \ \}}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00670\ \ \ \ \ \textcolor{comment}{/*\ put\ the\ pins\ back\ low\ */}}
+\DoxyCodeLine{00671\ \ \ \ \ efcREG-\/>BOUNDARY\ =\ OUTPUT\_ENABLE;}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{comment}{/*\ clear\ group1\ flag\ */}}
+\DoxyCodeLine{00674\ \ \ \ \ esmREG-\/>SR4[0U]\ =\ 0x200U;}
+\DoxyCodeLine{00675\ }
+\DoxyCodeLine{00676\ \ \ \ \ \textcolor{comment}{/*\ clear\ group3\ flag\ */}}
+\DoxyCodeLine{00677\ \ \ \ \ esmREG-\/>SR1[2U]\ =\ 0x2U;}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00679\ \ \ \ \ \textcolor{comment}{/*\ The\ nERROR\ pin\ will\ become\ inactive\ once\ the\ LTC\ counter\ expires\ */}}
+\DoxyCodeLine{00680\ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00683\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_af9ecd48548d7a3d98d5dcc44d1e7ca51}\label{sys__selftest_8c_af9ecd48548d7a3d98d5dcc44d1e7ca51}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!enableParity@{enableParity}}
+\index{enableParity@{enableParity}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{enableParity()}{enableParity()}}
+{\footnotesize\ttfamily void enable\+Parity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable peripheral RAM parity. 
+
+This function enables RAM parity for all peripherals for which RAM parity check is enabled. This function is called before memory\+Init in the startup 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02486\ \{}
+\DoxyCodeLine{02487\ \ \ \ \ VIM\_PARCTL\ =\ 0xAU;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ VIM\ RAM\ parity\ */}}
+\DoxyCodeLine{02488\ \ \ \ \ canREG1-\/>CTL\ =\ ((uint32)0xAU\ <<\ 10U)\ |\ 1U;\ \ \ \ \textcolor{comment}{/*\ Enable\ CAN1\ RAM\ parity\ */}}
+\DoxyCodeLine{02489\ \ \ \ \ canREG2-\/>CTL\ =\ ((uint32)0xAU\ <<\ 10U)\ |\ 1U;\ \ \ \ \textcolor{comment}{/*\ Enable\ CAN2\ RAM\ parity\ */}}
+\DoxyCodeLine{02490\ \ \ \ \ adcREG1-\/>PARCR\ =\ 0xAU;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ ADC1\ RAM\ parity\ */}}
+\DoxyCodeLine{02491\ \ \ \ \ hetREG1-\/>PCR\ =\ 0xAU;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ HET1\ RAM\ parity\ */}}
+\DoxyCodeLine{02492\ \ \ \ \ htuREG1-\/>PCR\ =\ 0xAU;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ HTU1\ RAM\ parity\ */}}
+\DoxyCodeLine{02493\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a1f3b71a00b6347cb5f7f6eb922c36c9e}\label{sys__selftest_8c_a1f3b71a00b6347cb5f7f6eb922c36c9e}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!errata\_PBIST\_4@{errata\_PBIST\_4}}
+\index{errata\_PBIST\_4@{errata\_PBIST\_4}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{errata\_PBIST\_4()}{errata\_PBIST\_4()}}
+{\footnotesize\ttfamily void errata\+\_\+\+PBIST\+\_\+4 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Workaround for the Errata PBIST\#4. 
+
+This function is workaround for Errata PBIST\#4. This function is designed to initialize the ROMs using the PBIST controller. The CPU will configure the PBIST controller to test the PBIST ROM and STC ROM. This function should be called at startup after system init before using the ROMs.
+
+\begin{DoxyNote}{Note}
+\+: This Function uses register\textquotesingle{}s which are not exposed to users through TRM , to run custom algorithm. User can use this function as Black box. 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02334\ \{}
+\DoxyCodeLine{02335\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i\ =\ 0U;}
+\DoxyCodeLine{02336\ \ \ \ \ uint8\ ROM\_count;}
+\DoxyCodeLine{02337\ \ \ \ \ sint32\ PBIST\_wait\_done\_loop;}
+\DoxyCodeLine{02338\ \ \ \ \ uint32\ pmuCalibration,\ pmuCount;}
+\DoxyCodeLine{02339\ }
+\DoxyCodeLine{02340\ \ \ \ \ \textcolor{comment}{/*\ PMU\ calibration\ */}}
+\DoxyCodeLine{02341\ \ \ \ \ \_pmuEnableCountersGlobal\_();}
+\DoxyCodeLine{02342\ \ \ \ \ \_pmuResetCounters\_();}
+\DoxyCodeLine{02343\ \ \ \ \ \_pmuStartCounters\_(pmuCYCLE\_COUNTER);}
+\DoxyCodeLine{02344\ \ \ \ \ \_pmuStopCounters\_(pmuCYCLE\_COUNTER);}
+\DoxyCodeLine{02345\ \ \ \ \ pmuCalibration=\_pmuGetCycleCount\_();}
+\DoxyCodeLine{02346\ }
+\DoxyCodeLine{02347\ \ \ \ \ \textcolor{comment}{/*\ Loop\ for\ Executing\ PBIST\ ROM\ and\ STC\ ROM\ */}}
+\DoxyCodeLine{02348\ \ \ \ \ \textcolor{keywordflow}{for}\ (ROM\_count\ =\ 0U;\ ROM\_count\ <\ 2U;\ ROM\_count++)}
+\DoxyCodeLine{02349\ \ \ \ \ \{}
+\DoxyCodeLine{02350\ \ \ \ \ \ \ \ \ PBIST\_wait\_done\_loop\ =\ 0;}
+\DoxyCodeLine{02351\ \ \ \ \ }
+\DoxyCodeLine{02352\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{02353\ \ \ \ \ \ \ \ \ pbistREG-\/>PACT\ =\ 0x0U;}
+\DoxyCodeLine{02354\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02355\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PBIST\ Clocks\ did\ not\ disable\ */}}
+\DoxyCodeLine{02356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pbistREG-\/>PACT\ !=\ 0x0U\ )\ }
+\DoxyCodeLine{02357\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02358\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(PBISTSELFCHECK\_FAIL3);}
+\DoxyCodeLine{02359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02361\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ memory\ self\ controller\ */}}
+\DoxyCodeLine{02363\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MSTGCR\ =\ 0x00000005U;}
+\DoxyCodeLine{02364\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ Memory\ Initialization\ controller\ */}}
+\DoxyCodeLine{02366\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MINITGCR\ =\ 0x5U;}
+\DoxyCodeLine{02367\ }
+\DoxyCodeLine{02368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ memory\ self\ controller\ */}}
+\DoxyCodeLine{02369\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MSTGCR\ =\ 0x000000AU;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02370\ }
+\DoxyCodeLine{02371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ PBIST\ Done\ */}}
+\DoxyCodeLine{02372\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MSTCGSTAT\ =\ 0x1U;}
+\DoxyCodeLine{02373\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ PBIST\ controller\ */}}
+\DoxyCodeLine{02375\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MSINENA\ =\ 0x1U;}
+\DoxyCodeLine{02376\ }
+\DoxyCodeLine{02377\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{02378\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{02379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ wait\ for\ 32\ VBUS\ clock\ cycles\ at\ least,\ based\ on\ HCLK\ to\ VCLK\ ratio\ */}}
+\DoxyCodeLine{02380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i=0U;\ i<(32U\ +\ (32U\ *\ 1U));\ i++)\{\ \textcolor{comment}{/*\ Wait\ */}\ \}}
+\DoxyCodeLine{02381\ }
+\DoxyCodeLine{02382\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{02383\ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>PACT\ =\ 0x3U;}
+\DoxyCodeLine{02384\ }
+\DoxyCodeLine{02385\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ CPU\ control\ of\ PBIST\ */}}
+\DoxyCodeLine{02386\ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>DLR\ =\ 0x10U;}
+\DoxyCodeLine{02387\ }
+\DoxyCodeLine{02388\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Load\ PBIST\ ALGO\ to\ initialize\ the\ ROMs\ */}}
+\DoxyCodeLine{02389\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE400U\ =\ 0x00000001U;}
+\DoxyCodeLine{02390\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE440U\ =\ 0x00000025U;}
+\DoxyCodeLine{02391\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE404U\ =\ 0x62400001U;}
+\DoxyCodeLine{02392\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE444U\ =\ 0x00000004U;}
+\DoxyCodeLine{02393\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE408U\ =\ 0x00068003U;}
+\DoxyCodeLine{02394\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE448U\ =\ 0x00000000U;}
+\DoxyCodeLine{02395\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE40CU\ =\ 0x00000004U;}
+\DoxyCodeLine{02396\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE44CU\ =\ 0x00006860U;}
+\DoxyCodeLine{02397\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE410U\ =\ 0x00000000U;}
+\DoxyCodeLine{02398\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE450U\ =\ 0x00000001U;}
+\DoxyCodeLine{02399\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE540U\ =\ 0x000003E8U;}
+\DoxyCodeLine{02400\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE550U\ =\ 0x00000001U;}
+\DoxyCodeLine{02401\ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE530U\ =\ 0x00000000U;}
+\DoxyCodeLine{02402\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ SELECT\ ROM\ */}}
+\DoxyCodeLine{02404\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ROM\_count\ ==\ 1U)}
+\DoxyCodeLine{02405\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{02406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ SELECT\ PBIST\ ROM\ */}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE520U\ =\ 0x00000002U;}
+\DoxyCodeLine{02408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE524U\ =\ 0x00000000U;}
+\DoxyCodeLine{02409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>RAMT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x01002008U;}
+\DoxyCodeLine{02410\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{02411\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02412\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ SELECT\ STC\ ROM\ */}\ \ \ \ }
+\DoxyCodeLine{02414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE520U\ =\ 0xFFF0007CU;}
+\DoxyCodeLine{02415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE524U\ =\ 0x06B3FFFFU;}
+\DoxyCodeLine{02416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>RAMT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x02002008U;}
+\DoxyCodeLine{02417\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02418\ }
+\DoxyCodeLine{02419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Setup\ using\ special\ reserved\ registers\ as\ part\ of\ errata\ fix\ */}}
+\DoxyCodeLine{02420\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ (Only\ to\ be\ used\ in\ this\ function)\ */}}
+\DoxyCodeLine{02421\ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>rsvd1[4U]\ \ \ \ =\ 1U;}
+\DoxyCodeLine{02422\ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>rsvd1[0U]\ \ \ \ =\ 2U;}
+\DoxyCodeLine{02423\ }
+\DoxyCodeLine{02424\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Start\ PMU\ counter\ */}}
+\DoxyCodeLine{02425\ \ \ \ \ \ \ \ \ \ \ \ \ \_pmuResetCounters\_();}
+\DoxyCodeLine{02426\ \ \ \ \ \ \ \ \ \ \ \ \ \_pmuStartCounters\_(pmuCYCLE\_COUNTER);}
+\DoxyCodeLine{02427\ }
+\DoxyCodeLine{02428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PBIST\_RUN\ */}}
+\DoxyCodeLine{02429\ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>rsvd1[1U]\ \ \ \ =\ 1U;}
+\DoxyCodeLine{02430\ }
+\DoxyCodeLine{02431\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ wait\ until\ memory\ self-\/test\ done\ is\ indicated\ */}}
+\DoxyCodeLine{02432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{02433\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((systemREG1-\/>MSTCGSTAT\ \&\ 0x1U)\ !=\ 0x1U)\ }
+\DoxyCodeLine{02434\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02435\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02436\ }
+\DoxyCodeLine{02437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Stop\ PMU\ counter\ */}}
+\DoxyCodeLine{02438\ \ \ \ \ \ \ \ \ \ \ \ \ \_pmuStopCounters\_(pmuCYCLE\_COUNTER);}
+\DoxyCodeLine{02439\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02440\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Get\ CPU\ cycle\ count\ */}}
+\DoxyCodeLine{02441\ \ \ \ \ \ \ \ \ \ \ \ \ pmuCount\ =\_pmuGetCycleCount\_();}
+\DoxyCodeLine{02442\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{02443\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Calculate\ PBIST\ test\ complete\ time\ in\ ROM\ Clock\ */}}
+\DoxyCodeLine{02444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 2\ -\/\ Divide\ value\ (\ Default\ is\ 2\ in\ HALCoGen)\ */}}
+\DoxyCodeLine{02445\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 1000\ =\ 0x3E8\ -\/\ Test\ Loop\ count\ in\ ROM\ Algorithm\ */}}
+\DoxyCodeLine{02446\ \ \ \ \ \ \ \ \ \ \ \ \ pmuCount\ =\ pmuCount\ -\/\ pmuCalibration;}
+\DoxyCodeLine{02447\ \ \ \ \ \ \ \ \ \ \ \ \ PBIST\_wait\_done\_loop\ =\ ((sint32)pmuCount)\ -\/\ 1000;}
+\DoxyCodeLine{02448\ }
+\DoxyCodeLine{02449\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ PBIST\ status\ results\ (Address,\ Status,\ Count,\ etc...)\ */}}
+\DoxyCodeLine{02450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((pbistREG-\/>FSRA0\ |\ pbistREG-\/>FSRA1\ |\ pbistREG-\/>FSRDL0\ |\ pbistREG-\/>rsvd3\ |}
+\DoxyCodeLine{02451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>FSRDL1\ |\ pbistREG-\/>rsvd4[0U]\ |\ pbistREG-\/>rsvd4[1U])\ !=\ 0U)}
+\DoxyCodeLine{02452\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PBIST\ Failure\ for\ the\ Algorithm\ chosen\ above\ */}}
+\DoxyCodeLine{02454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(PBISTSELFCHECK\_FAIL1);}
+\DoxyCodeLine{02455\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02456\ }
+\DoxyCodeLine{02457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ that\ the\ algorithm\ executed\ in\ the\ expected\ amount\ of\ time.\ */}}
+\DoxyCodeLine{02458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ time\ is\ dependent\ on\ the\ ROMCLKDIV\ selected\ */}}
+\DoxyCodeLine{02459\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((PBIST\_wait\_done\_loop\ <=\ 20)\ ||\ (PBIST\_wait\_done\_loop\ >=\ 200)\ )}
+\DoxyCodeLine{02460\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(PBISTSELFCHECK\_FAIL2);}
+\DoxyCodeLine{02462\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02463\ }
+\DoxyCodeLine{02464\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{02465\ \ \ \ \ \ \ \ \ \ \ \ \ pbistREG-\/>PACT\ =\ 0x0U;}
+\DoxyCodeLine{02466\ }
+\DoxyCodeLine{02467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ */}}
+\DoxyCodeLine{02468\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MSTGCR\ \&=\ 0xFFFFFFF0U;}
+\DoxyCodeLine{02469\ \ \ \ \ \ \ \ \ \ \ \ \ systemREG1-\/>MSTGCR\ |=\ 0x5U;}
+\DoxyCodeLine{02470\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02471\ \ \ \ \ \}\ \textcolor{comment}{/*\ ROM\ Loop\ */}}
+\DoxyCodeLine{02472\ }
+\DoxyCodeLine{02473\ \ \ \ \ \_pmuDisableCountersGlobal\_();}
+\DoxyCodeLine{02474\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_aa035d17d1ecb2d6bb095a5c0b44a2143}\label{sys__selftest_8c_aa035d17d1ecb2d6bb095a5c0b44a2143}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!fmcBus1ParityCheck@{fmcBus1ParityCheck}}
+\index{fmcBus1ParityCheck@{fmcBus1ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{fmcBus1ParityCheck()}{fmcBus1ParityCheck()}}
+{\footnotesize\ttfamily void fmc\+Bus1\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02081\ \{}
+\DoxyCodeLine{02082\ \ \ \ \ uint32\ regBkupFparOvr,regBckupFdiagctrl;}
+\DoxyCodeLine{02083\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ flashread\ =\ 0U;}
+\DoxyCodeLine{02084\ }
+\DoxyCodeLine{02085\ \ \ \ \ \textcolor{comment}{/*\ Backup\ registers\ */}}
+\DoxyCodeLine{02086\ \ \ \ \ regBkupFparOvr\ =\ flashWREG-\/>FPAROVR;}
+\DoxyCodeLine{02087\ \ \ \ \ regBckupFdiagctrl\ =\ flashWREG-\/>FDIAGCTRL;}
+\DoxyCodeLine{02088\ }
+\DoxyCodeLine{02089\ \ \ \ \ \textcolor{comment}{/*\ Read\ to\ unfreeze\ the\ error\ address\ registers\ */}}
+\DoxyCodeLine{02090\ \ \ \ \ flashread\ =\ flashWREG-\/>FUNCERRADD;}
+\DoxyCodeLine{02091\ }
+\DoxyCodeLine{02092\ \ \ \ \ \textcolor{comment}{/*\ clear\ status\ register\ */}}
+\DoxyCodeLine{02093\ \ \ \ \ flashWREG-\/>FEDACSTATUS\ =\ 0x400U;}
+\DoxyCodeLine{02094\ }
+\DoxyCodeLine{02095\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Parity\ Error\ */}}
+\DoxyCodeLine{02096\ \ \ \ \ flashWREG-\/>FPAROVR\ \ =\ (uint32)((uint32)0x5U\ <<\ 9U)}
+\DoxyCodeLine{02097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0x5U\ <<\ 12U);}
+\DoxyCodeLine{02098\ }
+\DoxyCodeLine{02099\ \ \ \ \ \textcolor{comment}{/*\ set\ Diag\ test\ mode\ */}}
+\DoxyCodeLine{02100\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ 0x00050000U\ |\ 0x00000007U;}
+\DoxyCodeLine{02101\ }
+\DoxyCodeLine{02102\ \ \ \ \ \textcolor{comment}{/*\ Add\ parity\ */}}
+\DoxyCodeLine{02103\ \ \ \ \ flashWREG-\/>FPAROVR\ |=\ 0x00000100U;}
+\DoxyCodeLine{02104\ }
+\DoxyCodeLine{02105\ \ \ \ \ \textcolor{comment}{/*\ Start\ Test\ */}}
+\DoxyCodeLine{02106\ \ \ \ \ flashWREG-\/>FDIAGCTRL\ |=\ 0x1000000U;}
+\DoxyCodeLine{02107\ }
+\DoxyCodeLine{02108\ \ \ \ \ \textcolor{comment}{/*\ Wait\ until\ test\ done\ */}}
+\DoxyCodeLine{02109\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{02110\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{02111\ \ \ \ \ \textcolor{keywordflow}{while}((flashWREG-\/>FDIAGCTRL\ \&\ 0x1000000U)\ ==\ 0x1000000U)}
+\DoxyCodeLine{02112\ \ \ \ \ \{}
+\DoxyCodeLine{02113\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02114\ }
+\DoxyCodeLine{02115\ \ \ \ \ \textcolor{comment}{/*\ Check\ address\ Error\ */}}
+\DoxyCodeLine{02116\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{02117\ \ \ \ \ \textcolor{keywordflow}{if}((flashWREG-\/>FEDACSTATUS\ \&\ 0x400U)\ !=\ 0x400U)}
+\DoxyCodeLine{02118\ \ \ \ \ \{}
+\DoxyCodeLine{02119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(FMCBUS1PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{02120\ \ \ \ \ \}}
+\DoxyCodeLine{02121\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02122\ \ \ \ \ \{}
+\DoxyCodeLine{02123\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ status\ register\ */}}
+\DoxyCodeLine{02124\ \ \ \ \ \ \ \ \ flashWREG-\/>FEDACSTATUS\ =\ 0x400U;}
+\DoxyCodeLine{02125\ }
+\DoxyCodeLine{02126\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ is\ flagged\ */}}
+\DoxyCodeLine{02127\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{02128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>SR1[1U]\ \&\ 0x0000010U)\ ==\ 0U)}
+\DoxyCodeLine{02129\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(FMCBUS1PARITYCHECK\_FAIL2);}
+\DoxyCodeLine{02131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02133\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ flag\ */}}
+\DoxyCodeLine{02135\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ |=\ 0x0000010U;}
+\DoxyCodeLine{02136\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SSR2\ |=\ 0x0000010U;}
+\DoxyCodeLine{02137\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{02138\ }
+\DoxyCodeLine{02139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Stop\ Diag\ test\ mode\ */}}
+\DoxyCodeLine{02140\ \ \ \ \ \ \ \ \ \ \ \ \ flashWREG-\/>FDIAGCTRL\ =\ regBckupFdiagctrl;}
+\DoxyCodeLine{02141\ \ \ \ \ \ \ \ \ \ \ \ \ flashWREG-\/>FPAROVR\ \ \ \ \ =\ regBkupFparOvr;}
+\DoxyCodeLine{02142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02143\ \ \ \ \ \}}
+\DoxyCodeLine{02144\ }
+\DoxyCodeLine{02145\ \ \ \ \ \textcolor{comment}{/*\ Read\ to\ unfreeze\ the\ error\ address\ registers\ */}}
+\DoxyCodeLine{02146\ \ \ \ \ flashread\ =\ flashWREG-\/>FUNCERRADD;}
+\DoxyCodeLine{02147\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a3248a50d5c0516f336b46aa0114ba9be}\label{sys__selftest_8c_a3248a50d5c0516f336b46aa0114ba9be}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!fmcBus2Check@{fmcBus2Check}}
+\index{fmcBus2Check@{fmcBus2Check}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{fmcBus2Check()}{fmcBus2Check()}}
+{\footnotesize\ttfamily void fmc\+Bus2\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Self Check Flash Bus2 Interface. 
+
+This function self checks Flash Bus2 Interface 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00757\ \{}
+\DoxyCodeLine{00758\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (32)\ */}}
+\DoxyCodeLine{00759\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00760\ \ \ \ \ \textcolor{comment}{/*\ enable\ ECC\ logic\ inside\ FMC\ */}}
+\DoxyCodeLine{00761\ \ \ \ \ flashWREG-\/>FEDACCTRL1\ =\ 0x000A060AU;}
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00763\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x40U)\ ==\ 0x40U)}
+\DoxyCodeLine{00764\ \ \ \ \ \{}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ a\ 1-\/bit\ error\ was\ detected\ during\ flash\ OTP\ read\ by\ flash\ module }}
+\DoxyCodeLine{00766\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ run\ a\ self-\/check\ on\ ECC\ logic\ inside\ FMC\ */}}
+\DoxyCodeLine{00767\ }
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 6\ flag\ */}}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x40U;}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a183a0d9f1300394cff2f8fe0aa034d4b}{fmcECCcheck}}();}
+\DoxyCodeLine{00772\ \ \ \ \ \}}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \textcolor{comment}{/*\ no\ 2-\/bit\ or\ 1-\/bit\ error\ detected\ during\ power-\/up\ */}}
+\DoxyCodeLine{00775\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00776\ \ \ \ \ \{}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a183a0d9f1300394cff2f8fe0aa034d4b}{fmcECCcheck}}();}
+\DoxyCodeLine{00778\ \ \ \ \ \}}
+\DoxyCodeLine{00779\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (33)\ */}}
+\DoxyCodeLine{00780\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00781\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a183a0d9f1300394cff2f8fe0aa034d4b}\label{sys__selftest_8c_a183a0d9f1300394cff2f8fe0aa034d4b}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!fmcECCcheck@{fmcECCcheck}}
+\index{fmcECCcheck@{fmcECCcheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{fmcECCcheck()}{fmcECCcheck()}}
+{\footnotesize\ttfamily void fmc\+ECCcheck (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Check Flash ECC Single Bit and multi Bit errors detection logic. 
+
+This function Checks Flash ECC Single Bit and multi Bit errors detection logic. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00792\ \{}
+\DoxyCodeLine{00793\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ otpread;}
+\DoxyCodeLine{00794\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ temp;}
+\DoxyCodeLine{00795\ }
+\DoxyCodeLine{00796\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (34)\ */}}
+\DoxyCodeLine{00797\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{comment}{/*\ read\ location\ with\ deliberate\ 1-\/bit\ error\ */}}
+\DoxyCodeLine{00800\ \ \ \ \ otpread\ =\ flash1bitError;}
+\DoxyCodeLine{00801\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x40U)\ ==\ 0x40U)}
+\DoxyCodeLine{00802\ \ \ \ \ \{}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 1-\/bit\ failure\ was\ indicated\ and\ corrected\ */}}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ flashWREG-\/>FEDACSTATUS\ =\ 0x00010006U;}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 6\ flag\ */}}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x40U;}
+\DoxyCodeLine{00808\ }
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ location\ with\ deliberate\ 2-\/bit\ error\ */}}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ otpread\ =\ flash2bitError;}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[2U]\ \&\ 0x80U)\ ==\ 0x80U)}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 2-\/bit\ failure\ was\ detected\ correctly\ */}}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ flashWREG-\/>FUNCERRADD;}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \ \ \ \ flashWREG-\/>FEDACSTATUS\ =\ 0x00020100U;}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group3\ channel\ 7\ */}}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>SR1[2U]\ =\ 0x80U;}
+\DoxyCodeLine{00819\ }
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ nERROR\ pin\ will\ become\ inactive\ once\ the\ LTC\ counter\ expires\ */}}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{00822\ }
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ECC\ logic\ inside\ FMC\ cannot\ detect\ 2-\/bit\ error\ */}}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(FMCECCCHECK\_FAIL1);}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00829\ \ \ \ \ \}}
+\DoxyCodeLine{00830\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00831\ \ \ \ \ \{}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ECC\ logic\ inside\ FMC\ cannot\ detect\ 1-\/bit\ error\ */}}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(FMCECCCHECK\_FAIL1);}
+\DoxyCodeLine{00834\ \ \ \ \ \}}
+\DoxyCodeLine{00835\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (35)\ */}}
+\DoxyCodeLine{00836\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00837\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a66f658578435dc4d3984c76a3d2ed959}\label{sys__selftest_8c_a66f658578435dc4d3984c76a3d2ed959}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!het1ParityCheck@{het1ParityCheck}}
+\index{het1ParityCheck@{het1ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{het1ParityCheck()}{het1ParityCheck()}}
+{\footnotesize\ttfamily void het1\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check HET1 RAM parity error detection and signaling mechanism. 
+
+Routine to check HET1 RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01244\ \{}
+\DoxyCodeLine{01245\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ nhetread\ =\ 0U;}
+\DoxyCodeLine{01246\ \ \ \ \ uint32\ hetpcr\_bk\ =\ hetREG1-\/>PCR;}
+\DoxyCodeLine{01247\ }
+\DoxyCodeLine{01248\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (53)\ */}}
+\DoxyCodeLine{01249\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01250\ }
+\DoxyCodeLine{01251\ \ \ \ \ \textcolor{comment}{/*\ Set\ TEST\ mode\ and\ enable\ parity\ checking\ */}}
+\DoxyCodeLine{01252\ \ \ \ \ hetREG1-\/>PCR\ =\ 0x0000010AU;}
+\DoxyCodeLine{01253\ }
+\DoxyCodeLine{01254\ \ \ \ \ \textcolor{comment}{/*\ flip\ parity\ bit\ */}}
+\DoxyCodeLine{01255\ \ \ \ \ NHET1RAMPARLOC\ \string^=\ 0x1U;}
+\DoxyCodeLine{01256\ }
+\DoxyCodeLine{01257\ \ \ \ \ \textcolor{comment}{/*\ Disable\ TEST\ mode\ */}}
+\DoxyCodeLine{01258\ \ \ \ \ hetREG1-\/>PCR\ =\ 0x0000000AU;}
+\DoxyCodeLine{01259\ }
+\DoxyCodeLine{01260\ \ \ \ \ \textcolor{comment}{/*\ read\ to\ cause\ parity\ error\ */}}
+\DoxyCodeLine{01261\ \ \ \ \ nhetread\ =\ NHET1RAMLOC;}
+\DoxyCodeLine{01262\ }
+\DoxyCodeLine{01263\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ group1\ channel\ 7\ is\ flagged\ */}}
+\DoxyCodeLine{01264\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x80U)\ ==0U)}
+\DoxyCodeLine{01265\ \ \ \ \ \{}
+\DoxyCodeLine{01266\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ NHET1\ RAM\ parity\ error\ was\ not\ flagged\ to\ ESM.\ */}}
+\DoxyCodeLine{01267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(HET1PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01268\ \ \ \ \ \}}
+\DoxyCodeLine{01269\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01270\ \ \ \ \ \{}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 7\ flag\ */}}
+\DoxyCodeLine{01272\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x80U;}
+\DoxyCodeLine{01273\ }
+\DoxyCodeLine{01274\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Set\ TEST\ mode\ and\ enable\ parity\ checking\ */}}
+\DoxyCodeLine{01275\ \ \ \ \ \ \ \ \ hetREG1-\/>PCR\ =\ 0x0000010AU;}
+\DoxyCodeLine{01276\ }
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ to\ correct\ data,\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01278\ \ \ \ \ \ \ \ \ NHET1RAMPARLOC\ \string^=\ 0x1U;}
+\DoxyCodeLine{01279\ \ \ \ \ \}}
+\DoxyCodeLine{01280\ }
+\DoxyCodeLine{01281\ \ \ \ \ \textcolor{comment}{/*\ Restore\ Parity\ comtrol\ register\ */}}
+\DoxyCodeLine{01282\ \ \ \ \ hetREG1-\/>PCR\ =\ hetpcr\_bk;}
+\DoxyCodeLine{01283\ }
+\DoxyCodeLine{01284\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (54)\ */}}
+\DoxyCodeLine{01285\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01286\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a5f69665c7b7abb003cfb4a314ce1e943}\label{sys__selftest_8c_a5f69665c7b7abb003cfb4a314ce1e943}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!htu1ParityCheck@{htu1ParityCheck}}
+\index{htu1ParityCheck@{htu1ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{htu1ParityCheck()}{htu1ParityCheck()}}
+{\footnotesize\ttfamily void htu1\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check HTU1 RAM parity error detection and signaling mechanism. 
+
+Routine to check HTU1 RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01298\ \{}
+\DoxyCodeLine{01299\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ hturead\ =\ 0U;}
+\DoxyCodeLine{01300\ \ \ \ \ uint32\ htupcr\_bk\ =\ htuREG1-\/>PCR;}
+\DoxyCodeLine{01301\ }
+\DoxyCodeLine{01302\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (55)\ */}}
+\DoxyCodeLine{01303\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01304\ }
+\DoxyCodeLine{01305\ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity\ and\ TEST\ mode\ */}}
+\DoxyCodeLine{01306\ \ \ \ \ htuREG1-\/>PCR\ =\ 0x0000010AU;}
+\DoxyCodeLine{01307\ }
+\DoxyCodeLine{01308\ \ \ \ \ \textcolor{comment}{/*\ flip\ parity\ bit\ */}}
+\DoxyCodeLine{01309\ \ \ \ \ HTU1PARLOC\ \string^=\ 0x1U;}
+\DoxyCodeLine{01310\ }
+\DoxyCodeLine{01311\ \ \ \ \ \textcolor{comment}{/*\ Disable\ parity\ RAM\ test\ mode\ */}}
+\DoxyCodeLine{01312\ \ \ \ \ htuREG1-\/>PCR\ =\ 0x0000000AU;}
+\DoxyCodeLine{01313\ }
+\DoxyCodeLine{01314\ \ \ \ \ \textcolor{comment}{/*\ read\ to\ cause\ parity\ error\ */}}
+\DoxyCodeLine{01315\ \ \ \ \ hturead\ =\ HTU1RAMLOC;}
+\DoxyCodeLine{01316\ }
+\DoxyCodeLine{01317\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ group1\ channel\ 8\ is\ flagged\ */}}
+\DoxyCodeLine{01318\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x100U)\ ==\ 0U)}
+\DoxyCodeLine{01319\ \ \ \ \ \{}
+\DoxyCodeLine{01320\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ HTU1\ RAM\ parity\ error\ was\ not\ flagged\ to\ ESM.\ */}}
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(HTU1PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01322\ \ \ \ \ \}}
+\DoxyCodeLine{01323\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01324\ \ \ \ \ \{}
+\DoxyCodeLine{01325\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ HTU\ parity\ error\ flag\ */}}
+\DoxyCodeLine{01326\ \ \ \ \ \ \ \ \ htuREG1-\/>PAR\ =\ 0x00010000U;}
+\DoxyCodeLine{01327\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x100U;}
+\DoxyCodeLine{01328\ }
+\DoxyCodeLine{01329\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity\ and\ TEST\ mode\ */}}
+\DoxyCodeLine{01330\ \ \ \ \ \ \ \ \ htuREG1-\/>PCR\ =\ 0x0000010AU;}
+\DoxyCodeLine{01331\ }
+\DoxyCodeLine{01332\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ to\ correct\ data,\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ HTU1PARLOC\ \string^=\ 0x1U;}
+\DoxyCodeLine{01334\ \ \ \ \ \}}
+\DoxyCodeLine{01335\ }
+\DoxyCodeLine{01336\ \ \ \ \ \textcolor{comment}{/*\ Restore\ Parity\ control\ register\ */}}
+\DoxyCodeLine{01337\ \ \ \ \ htuREG1-\/>PCR\ =\ htupcr\_bk;}
+\DoxyCodeLine{01338\ }
+\DoxyCodeLine{01339\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (56)\ */}}
+\DoxyCodeLine{01340\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01341\ }
+\DoxyCodeLine{01342\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a3184dfe0846903e1111348942160dfe7}\label{sys__selftest_8c_a3184dfe0846903e1111348942160dfe7}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!memoryInit@{memoryInit}}
+\index{memoryInit@{memoryInit}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{memoryInit()}{memoryInit()}}
+{\footnotesize\ttfamily void memory\+Init (\begin{DoxyParamCaption}\item[{uint32}]{ram }\end{DoxyParamCaption})}
+
+
+
+Memory Initialization Driver. 
+
+This function is called to perform Memory initialization of selected RAM\textquotesingle{}s. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185\ \{}
+\DoxyCodeLine{00186\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (6)\ */}}
+\DoxyCodeLine{00187\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Memory\ Hardware\ Initialization\ */}}
+\DoxyCodeLine{00190\ \ \ \ \ systemREG1-\/>MINITGCR\ =\ 0xAU;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Memory\ Hardware\ Initialization\ for\ selected\ RAM's\ */}}
+\DoxyCodeLine{00193\ \ \ \ \ systemREG1-\/>MSINENA\ \ =\ ram;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{/*\ Wait\ until\ Memory\ Hardware\ Initialization\ complete\ */}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>MSTCGSTAT\ \&\ 0x00000100U)\ !=\ 0x00000100U)}
+\DoxyCodeLine{00198\ \ \ \ \ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Memory\ Hardware\ Initialization\ */}}
+\DoxyCodeLine{00202\ \ \ \ \ systemREG1-\/>MINITGCR\ =\ 0x5U;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (7)\ */}}
+\DoxyCodeLine{00205\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00206\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a050e0c2257b541e651eb35d32f10c98d}\label{sys__selftest_8c_a050e0c2257b541e651eb35d32f10c98d}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!mibspi1ParityCheck@{mibspi1ParityCheck}}
+\index{mibspi1ParityCheck@{mibspi1ParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{mibspi1ParityCheck()}{mibspi1ParityCheck()}}
+{\footnotesize\ttfamily void mibspi1\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check MIBSPI1 RAM parity error detection and signaling mechanism. 
+
+Routine to check MIBSPI1 RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01551\ \{}
+\DoxyCodeLine{01552\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ spiread\ =\ 0U;}
+\DoxyCodeLine{01553\ \ \ \ \ uint32\ mibspie\_bk\ =\ mibspiREG1-\/>MIBSPIE;}
+\DoxyCodeLine{01554\ \ \ \ \ uint32\ mibspictl\_bk\ =\ mibspiREG1-\/>UERRCTRL;}
+\DoxyCodeLine{01555\ }
+\DoxyCodeLine{01556\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (71)\ */}}
+\DoxyCodeLine{01557\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01558\ }
+\DoxyCodeLine{01559\ \ \ \ \ \textcolor{comment}{/*\ enable\ multi-\/buffered\ mode\ */}}
+\DoxyCodeLine{01560\ \ \ \ \ mibspiREG1-\/>MIBSPIE\ =\ 0x1U;}
+\DoxyCodeLine{01561\ }
+\DoxyCodeLine{01562\ \ \ \ \ \textcolor{comment}{/*\ enable\ parity\ error\ detection\ */}}
+\DoxyCodeLine{01563\ \ \ \ \ mibspiREG1-\/>UERRCTRL\ =\ (mibspiREG1-\/>UERRCTRL\ \&\ 0xFFFFFFF0U)\ |\ (0xAU);}
+\DoxyCodeLine{01564\ }
+\DoxyCodeLine{01565\ \ \ \ \ \textcolor{comment}{/*\ enable\ parity\ test\ mode\ */}}
+\DoxyCodeLine{01566\ \ \ \ \ mibspiREG1-\/>UERRCTRL\ |=\ 0x00000100U;}
+\DoxyCodeLine{01567\ }
+\DoxyCodeLine{01568\ \ \ \ \ \textcolor{comment}{/*\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01569\ \ \ \ \ mibspiPARRAM1\ \string^=\ 0x1U;}
+\DoxyCodeLine{01570\ }
+\DoxyCodeLine{01571\ \ \ \ \ \textcolor{comment}{/*\ disable\ parity\ test\ mode\ */}}
+\DoxyCodeLine{01572\ \ \ \ \ mibspiREG1-\/>UERRCTRL\ \&=\ 0xFFFFFEFFU;}
+\DoxyCodeLine{01573\ }
+\DoxyCodeLine{01574\ \ \ \ \ \textcolor{comment}{/*\ read\ from\ MibSPI1\ RAM\ to\ cause\ parity\ error\ */}}
+\DoxyCodeLine{01575\ \ \ \ \ spiread\ =\ MIBSPI1RAMLOC;}
+\DoxyCodeLine{01576\ }
+\DoxyCodeLine{01577\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ group1\ channel\ 17\ is\ flagged\ */}}
+\DoxyCodeLine{01578\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x20000U)\ ==\ 0U)}
+\DoxyCodeLine{01579\ \ \ \ \ \{}
+\DoxyCodeLine{01580\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ MibSPI1\ RAM\ parity\ error\ was\ flagged\ to\ ESM.\ */}}
+\DoxyCodeLine{01581\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(MIBSPI1PARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01582\ \ \ \ \ \}}
+\DoxyCodeLine{01583\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01584\ \ \ \ \ \{}
+\DoxyCodeLine{01585\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ parity\ error\ flags\ */}}
+\DoxyCodeLine{01586\ \ \ \ \ \ \ \ \ mibspiREG1-\/>UERRSTAT\ =\ 0x3U;}
+\DoxyCodeLine{01587\ }
+\DoxyCodeLine{01588\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 17\ flag\ */}}
+\DoxyCodeLine{01589\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x20000U;}
+\DoxyCodeLine{01590\ }
+\DoxyCodeLine{01591\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ enable\ parity\ test\ mode\ */}}
+\DoxyCodeLine{01592\ \ \ \ \ \ \ \ \ mibspiREG1-\/>UERRCTRL\ |=\ 0x00000100U;}
+\DoxyCodeLine{01593\ }
+\DoxyCodeLine{01594\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ to\ correct\ data,\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ mibspiPARRAM1\ \string^=\ 0x1U;}
+\DoxyCodeLine{01596\ \ \ \ \ \}}
+\DoxyCodeLine{01597\ }
+\DoxyCodeLine{01598\ \ \ \ \ \textcolor{comment}{/*\ Restore\ MIBSPI\ control\ registers\ */}}
+\DoxyCodeLine{01599\ \ \ \ \ mibspiREG1-\/>UERRCTRL\ =\ mibspictl\_bk;}
+\DoxyCodeLine{01600\ \ \ \ \ mibspiREG1-\/>MIBSPIE\ =\ mibspie\_bk;}
+\DoxyCodeLine{01601\ }
+\DoxyCodeLine{01602\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (72)\ */}}
+\DoxyCodeLine{01603\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01604\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_adc8a571e336b788da775b5279597c9f9}\label{sys__selftest_8c_adc8a571e336b788da775b5279597c9f9}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistFail@{pbistFail}}
+\index{pbistFail@{pbistFail}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistFail()}{pbistFail()}}
+{\footnotesize\ttfamily void pbist\+Fail (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02153\ \{}
+\DoxyCodeLine{02154\ \ \ \ \ uint32\ PBIST\_RAMT,\ PBIST\_FSRA0,\ PBIST\_FSRDL0;}
+\DoxyCodeLine{02155\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{02156\ \ \ \ \ PBIST\_RAMT\ =\ pbistREG-\/>RAMT;}
+\DoxyCodeLine{02157\ \ \ \ \ PBIST\_FSRA0\ =\ pbistREG-\/>FSRA0;}
+\DoxyCodeLine{02158\ \ \ \ \ PBIST\_FSRDL0\ =\ pbistREG-\/>FSRDL0;}
+\DoxyCodeLine{02159\ }
+\DoxyCodeLine{02160\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{sys__selftest_8c_a3edbda42e27655bb5e9a3d067ab09caf}{pbistPortTestStatus}}((uint32)PBIST\_PORT0)\ !=\ TRUE)}
+\DoxyCodeLine{02161\ \ \ \ \ \{}
+\DoxyCodeLine{02162\ \ \ \ \ \ \ \ \ memoryPort0TestFailNotification((uint32)((PBIST\_RAMT\ \&\ 0xFF000000U)\ >>\ 24U),\ (uint32)((PBIST\_RAMT\ \&\ 0x00FF0000U)\ >>\ 16U),(uint32)PBIST\_FSRA0,\ (uint32)PBIST\_FSRDL0);}
+\DoxyCodeLine{02163\ \ \ \ \ \}}
+\DoxyCodeLine{02164\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02165\ \ \ \ \ \{}
+\DoxyCodeLine{02166\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (77)\ */}}
+\DoxyCodeLine{02167\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{02168\ \textcolor{comment}{/*SAFETYMCUSW\ 5\ C\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{02169\ \textcolor{comment}{/*SAFETYMCUSW\ 26\ S\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{02170\ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{02171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{02172\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02173\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{02174\ }
+\DoxyCodeLine{02175\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (78)\ */}}
+\DoxyCodeLine{02176\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{02177\ \ \ \ \ \}}
+\DoxyCodeLine{02178\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a1edb8a500b4ad0f3e87b93245856a937}\label{sys__selftest_8c_a1edb8a500b4ad0f3e87b93245856a937}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistGetConfigValue@{pbistGetConfigValue}}
+\index{pbistGetConfigValue@{pbistGetConfigValue}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistGetConfigValue()}{pbistGetConfigValue()}}
+{\footnotesize\ttfamily void pbist\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{pbist\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02195\ \{}
+\DoxyCodeLine{02196\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{02197\ \ \ \ \ \{}
+\DoxyCodeLine{02198\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMT\ =\ PBIST\_RAMT\_CONFIGVALUE;}
+\DoxyCodeLine{02199\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DLR\ =\ PBIST\_DLR\_CONFIGVALUE;}
+\DoxyCodeLine{02200\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PACT\ =\ PBIST\_PACT\_CONFIGVALUE;}
+\DoxyCodeLine{02201\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PBISTID\ =\ PBIST\_PBISTID\_CONFIGVALUE;}
+\DoxyCodeLine{02202\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_OVER\ =\ PBIST\_OVER\_CONFIGVALUE;}
+\DoxyCodeLine{02203\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FSRDL1\ =\ PBIST\_FSRDL1\_CONFIGVALUE;}
+\DoxyCodeLine{02204\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ROM\ =\ PBIST\_ROM\_CONFIGVALUE;}
+\DoxyCodeLine{02205\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ALGO\ =\ PBIST\_ALGO\_CONFIGVALUE;}
+\DoxyCodeLine{02206\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RINFOL\ =\ PBIST\_RINFOL\_CONFIGVALUE;}
+\DoxyCodeLine{02207\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RINFOU\ =\ PBIST\_RINFOU\_CONFIGVALUE;}
+\DoxyCodeLine{02208\ \ \ \ \ \}}
+\DoxyCodeLine{02209\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02210\ \ \ \ \ \{}
+\DoxyCodeLine{02211\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{02212\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMT\ =\ pbistREG-\/>RAMT;}
+\DoxyCodeLine{02213\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DLR\ =\ pbistREG-\/>DLR;}
+\DoxyCodeLine{02214\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PACT\ =\ pbistREG-\/>PACT;}
+\DoxyCodeLine{02215\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PBISTID\ =\ pbistREG-\/>PBISTID;}
+\DoxyCodeLine{02216\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_OVER\ =\ pbistREG-\/>OVER;}
+\DoxyCodeLine{02217\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FSRDL1\ =\ pbistREG-\/>FSRDL1;}
+\DoxyCodeLine{02218\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ROM\ =\ pbistREG-\/>ROM;}
+\DoxyCodeLine{02219\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ALGO\ =\ pbistREG-\/>ALGO;}
+\DoxyCodeLine{02220\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RINFOL\ =\ pbistREG-\/>RINFOL;}
+\DoxyCodeLine{02221\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RINFOU\ =\ pbistREG-\/>RINFOU;}
+\DoxyCodeLine{02222\ \ \ \ \ \}}
+\DoxyCodeLine{02223\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}\label{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistIsTestCompleted@{pbistIsTestCompleted}}
+\index{pbistIsTestCompleted@{pbistIsTestCompleted}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistIsTestCompleted()}{pbistIsTestCompleted()}}
+{\footnotesize\ttfamily boolean pbist\+Is\+Test\+Completed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks to see if the PBIST test is completed. 
+
+\begin{DoxyReturn}{Returns}
+1 if PBIST test completed, otherwise 0.
+\end{DoxyReturn}
+Checks to see if the PBIST test is completed. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00500\ \{}
+\DoxyCodeLine{00501\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (22)\ */}}
+\DoxyCodeLine{00502\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keywordflow}{return}\ ((systemREG1-\/>MSTCGSTAT\ \&\ 0x1U)\ !=\ 0U);}
+\DoxyCodeLine{00505\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (23)\ */}}
+\DoxyCodeLine{00506\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00507\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}\label{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistIsTestPassed@{pbistIsTestPassed}}
+\index{pbistIsTestPassed@{pbistIsTestPassed}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistIsTestPassed()}{pbistIsTestPassed()}}
+{\footnotesize\ttfamily boolean pbist\+Is\+Test\+Passed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks to see if the PBIST test is completed successfully. 
+
+\begin{DoxyReturn}{Returns}
+1 if PBIST test passed, otherwise 0.
+\end{DoxyReturn}
+Checks to see if the PBIST test is completed successfully. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00519\ \{}
+\DoxyCodeLine{00520\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (24)\ */}}
+\DoxyCodeLine{00521\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordtype}{boolean}\ status;}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keywordflow}{if}\ (pbistREG-\/>FSRF0\ ==\ 0U)}
+\DoxyCodeLine{00525\ \ \ \ \ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ status\ =\ TRUE;}
+\DoxyCodeLine{00527\ \ \ \ \ \}}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00529\ \ \ \ \ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ status\ =\ FALSE;}
+\DoxyCodeLine{00531\ \ \ \ \ \}}
+\DoxyCodeLine{00532\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (25)\ */}}
+\DoxyCodeLine{00533\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00535\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a3edbda42e27655bb5e9a3d067ab09caf}\label{sys__selftest_8c_a3edbda42e27655bb5e9a3d067ab09caf}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistPortTestStatus@{pbistPortTestStatus}}
+\index{pbistPortTestStatus@{pbistPortTestStatus}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistPortTestStatus()}{pbistPortTestStatus()}}
+{\footnotesize\ttfamily boolean pbist\+Port\+Test\+Status (\begin{DoxyParamCaption}\item[{uint32}]{port }\end{DoxyParamCaption})}
+
+
+
+Checks to see if the PBIST Port test is completed successfully. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port} & -\/ Select the port to get the status. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if PBIST Port test completed successfully, otherwise 0.
+\end{DoxyReturn}
+Checks to see if the selected PBIST Port test is completed successfully. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00548\ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keywordtype}{boolean}\ status;}
+\DoxyCodeLine{00550\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (26)\ */}}
+\DoxyCodeLine{00551\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ \textcolor{keywordflow}{if}(port\ ==\ (uint32)PBIST\_PORT0)}
+\DoxyCodeLine{00554\ \ \ \ \ \{}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ status\ =\ \ (pbistREG-\/>FSRF0\ ==\ 0U);}
+\DoxyCodeLine{00556\ \ \ \ \ \}}
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00558\ \ \ \ \ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \textcolor{comment}{/*\ Invalid\ Input\ */}}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ status\ =\ \ FALSE;}
+\DoxyCodeLine{00561\ \ \ \ \ \}}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \ \ \ \ \textcolor{keywordflow}{return}\ \ status;}
+\DoxyCodeLine{00564\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}\label{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistRun@{pbistRun}}
+\index{pbistRun@{pbistRun}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistRun()}{pbistRun()}}
+{\footnotesize\ttfamily void pbist\+Run (\begin{DoxyParamCaption}\item[{uint32}]{raminfoL,  }\item[{uint32}]{algomask }\end{DoxyParamCaption})}
+
+
+
+CPU self test Driver. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em raminfoL} & -\/ Select the list of RAM to be tested. \\
+\hline
+\mbox{\texttt{ in}}  & {\em algomask} & -\/ Select the list of Algorithm to be run.\\
+\hline
+\end{DoxyParams}
+This function performs Memory Built-\/in Self test using PBIST module. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00419\ \{}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i\ =\ 0U;}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (17)\ */}}
+\DoxyCodeLine{00423\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{comment}{/*\ Disable\ memory\ self\ controller\ */}}
+\DoxyCodeLine{00426\ \ \ \ \ systemREG1-\/>MSTGCR\ =\ 0x00000005U;}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Memory\ Initialization\ controller\ */}}
+\DoxyCodeLine{00429\ \ \ \ \ systemREG1-\/>MINITGCR\ =\ 0x5U;}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{comment}{/*\ Enable\ PBIST\ controller\ */}}
+\DoxyCodeLine{00432\ \ \ \ \ systemREG1-\/>MSINENA\ =\ 0x1U;}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{comment}{/*\ Enable\ memory\ self\ controller\ */}}
+\DoxyCodeLine{00435\ \ \ \ \ systemREG1-\/>MSTGCR\ =\ 0x0000000AU;}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{comment}{/*\ wait\ for\ 32\ VBUS\ clock\ cycles\ at\ least,\ based\ on\ HCLK\ to\ VCLK\ ratio\ */}}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordflow}{for}\ (i=0U;\ i<(32U\ +\ (32U\ *\ 0U));\ i++)\{\ \textcolor{comment}{/*\ Wait\ */}\ \}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (18)\ */}}
+\DoxyCodeLine{00443\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{comment}{/*\ Enable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{00446\ \ \ \ \ pbistREG-\/>PACT\ =\ 0x3U;}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{comment}{/*\ Select\ all\ algorithms\ to\ be\ tested\ */}}
+\DoxyCodeLine{00449\ \ \ \ \ pbistREG-\/>ALGO\ =\ algomask;}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{comment}{/*\ Select\ RAM\ groups\ */}}
+\DoxyCodeLine{00452\ \ \ \ \ pbistREG-\/>RINFOL\ =\ raminfoL;}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{comment}{/*\ Select\ all\ RAM\ groups\ */}}
+\DoxyCodeLine{00455\ \ \ \ \ pbistREG-\/>RINFOU\ =\ 0x00000000U;}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{comment}{/*\ ROM\ contents\ will\ not\ override\ RINFOx\ settings\ */}}
+\DoxyCodeLine{00458\ \ \ \ \ pbistREG-\/>OVER\ =\ 0x0U;}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{comment}{/*\ Algorithm\ code\ is\ loaded\ from\ ROM\ */}}
+\DoxyCodeLine{00461\ \ \ \ \ pbistREG-\/>ROM\ =\ 0x3U;}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{comment}{/*\ Start\ PBIST\ */}}
+\DoxyCodeLine{00464\ \ \ \ \ pbistREG-\/>DLR\ =\ 0x14U;}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (19)\ */}}
+\DoxyCodeLine{00467\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00468\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ac9b7e2d9da2b5166a9ea002d431e54ef}\label{sys__selftest_8c_ac9b7e2d9da2b5166a9ea002d431e54ef}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistSelfCheck@{pbistSelfCheck}}
+\index{pbistSelfCheck@{pbistSelfCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistSelfCheck()}{pbistSelfCheck()}}
+{\footnotesize\ttfamily void pbist\+Self\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+PBIST self test Driver. 
+
+This function is called to perform PBIST self test.
+
+\begin{DoxyNote}{Note}
+This Function uses register\textquotesingle{}s which are not exposed to users through TRM , to run custom algorithm to make PBIST Fail. Users can use this function as Black box. 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00312\ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i\ =\ 0U;}
+\DoxyCodeLine{00314\ \ \ \ \ uint32\ PBIST\_wait\_done\_loop\ =\ 0U;}
+\DoxyCodeLine{00315\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (13)\ */}}
+\DoxyCodeLine{00316\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{/*\ Run\ a\ diagnostic\ check\ on\ the\ memory\ self-\/test\ controller\ */}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{00320\ \ \ \ \ pbistREG-\/>PACT\ =\ 0x0U;}
+\DoxyCodeLine{00321\ \ \ \ \ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{/*\ Disable\ memory\ self\ controller\ */}}
+\DoxyCodeLine{00323\ \ \ \ \ systemREG1-\/>MSTGCR\ =\ 0x00000005U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00324\ \ \ \ \ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Memory\ Initialization\ controller\ */}}
+\DoxyCodeLine{00326\ \ \ \ \ systemREG1-\/>MINITGCR\ =\ 0x5U;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{comment}{/*\ Enable\ memory\ self\ controller\ */}}
+\DoxyCodeLine{00329\ \ \ \ \ systemREG1-\/>MSTGCR\ =\ 0x0000000AU;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{comment}{/*\ Clear\ PBIST\ Done\ */}}
+\DoxyCodeLine{00332\ \ \ \ \ systemREG1-\/>MSTCGSTAT\ =\ 0x1U;}
+\DoxyCodeLine{00333\ \ \ \ \ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{/*\ Enable\ PBIST\ controller\ */}}
+\DoxyCodeLine{00335\ \ \ \ \ systemREG1-\/>MSINENA\ =\ 0x1U;}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{comment}{/*\ wait\ for\ 32\ VBUS\ clock\ cycles\ at\ least,\ based\ on\ HCLK\ to\ VCLK\ ratio\ */}}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordflow}{for}\ (i=0U;\ i<(32U\ +\ (32U\ *\ 0U));\ i++)\{\ \textcolor{comment}{/*\ Wait\ */}\ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (14)\ */}}
+\DoxyCodeLine{00343\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{comment}{/*\ Enable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{00346\ \ \ \ \ pbistREG-\/>PACT\ =\ 0x3U;}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{comment}{/*\ CPU\ control\ of\ PBIST\ */}}
+\DoxyCodeLine{00349\ \ \ \ \ pbistREG-\/>DLR\ =\ 0x10U;}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{comment}{/*\ Custom\ always\ fail\ algo,\ this\ will\ not\ use\ the\ ROM\ and\ just\ set\ a\ fail\ */}}
+\DoxyCodeLine{00352\ \ \ \ \ pbistREG-\/>RAMT\ \ \ \ \ \ \ \ \ =\ 0x00002000U;}
+\DoxyCodeLine{00353\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE400U\ =\ 0x4C000001U;}
+\DoxyCodeLine{00354\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE440U\ =\ 0x00000075U;}
+\DoxyCodeLine{00355\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE404U\ =\ 0x4C000002U;}
+\DoxyCodeLine{00356\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE444U\ =\ 0x00000075U;}
+\DoxyCodeLine{00357\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE408U\ =\ 0x4C000003U;}
+\DoxyCodeLine{00358\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE448U\ =\ 0x00000075U;}
+\DoxyCodeLine{00359\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE40CU\ =\ 0x4C000004U;}
+\DoxyCodeLine{00360\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE44CU\ =\ 0x00000075U;}
+\DoxyCodeLine{00361\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE410U\ =\ 0x4C000005U;}
+\DoxyCodeLine{00362\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE450U\ =\ 0x00000075U;}
+\DoxyCodeLine{00363\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE414U\ =\ 0x4C000006U;}
+\DoxyCodeLine{00364\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE454U\ =\ 0x00000075U;}
+\DoxyCodeLine{00365\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE418U\ =\ 0x00000000U;}
+\DoxyCodeLine{00366\ \ \ \ \ *(\textcolor{keyword}{volatile}\ uint32\ *)0xFFFFE458U\ =\ 0x00000001U;}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{comment}{/*\ PBIST\_RUN\ */}}
+\DoxyCodeLine{00369\ \ \ \ \ pbistREG-\/>rsvd1[1U]\ \ \ \ =\ 1U;}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{comment}{/*\ wait\ until\ memory\ self-\/test\ done\ is\ indicated\ */}}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{while}\ ((systemREG1-\/>MSTCGSTAT\ \&\ 0x1U)\ !=\ 0x1U)\ }
+\DoxyCodeLine{00374\ \ \ \ \ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ PBIST\_wait\_done\_loop++;}
+\DoxyCodeLine{00376\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ the\ failure\ */}}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{if}\ ((pbistREG-\/>FSRF0\ \&\ 0x1U)\ !=\ 0x1U)}
+\DoxyCodeLine{00380\ \ \ \ \ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ No\ failure\ was\ indicated\ even\ if\ the\ always\ fail\ algorithm\ was\ run*/}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(PBISTSELFCHECK\_FAIL1);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (15)\ */}}
+\DoxyCodeLine{00385\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00386\ \ \ \ \ \}}
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00388\ \ \ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ that\ the\ algorithm\ executed\ in\ the\ expected\ amount\ of\ time.\ */}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ time\ is\ dependent\ on\ the\ ROMCLKDIV\ selected\ above\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (PBIST\_wait\_done\_loop\ >=\ 2U)}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(PBISTSELFCHECK\_FAIL2);}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ pbistREG-\/>PACT\ =\ 0x0U;}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ */}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ systemREG1-\/>MSTGCR\ \&=\ 0xFFFFFFF0U;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ systemREG1-\/>MSTGCR\ |=\ 0x5U;}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (16)\ */}}
+\DoxyCodeLine{00404\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00405\ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}\label{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!pbistStop@{pbistStop}}
+\index{pbistStop@{pbistStop}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{pbistStop()}{pbistStop()}}
+{\footnotesize\ttfamily void pbist\+Stop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to stop PBIST test enabled. 
+
+This function is called to stop PBIST after test is performed. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00479\ \{}
+\DoxyCodeLine{00480\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (20)\ */}}
+\DoxyCodeLine{00481\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00482\ \ \ \ \ \textcolor{comment}{/*\ disable\ pbist\ clocks\ and\ ROM\ clock\ */}}
+\DoxyCodeLine{00483\ \ \ \ \ pbistREG-\/>PACT\ =\ 0x0U;}
+\DoxyCodeLine{00484\ \ \ \ \ systemREG1-\/>MSTGCR\ \&=\ 0xFFFFFFF0U;}
+\DoxyCodeLine{00485\ \ \ \ \ systemREG1-\/>MSTGCR\ |=\ 0x5U;}
+\DoxyCodeLine{00486\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (21)\ */}}
+\DoxyCodeLine{00487\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00488\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}\label{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!selftestFailNotification@{selftestFailNotification}}
+\index{selftestFailNotification@{selftestFailNotification}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{selftestFailNotification()}{selftestFailNotification()}}
+{\footnotesize\ttfamily void selftest\+Fail\+Notification (\begin{DoxyParamCaption}\item[{uint32}]{flag }\end{DoxyParamCaption})}
+
+
+
+Self test fail service routine. 
+
+This function is called if there is a self test fail with appropriate flag 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (1)\ */}}
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_afb360fa06ebe94d06978d25371ed2140}\label{sys__selftest_8c_afb360fa06ebe94d06978d25371ed2140}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!stcGetConfigValue@{stcGetConfigValue}}
+\index{stcGetConfigValue@{stcGetConfigValue}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{stcGetConfigValue()}{stcGetConfigValue()}}
+{\footnotesize\ttfamily void stc\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{stc\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02240\ \{}
+\DoxyCodeLine{02241\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{02242\ \ \ \ \ \{}
+\DoxyCodeLine{02243\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCGCR0\ =\ STC\_STCGCR0\_CONFIGVALUE;}
+\DoxyCodeLine{02244\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCGCR1\ =\ STC\_STCGCR1\_CONFIGVALUE;}
+\DoxyCodeLine{02245\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCTPR\ =\ STC\_STCTPR\_CONFIGVALUE;}
+\DoxyCodeLine{02246\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCSCSCR\ =\ STC\_STCSCSCR\_CONFIGVALUE;}
+\DoxyCodeLine{02247\ \ \ \ \ \}}
+\DoxyCodeLine{02248\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02249\ \ \ \ \ \{}
+\DoxyCodeLine{02250\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{02251\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCGCR0\ =\ stcREG-\/>STCGCR0;}
+\DoxyCodeLine{02252\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCGCR1\ =\ stcREG-\/>STCGCR1;}
+\DoxyCodeLine{02253\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCTPR\ =\ stcREG-\/>STCTPR;}
+\DoxyCodeLine{02254\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCSCSCR\ =\ stcREG-\/>STCSCSCR;}
+\DoxyCodeLine{02255\ \ \ \ \ \}}
+\DoxyCodeLine{02256\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a54f7309e862bab7a63c2c176c4b7cee9}\label{sys__selftest_8c_a54f7309e862bab7a63c2c176c4b7cee9}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!stcSelfCheck@{stcSelfCheck}}
+\index{stcSelfCheck@{stcSelfCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{stcSelfCheck()}{stcSelfCheck()}}
+{\footnotesize\ttfamily void stc\+Self\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+STC module self check Driver. 
+
+This function is called to perform STC module self check. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00217\ \{}
+\DoxyCodeLine{00218\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (8)\ */}}
+\DoxyCodeLine{00219\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ i\ =\ 0U;}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{comment}{/*\ Run\ a\ diagnostic\ check\ on\ the\ CPU\ self-\/test\ controller\ */}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{/*\ First\ set\ up\ the\ STC\ clock\ divider\ as\ STC\ is\ only\ supported\ up\ to\ 90MHz\ */}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{comment}{/*\ STC\ clock\ is\ now\ normal\ mode\ CPU\ clock\ frequency/2\ =\ 180MHz/2\ */}}
+\DoxyCodeLine{00226\ \ \ \ \ systemREG2-\/>STCCLKDIV\ =\ 0x01000000U;}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{/*\ Select\ one\ test\ interval,\ restart\ self-\/test\ next\ time,\ 0x00010001\ */}}
+\DoxyCodeLine{00229\ \ \ \ \ stcREG-\/>STCGCR0\ =\ 0x00010001U;}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{/*\ Enable\ comparator\ self-\/check\ and\ stuck-\/at-\/0\ fault\ insertion\ in\ CPU,\ 0x1A\ */}}
+\DoxyCodeLine{00232\ \ \ \ \ stcREG-\/>STCSCSCR\ =\ 0x1AU;}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{comment}{/*\ Maximum\ time-\/out\ period\ */}}
+\DoxyCodeLine{00235\ \ \ \ \ stcREG-\/>STCTPR\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{/*\ wait\ for\ 16\ VBUS\ clock\ cycles\ at\ least,\ based\ on\ HCLK\ to\ VCLK\ ratio\ */}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Wait\ for\ few\ clock\ cycles\ (Value\ of\ i\ not\ used)"{}\ */}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{for}\ (i=0U;\ i<(16U\ +\ (16U\ *\ 0U));\ i++)\{\ \textcolor{comment}{/*\ Wait\ */}\ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{/*\ Enable\ self-\/test\ */}}
+\DoxyCodeLine{00243\ \ \ \ \ stcREG-\/>STCGCR1\ =\ 0xAU;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (9)\ */}}
+\DoxyCodeLine{00246\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{/*\ Idle\ the\ CPU\ so\ that\ the\ self-\/test\ can\ start\ */}}
+\DoxyCodeLine{00249\ \ \ \ \ \_gotoCPUIdle\_();}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (10)\ */}}
+\DoxyCodeLine{00252\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00253\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_a2c1518db428c8ab63a56048cadfb4e6e}\label{sys__selftest_8c_a2c1518db428c8ab63a56048cadfb4e6e}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!stcSelfCheckFail@{stcSelfCheckFail}}
+\index{stcSelfCheckFail@{stcSelfCheckFail}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{stcSelfCheckFail()}{stcSelfCheckFail()}}
+{\footnotesize\ttfamily void stc\+Self\+Check\+Fail (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+STC Self test check fail service routine. 
+
+This function is called if STC Self test check fail. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01127\ \{}
+\DoxyCodeLine{01128\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (43)\ */}}
+\DoxyCodeLine{01129\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01130\ \ \ \ \ \textcolor{comment}{/*\ CPU\ self-\/test\ controller's\ own\ self-\/test\ failed. }}
+\DoxyCodeLine{01131\ \textcolor{comment}{\ \ \ \ \ *\ It\ is\ not\ possible\ to\ verify\ that\ STC\ is\ capable\ of\ indicating\ a\ CPU\ self-\/test\ error. }}
+\DoxyCodeLine{01132\ \textcolor{comment}{\ \ \ \ \ *\ It\ is\ not\ recommended\ to\ continue\ operation. }}
+\DoxyCodeLine{01133\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{01134\ }
+\DoxyCodeLine{01135\ \ \ \ \ \textcolor{comment}{/*\ User\ can\ add\ small\ piece\ of\ code\ to\ take\ system\ to\ Safe\ state\ using\ user\ code\ section. }}
+\DoxyCodeLine{01136\ \textcolor{comment}{\ \ \ \ \ *\ Note:\ Just\ removing\ the\ for(;;)\ will\ take\ the\ system\ to\ unknown\ state\ under\ ST\ failure, }}
+\DoxyCodeLine{01137\ \textcolor{comment}{\ \ \ \ \ *\ since\ it\ is\ not\ handled\ by\ HALCoGen\ driver\ */}}
+\DoxyCodeLine{01138\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (44)\ */}}
+\DoxyCodeLine{01139\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01140\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 5\ C\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{01141\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 26\ S\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{01142\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{01143\ \ \ \ \ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{01144\ \ \ \ \ \{}
+\DoxyCodeLine{01145\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{01146\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (45)\ */}}
+\DoxyCodeLine{01147\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01148\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__selftest_8c_af7297818ebd5ffd62488091aa9633bf9}\label{sys__selftest_8c_af7297818ebd5ffd62488091aa9633bf9}} 
+\index{sys\_selftest.c@{sys\_selftest.c}!vimParityCheck@{vimParityCheck}}
+\index{vimParityCheck@{vimParityCheck}!sys\_selftest.c@{sys\_selftest.c}}
+\doxysubsubsection{\texorpdfstring{vimParityCheck()}{vimParityCheck()}}
+{\footnotesize\ttfamily void vim\+Parity\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine to check VIM RAM parity error detection and signaling mechanism. 
+
+Routine to check VIM RAM parity error detection and signaling mechanism 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01184\ \{}
+\DoxyCodeLine{01185\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ vimramread\ =\ 0U;}
+\DoxyCodeLine{01186\ \ \ \ \ uint32\ vimparctl\_bk\ =\ VIM\_PARCTL;}
+\DoxyCodeLine{01187\ }
+\DoxyCodeLine{01188\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (49)\ */}}
+\DoxyCodeLine{01189\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01190\ }
+\DoxyCodeLine{01191\ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity\ checking\ and\ parity\ test\ mode\ */}}
+\DoxyCodeLine{01192\ \ \ \ \ VIM\_PARCTL\ =\ 0x0000010AU;}
+\DoxyCodeLine{01193\ }
+\DoxyCodeLine{01194\ \ \ \ \ \textcolor{comment}{/*\ flip\ a\ bit\ in\ the\ VIM\ RAM\ parity\ location\ */}}
+\DoxyCodeLine{01195\ \ \ \ \ VIMRAMPARLOC\ \string^=\ 0x1U;}
+\DoxyCodeLine{01196\ }
+\DoxyCodeLine{01197\ \ \ \ \ \textcolor{comment}{/*\ disable\ parity\ test\ mode\ */}}
+\DoxyCodeLine{01198\ \ \ \ \ VIM\_PARCTL\ =\ 0x0000000AU;}
+\DoxyCodeLine{01199\ }
+\DoxyCodeLine{01200\ \ \ \ \ \textcolor{comment}{/*\ cause\ parity\ error\ */}}
+\DoxyCodeLine{01201\ \ \ \ \ vimramread\ =\ VIMRAMLOC;}
+\DoxyCodeLine{01202\ }
+\DoxyCodeLine{01203\ \ \ \ \ \textcolor{comment}{/*\ check\ if\ ESM\ group1\ channel\ 15\ is\ flagged\ */}}
+\DoxyCodeLine{01204\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[0U]\ \&\ 0x8000U)\ ==0U)}
+\DoxyCodeLine{01205\ \ \ \ \ \{}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ VIM\ RAM\ parity\ error\ was\ not\ flagged\ to\ ESM.\ */}}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(VIMPARITYCHECK\_FAIL1);}
+\DoxyCodeLine{01208\ \ \ \ \ \}}
+\DoxyCodeLine{01209\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01210\ \ \ \ \ \{}
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ VIM\ RAM\ parity\ error\ flag\ in\ VIM\ */}}
+\DoxyCodeLine{01212\ \ \ \ \ \ \ \ \ VIM\_PARFLG\ =\ 0x1U;}
+\DoxyCodeLine{01213\ }
+\DoxyCodeLine{01214\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ ESM\ group1\ channel\ 15\ flag\ */}}
+\DoxyCodeLine{01215\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0x8000U;}
+\DoxyCodeLine{01216\ }
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity\ checking\ and\ parity\ test\ mode\ */}}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ VIM\_PARCTL\ =\ 0x0000010AU;}
+\DoxyCodeLine{01219\ }
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Revert\ back\ to\ correct\ data,\ flip\ bit\ 0\ of\ the\ parity\ location\ */}}
+\DoxyCodeLine{01221\ \ \ \ \ \ \ \ \ VIMRAMPARLOC\ \string^=\ 0x1U;}
+\DoxyCodeLine{01222\ \ \ \ \ \}}
+\DoxyCodeLine{01223\ }
+\DoxyCodeLine{01224\ \ \ \ \ \textcolor{comment}{/*\ Restore\ Parity\ Control\ register\ */}}
+\DoxyCodeLine{01225\ \ \ \ \ VIM\_PARCTL\ =\ vimparctl\_bk;}
+\DoxyCodeLine{01226\ }
+\DoxyCodeLine{01227\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (50)\ */}}
+\DoxyCodeLine{01228\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{01229\ \}}
+
+\end{DoxyCode}

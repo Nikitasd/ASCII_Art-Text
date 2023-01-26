@@ -1,0 +1,900 @@
+\hypertarget{esm_8c}{}\doxysection{esm.\+c File Reference}
+\label{esm_8c}\index{esm.c@{esm.c}}
+
+
+Esm Driver Source File.  
+
+
+{\ttfamily \#include \char`\"{}esm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+vim.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{esm_8c_a3ebbcbb33cba761eba56edcf1aeb9961}{esm\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes Esm Driver. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{esm_8c_af9c1cb3cf58b215f603e7ada115deffb}{esm\+Error}} (void)
+\begin{DoxyCompactList}\small\item\em Return Error status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a918dbc559401efc341d6b1cc1fa5a5c2}{esm\+Enable\+Error}} (uint64 channels)
+\begin{DoxyCompactList}\small\item\em Enable Group 1 Channels Error Signals propagation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a2b2070b83e6693afda68fdb49ebccc02}{esm\+Disable\+Error}} (uint64 channels)
+\begin{DoxyCompactList}\small\item\em Disable Group 1 Channels Error Signals propagation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_aa830bed2b9fc364b96269ff0baa8c395}{esm\+Trigger\+Error\+Pin\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Trigger error pin reset and switch back to normal operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a9c80550059c5da2e680f73c5c06603b5}{esm\+Activate\+Normal\+Operation}} (void)
+\begin{DoxyCompactList}\small\item\em Activate normal operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_abac2a3061d7f581a62ed9f9ecde03108}{esm\+Enable\+Interrupt}} (uint64 channels)
+\begin{DoxyCompactList}\small\item\em Enable Group 1 Channels Interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_ae92827d82951a348b9faead01d1901d6}{esm\+Disable\+Interrupt}} (uint64 channels)
+\begin{DoxyCompactList}\small\item\em Disable Group 1 Channels Interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a5c933318570a1b946185cd09af973184}{esm\+Set\+Interrupt\+Level}} (uint64 channels, uint64 flags)
+\begin{DoxyCompactList}\small\item\em Set Group 1 Channels Interrupt Levels. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a437032c8dd6a0855da7e8102d4143a0a}{esm\+Clear\+Status}} (uint32 group, uint64 channels)
+\begin{DoxyCompactList}\small\item\em Clear Group error status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a53317b0e54932b896152a14a365a6e35}{esm\+Clear\+Status\+Buffer}} (uint64 channels)
+\begin{DoxyCompactList}\small\item\em Clear Group 2 error status buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_ac0c9d63eb56fc294c3845f53685ecf36}{esm\+Set\+Counter\+Preload\+Value}} (uint32 value)
+\begin{DoxyCompactList}\small\item\em Set counter preload value. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{esm_8c_af37af0850a7b771316d79027a2f45390}{esm\+Get\+Status}} (uint32 group, uint64 channels)
+\begin{DoxyCompactList}\small\item\em Return Error status. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{esm_8c_ace436f235f62ed75dd3c1b1374072b40}{esm\+Get\+Status\+Buffer}} (uint64 channels)
+\begin{DoxyCompactList}\small\item\em Return Group 2 channel x Error status buffer. \end{DoxyCompactList}\item 
+esm\+Self\+Test\+Flag\+\_\+t \mbox{\hyperlink{esm_8c_a8dbfefa59cdb688306a7c4b93b7c435e}{esm\+Enter\+Self\+Test}} (void)
+\begin{DoxyCompactList}\small\item\em Return ESM Self test status. \end{DoxyCompactList}\item 
+esm\+Self\+Test\+Flag\+\_\+t \mbox{\hyperlink{esm_8c_a6e558e0c5761321c3419e77642795d63}{esm\+Self\+Test\+Status}} (void)
+\begin{DoxyCompactList}\small\item\em Return ESM Self test status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a0b2e9a4b3b1e4dd57f496bda7bbb854c}{esm\+Get\+Config\+Value}} (esm\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{esm_8c_a623ee80dfdeb0dabf202441d071b2ae4}{esm\+High\+Interrupt}} (void)
+\begin{DoxyCompactList}\small\item\em High Level Interrupt for ESM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esm Driver Source File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01
+\end{DoxyVersion}
+This file contains\+:
+\begin{DoxyItemize}
+\item API Functions
+\end{DoxyItemize}which are relevant for the Esm driver. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{esm_8c_a9c80550059c5da2e680f73c5c06603b5}\label{esm_8c_a9c80550059c5da2e680f73c5c06603b5}} 
+\index{esm.c@{esm.c}!esmActivateNormalOperation@{esmActivateNormalOperation}}
+\index{esmActivateNormalOperation@{esmActivateNormalOperation}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmActivateNormalOperation()}{esmActivateNormalOperation()}}
+{\footnotesize\ttfamily void esm\+Activate\+Normal\+Operation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Activate normal operation. 
+
+Activates normal operation mode. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00415\ \{}
+\DoxyCodeLine{00416\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (13)\ */}}
+\DoxyCodeLine{00417\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \ \ esmREG-\/>EKR\ =\ 0U;}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (14)\ */}}
+\DoxyCodeLine{00422\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00423\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a437032c8dd6a0855da7e8102d4143a0a}\label{esm_8c_a437032c8dd6a0855da7e8102d4143a0a}} 
+\index{esm.c@{esm.c}!esmClearStatus@{esmClearStatus}}
+\index{esmClearStatus@{esmClearStatus}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmClearStatus()}{esmClearStatus()}}
+{\footnotesize\ttfamily void esm\+Clear\+Status (\begin{DoxyParamCaption}\item[{uint32}]{group,  }\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Clear Group error status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em group} & -\/ Error group \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask\\
+\hline
+\end{DoxyParams}
+Clear Group error status. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00511\ \{}
+\DoxyCodeLine{00512\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (21)\ */}}
+\DoxyCodeLine{00513\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ esmREG-\/>SR1[group]\ =\ (uint32)(channels\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordflow}{if}(group\ ==\ 0U)}
+\DoxyCodeLine{00517\ \ \ \ \ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ esmREG-\/>SR4[group]\ =\ (uint32)((channels\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00519\ \ \ \ \ \}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (22)\ */}}
+\DoxyCodeLine{00522\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00523\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a53317b0e54932b896152a14a365a6e35}\label{esm_8c_a53317b0e54932b896152a14a365a6e35}} 
+\index{esm.c@{esm.c}!esmClearStatusBuffer@{esmClearStatusBuffer}}
+\index{esmClearStatusBuffer@{esmClearStatusBuffer}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmClearStatusBuffer()}{esmClearStatusBuffer()}}
+{\footnotesize\ttfamily void esm\+Clear\+Status\+Buffer (\begin{DoxyParamCaption}\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Clear Group 2 error status buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask\\
+\hline
+\end{DoxyParams}
+Clear Group 2 error status buffer. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00537\ \{}
+\DoxyCodeLine{00538\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (23)\ */}}
+\DoxyCodeLine{00539\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ \ \ \ \ esmREG-\/>SSR2\ =\ (uint32)(channels\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (24)\ */}}
+\DoxyCodeLine{00544\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00545\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a2b2070b83e6693afda68fdb49ebccc02}\label{esm_8c_a2b2070b83e6693afda68fdb49ebccc02}} 
+\index{esm.c@{esm.c}!esmDisableError@{esmDisableError}}
+\index{esmDisableError@{esmDisableError}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmDisableError()}{esmDisableError()}}
+{\footnotesize\ttfamily void esm\+Disable\+Error (\begin{DoxyParamCaption}\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Disable Group 1 Channels Error Signals propagation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask\\
+\hline
+\end{DoxyParams}
+Disable Group 1 Channels Error Signals propagation to the error pin. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00374\ \{}
+\DoxyCodeLine{00375\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (9)\ */}}
+\DoxyCodeLine{00376\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ esmREG-\/>IEPCR4\ =\ (uint32)((channels\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00379\ \ \ \ \ esmREG-\/>DEPAPR1\ =\ (uint32)(channels\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (10)\ */}}
+\DoxyCodeLine{00382\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00383\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_ae92827d82951a348b9faead01d1901d6}\label{esm_8c_ae92827d82951a348b9faead01d1901d6}} 
+\index{esm.c@{esm.c}!esmDisableInterrupt@{esmDisableInterrupt}}
+\index{esmDisableInterrupt@{esmDisableInterrupt}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmDisableInterrupt()}{esmDisableInterrupt()}}
+{\footnotesize\ttfamily void esm\+Disable\+Interrupt (\begin{DoxyParamCaption}\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Disable Group 1 Channels Interrupts. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask\\
+\hline
+\end{DoxyParams}
+Disable Group 1 Channels Interrupts. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00460\ \{}
+\DoxyCodeLine{00461\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (17)\ */}}
+\DoxyCodeLine{00462\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ esmREG-\/>IECR4\ =\ (uint32)((channels\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00465\ \ \ \ \ esmREG-\/>IECR1\ =\ (uint32)(channels\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (18)\ */}}
+\DoxyCodeLine{00468\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00469\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a918dbc559401efc341d6b1cc1fa5a5c2}\label{esm_8c_a918dbc559401efc341d6b1cc1fa5a5c2}} 
+\index{esm.c@{esm.c}!esmEnableError@{esmEnableError}}
+\index{esmEnableError@{esmEnableError}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmEnableError()}{esmEnableError()}}
+{\footnotesize\ttfamily void esm\+Enable\+Error (\begin{DoxyParamCaption}\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Enable Group 1 Channels Error Signals propagation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask\\
+\hline
+\end{DoxyParams}
+Enable Group 1 Channels Error Signals propagation to the error pin. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00351\ \{}
+\DoxyCodeLine{00352\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (7)\ */}}
+\DoxyCodeLine{00353\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ esmREG-\/>IEPSR4\ =\ (uint32)((channels\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00356\ \ \ \ \ esmREG-\/>EEPAPR1\ =\ (uint32)(channels\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (8)\ */}}
+\DoxyCodeLine{00359\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00360\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_abac2a3061d7f581a62ed9f9ecde03108}\label{esm_8c_abac2a3061d7f581a62ed9f9ecde03108}} 
+\index{esm.c@{esm.c}!esmEnableInterrupt@{esmEnableInterrupt}}
+\index{esmEnableInterrupt@{esmEnableInterrupt}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmEnableInterrupt()}{esmEnableInterrupt()}}
+{\footnotesize\ttfamily void esm\+Enable\+Interrupt (\begin{DoxyParamCaption}\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Enable Group 1 Channels Interrupts. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask\\
+\hline
+\end{DoxyParams}
+Enable Group 1 Channels Interrupts. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00437\ \{}
+\DoxyCodeLine{00438\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (15)\ */}}
+\DoxyCodeLine{00439\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ esmREG-\/>IESR4\ =\ (uint32)((channels\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00442\ \ \ \ \ esmREG-\/>IESR1\ =\ (uint32)(channels\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (16)\ */}}
+\DoxyCodeLine{00445\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00446\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a8dbfefa59cdb688306a7c4b93b7c435e}\label{esm_8c_a8dbfefa59cdb688306a7c4b93b7c435e}} 
+\index{esm.c@{esm.c}!esmEnterSelfTest@{esmEnterSelfTest}}
+\index{esmEnterSelfTest@{esmEnterSelfTest}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmEnterSelfTest()}{esmEnterSelfTest()}}
+{\footnotesize\ttfamily esm\+Self\+Test\+Flag\+\_\+t esm\+Enter\+Self\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return ESM Self test status. 
+
+\begin{DoxyReturn}{Returns}
+ESM Self test status
+\end{DoxyReturn}
+Returns the ESM Self test status. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00645\ \{}
+\DoxyCodeLine{00646\ \ \ \ \ esmSelfTestFlag\_t\ status;}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (31)\ */}}
+\DoxyCodeLine{00649\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ uint32\ errPinStat\ =\ esmREG-\/>EPSR\ \&\ 0x1U;}
+\DoxyCodeLine{00652\ \ \ \ \ uint32\ esmKeyReg\ \ =\ esmREG-\/>EKR;}
+\DoxyCodeLine{00653\ \ \ \ \ \textcolor{keywordflow}{if}((errPinStat\ ==\ 0x0U)\ \&\&\ (esmKeyReg\ ==\ 0x0U))}
+\DoxyCodeLine{00654\ \ \ \ \ \{}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ status\ =\ esmSelfTest\_NotStarted;}
+\DoxyCodeLine{00656\ \ \ \ \ \}}
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00658\ \ \ \ \ \{}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0xAU;}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ status\ =\ esmSelfTest\_Active;}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>EPSR\ \&\ 0x1U)\ !=\ 0x0U)}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ status\ =\ esmSelfTest\_Failed;}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x5U;}
+\DoxyCodeLine{00666\ \ \ \ \ \}}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (32)\ */}}
+\DoxyCodeLine{00669\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00671\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00672\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_af9c1cb3cf58b215f603e7ada115deffb}\label{esm_8c_af9c1cb3cf58b215f603e7ada115deffb}} 
+\index{esm.c@{esm.c}!esmError@{esmError}}
+\index{esmError@{esmError}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmError()}{esmError()}}
+{\footnotesize\ttfamily uint32 esm\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return Error status. 
+
+\begin{DoxyReturn}{Returns}
+The error status
+\end{DoxyReturn}
+Returns the error status. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00325\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ uint32\ status;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (5)\ */}}
+\DoxyCodeLine{00329\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ status\ =\ esmREG-\/>EPSR;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (6)\ */}}
+\DoxyCodeLine{00334\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00337\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a0b2e9a4b3b1e4dd57f496bda7bbb854c}\label{esm_8c_a0b2e9a4b3b1e4dd57f496bda7bbb854c}} 
+\index{esm.c@{esm.c}!esmGetConfigValue@{esmGetConfigValue}}
+\index{esmGetConfigValue@{esmGetConfigValue}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmGetConfigValue()}{esmGetConfigValue()}}
+{\footnotesize\ttfamily void esm\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{esm\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00730\ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00732\ \ \ \ \ \{}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_EEPAPR1\ =\ ESM\_EEPAPR1\_CONFIGVALUE;}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_IESR1\ =\ ESM\_IESR1\_CONFIGVALUE;}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ILSR1\ =\ ESM\_ILSR1\_CONFIGVALUE;}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_LTCPR\ =\ ESM\_LTCPR\_CONFIGVALUE;}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_EKR\ =\ ESM\_EKR\_CONFIGVALUE;\ \ }
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_IEPSR4\ =\ ESM\_IEPSR4\_CONFIGVALUE;}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_IESR4\ =\ ESM\_IESR4\_CONFIGVALUE;}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ILSR4\ =\ ESM\_ILSR4\_CONFIGVALUE;}
+\DoxyCodeLine{00741\ \ \ \ \ \}}
+\DoxyCodeLine{00742\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00743\ \ \ \ \ \{}
+\DoxyCodeLine{00744\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_EEPAPR1\ =\ esmREG-\/>EEPAPR1;}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_IESR1\ =\ esmREG-\/>IESR1;}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ILSR1\ =\ esmREG-\/>ILSR1;}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_LTCPR\ =\ esmREG-\/>LTCPR;}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_EKR\ =\ esmREG-\/>EKR;\ \ }
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_IEPSR4\ =\ esmREG-\/>IEPSR4;}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_IESR4\ =\ esmREG-\/>IESR4;}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ILSR4\ =\ esmREG-\/>ILSR4;}
+\DoxyCodeLine{00753\ \ \ \ \ \}}
+\DoxyCodeLine{00754\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_af37af0850a7b771316d79027a2f45390}\label{esm_8c_af37af0850a7b771316d79027a2f45390}} 
+\index{esm.c@{esm.c}!esmGetStatus@{esmGetStatus}}
+\index{esmGetStatus@{esmGetStatus}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmGetStatus()}{esmGetStatus()}}
+{\footnotesize\ttfamily uint64 esm\+Get\+Status (\begin{DoxyParamCaption}\item[{uint32}]{group,  }\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Return Error status. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em group} & -\/ Error group \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Error Channels\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The channels status of selected group
+\end{DoxyReturn}
+Returns the channels status of selected group. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00584\ \{}
+\DoxyCodeLine{00585\ \ \ \ \ uint64\ status;}
+\DoxyCodeLine{00586\ \ \ \ \ uint32\ ESM\_ESTATUS4,\ ESM\_ESTATUS1;}
+\DoxyCodeLine{00587\ \ \ \ \ \textcolor{keywordflow}{if}(group\ ==\ 0U)}
+\DoxyCodeLine{00588\ \ \ \ \ \{}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ ESM\_ESTATUS4\ =\ esmREG-\/>SR4[group];}
+\DoxyCodeLine{00590\ \ \ \ \ \}}
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00592\ \ \ \ \ \{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ ESM\_ESTATUS4\ =\ 0U;}
+\DoxyCodeLine{00594\ \ \ \ \ \}}
+\DoxyCodeLine{00595\ \ \ \ \ ESM\_ESTATUS1\ =\ esmREG-\/>SR1[group];}
+\DoxyCodeLine{00596\ }
+\DoxyCodeLine{00597\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (27)\ */}}
+\DoxyCodeLine{00598\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00599\ \ \ \ \ status\ =\ (((uint64)(ESM\_ESTATUS4)\ <<\ 32U)\ |\ (uint64)ESM\_ESTATUS1)\ \&\ channels;}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (28)\ */}}
+\DoxyCodeLine{00602\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00605\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_ace436f235f62ed75dd3c1b1374072b40}\label{esm_8c_ace436f235f62ed75dd3c1b1374072b40}} 
+\index{esm.c@{esm.c}!esmGetStatusBuffer@{esmGetStatusBuffer}}
+\index{esmGetStatusBuffer@{esmGetStatusBuffer}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmGetStatusBuffer()}{esmGetStatusBuffer()}}
+{\footnotesize\ttfamily uint64 esm\+Get\+Status\+Buffer (\begin{DoxyParamCaption}\item[{uint64}]{channels }\end{DoxyParamCaption})}
+
+
+
+Return Group 2 channel x Error status buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Error Channels\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The channels status
+\end{DoxyReturn}
+Returns the group 2 buffered status of selected channels. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00621\ \{}
+\DoxyCodeLine{00622\ \ \ \ \ uint64\ status;}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00625\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00626\ \ \ \ \ status\ =\ ((uint64)esmREG-\/>SSR2)\ \&\ channels;}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (30)\ */}}
+\DoxyCodeLine{00629\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00632\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a623ee80dfdeb0dabf202441d071b2ae4}\label{esm_8c_a623ee80dfdeb0dabf202441d071b2ae4}} 
+\index{esm.c@{esm.c}!esmHighInterrupt@{esmHighInterrupt}}
+\index{esmHighInterrupt@{esmHighInterrupt}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmHighInterrupt()}{esmHighInterrupt()}}
+{\footnotesize\ttfamily void esm\+High\+Interrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+High Level Interrupt for ESM. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00768\ \{}
+\DoxyCodeLine{00769\ \ \ \ \ uint32\ vec\ =\ esmREG-\/>IOFFHR\ -\/\ 1U;}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (36)\ */}}
+\DoxyCodeLine{00772\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \textcolor{keywordflow}{if}\ (vec\ <\ 32U)}
+\DoxyCodeLine{00775\ \ \ \ \ \{}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ (uint32)1U\ <<\ vec;}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ esmGroup1Notification(vec);}
+\DoxyCodeLine{00778\ \ \ \ \ \}}
+\DoxyCodeLine{00779\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vec\ <\ 64U)}
+\DoxyCodeLine{00780\ \ \ \ \ \{}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ =\ (uint32)1U\ <<\ (vec-\/32U);}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ esmGroup2Notification(vec-\/32U);}
+\DoxyCodeLine{00783\ \ \ \ \ \}}
+\DoxyCodeLine{00784\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vec\ <\ 96U)}
+\DoxyCodeLine{00785\ \ \ \ \ \{}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ (uint32)1U\ <<\ (vec-\/64U);}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ esmGroup1Notification(vec-\/32U);}
+\DoxyCodeLine{00788\ \ \ \ \ \}}
+\DoxyCodeLine{00789\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00790\ \ \ \ \ \{}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[1U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00794\ \ \ \ \ \}}
+\DoxyCodeLine{00795\ }
+\DoxyCodeLine{00796\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (37)\ */}}
+\DoxyCodeLine{00797\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00798\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a3ebbcbb33cba761eba56edcf1aeb9961}\label{esm_8c_a3ebbcbb33cba761eba56edcf1aeb9961}} 
+\index{esm.c@{esm.c}!esmInit@{esmInit}}
+\index{esmInit@{esmInit}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmInit()}{esmInit()}}
+{\footnotesize\ttfamily void esm\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes Esm Driver. 
+
+This function initializes the Esm driver. 
+\begin{DoxyItemize}
+\item Disable error pin channels
+\item Disable interrupts
+\item Clear error status flags
+\item Setup LPC preload
+\item Reset error pin
+\item Clear interrupt level
+\item Set interrupt level
+\item Enable error pin channels
+\item Enable interrupts
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00074\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \ \ esmREG-\/>DEPAPR1\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00078\ \ \ \ \ esmREG-\/>IEPCR4\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00081\ \ \ \ \ esmREG-\/>IECR1\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00082\ \ \ \ \ esmREG-\/>IECR4\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ \ \ \ \ esmREG-\/>SR1[0U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00086\ \ \ \ \ esmREG-\/>SR1[1U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00087\ \ \ \ \ esmREG-\/>SSR2\ \ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00088\ \ \ \ \ esmREG-\/>SR1[2U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00089\ \ \ \ \ esmREG-\/>SR4[0U]\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00092\ \ \ \ \ esmREG-\/>LTCPR\ =\ 16384U\ -\/\ 1U;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (esmREG-\/>EPSR\ ==\ 0U)}
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x00000005U;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ esmREG-\/>EKR\ =\ 0x00000000U;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \ \ esmREG-\/>ILCR1\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00106\ \ \ \ \ esmREG-\/>ILCR4\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00109\ \ \ \ \ esmREG-\/>ILSR1\ =\ (uint32)((uint32)0U\ <<\ 31U)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 9U)}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 8U)}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 7U)}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 6U)}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 5U)}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 4U)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 3U)}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 2U)}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 1U)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 0U);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ esmREG-\/>ILSR4\ =\ (uint32)((uint32)0U\ <<\ 31U)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 9U)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 8U)}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 7U)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 6U)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 5U)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 4U)}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 3U)}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 2U)}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 1U)}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 0U);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00176\ \ \ \ \ esmREG-\/>EEPAPR1\ =\ (uint32)((uint32)0U\ <<\ 31U)}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 9U)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 8U)}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 7U)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 6U)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 5U)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 4U)}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 3U)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 2U)}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 1U)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 0U);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ esmREG-\/>IEPSR4\ =\ (uint32)((uint32)0U\ <<\ 31U)}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 9U)}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 8U)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 7U)}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 6U)}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 5U)}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 4U)}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 3U)}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 2U)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 1U)}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 0U);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00243\ \ \ \ \ esmREG-\/>IESR1\ =\ (uint32)((uint32)0U\ <<\ 31U)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 9U)}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 8U)}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 7U)}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 6U)}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 5U)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 4U)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 3U)}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 2U)}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 1U)}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 0U);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ esmREG-\/>IESR4\ =\ (uint32)((uint32)0U\ <<\ 31U)}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 30U)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 29U)}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 28U)}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 27U)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 26U)}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 22U)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 21U)}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 20U)}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 19U)}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 18U)}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 17U)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 13U)}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 12U)}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 9U)}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 8U)}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 7U)}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 6U)}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 5U)}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 4U)}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 3U)}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 2U)}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 1U)}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ \ 0U);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (4)\ */}}
+\DoxyCodeLine{00310\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00311\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a6e558e0c5761321c3419e77642795d63}\label{esm_8c_a6e558e0c5761321c3419e77642795d63}} 
+\index{esm.c@{esm.c}!esmSelfTestStatus@{esmSelfTestStatus}}
+\index{esmSelfTestStatus@{esmSelfTestStatus}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmSelfTestStatus()}{esmSelfTestStatus()}}
+{\footnotesize\ttfamily esm\+Self\+Test\+Flag\+\_\+t esm\+Self\+Test\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return ESM Self test status. 
+
+Returns the ESM Self test status. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00683\ \{}
+\DoxyCodeLine{00684\ \ \ \ \ esmSelfTestFlag\_t\ status;}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (33)\ */}}
+\DoxyCodeLine{00687\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ \ \ \ \ \textcolor{keywordflow}{if}((esmREG-\/>EPSR\ \&\ 0x1U)\ ==\ 0x0U)\ }
+\DoxyCodeLine{00690\ \ \ \ \ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(esmREG-\/>EKR\ ==\ 0x5U)}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ status\ =\ esmSelfTest\_Active;}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ status\ =\ esmSelfTest\_Failed;}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00699\ \ \ \ \ \}}
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00701\ \ \ \ \ \{}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ status\ =\ esmSelfTest\_Passed;}
+\DoxyCodeLine{00703\ \ \ \ \ \}}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00705\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (34)\ */}}
+\DoxyCodeLine{00706\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00709\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_ac0c9d63eb56fc294c3845f53685ecf36}\label{esm_8c_ac0c9d63eb56fc294c3845f53685ecf36}} 
+\index{esm.c@{esm.c}!esmSetCounterPreloadValue@{esmSetCounterPreloadValue}}
+\index{esmSetCounterPreloadValue@{esmSetCounterPreloadValue}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmSetCounterPreloadValue()}{esmSetCounterPreloadValue()}}
+{\footnotesize\ttfamily void esm\+Set\+Counter\+Preload\+Value (\begin{DoxyParamCaption}\item[{uint32}]{value }\end{DoxyParamCaption})}
+
+
+
+Set counter preload value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & -\/ Counter preload value\\
+\hline
+\end{DoxyParams}
+Set counter preload value. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00559\ \{}
+\DoxyCodeLine{00560\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (25)\ */}}
+\DoxyCodeLine{00561\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \ \ \ \ esmREG-\/>LTCPR\ =\ value\ \&\ 0xC000U;}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (26)\ */}}
+\DoxyCodeLine{00566\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00567\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_a5c933318570a1b946185cd09af973184}\label{esm_8c_a5c933318570a1b946185cd09af973184}} 
+\index{esm.c@{esm.c}!esmSetInterruptLevel@{esmSetInterruptLevel}}
+\index{esmSetInterruptLevel@{esmSetInterruptLevel}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmSetInterruptLevel()}{esmSetInterruptLevel()}}
+{\footnotesize\ttfamily void esm\+Set\+Interrupt\+Level (\begin{DoxyParamCaption}\item[{uint64}]{channels,  }\item[{uint64}]{flags }\end{DoxyParamCaption})}
+
+
+
+Set Group 1 Channels Interrupt Levels. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em channels} & -\/ Channel mask \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & -\/ Level mask\+: -\/ 0\+: Low priority interrupt
+\begin{DoxyItemize}
+\item 1\+: High priority interrupt
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+Set Group 1 Channels Interrupts levels. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00485\ \{}
+\DoxyCodeLine{00486\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (19)\ */}}
+\DoxyCodeLine{00487\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ esmREG-\/>ILCR4\ =\ (uint32)(((channels\ \&\ (\string~flags))\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00490\ \ \ \ \ esmREG-\/>ILSR4\ =\ (uint32)(((channels\ \&\ flags)\ >>\ 32U)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00491\ \ \ \ \ esmREG-\/>ILCR1\ =\ (uint32)((channels\ \&\ (\string~flags))\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00492\ \ \ \ \ esmREG-\/>ILSR1\ =\ (uint32)((channels\ \&\ flags)\ \&\ 0xFFFFFFFFU);}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (20)\ */}}
+\DoxyCodeLine{00495\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00496\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{esm_8c_aa830bed2b9fc364b96269ff0baa8c395}\label{esm_8c_aa830bed2b9fc364b96269ff0baa8c395}} 
+\index{esm.c@{esm.c}!esmTriggerErrorPinReset@{esmTriggerErrorPinReset}}
+\index{esmTriggerErrorPinReset@{esmTriggerErrorPinReset}!esm.c@{esm.c}}
+\doxysubsubsection{\texorpdfstring{esmTriggerErrorPinReset()}{esmTriggerErrorPinReset()}}
+{\footnotesize\ttfamily void esm\+Trigger\+Error\+Pin\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Trigger error pin reset and switch back to normal operation. 
+
+Trigger error pin reset and switch back to normal operation. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00395\ \{}
+\DoxyCodeLine{00396\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (11)\ */}}
+\DoxyCodeLine{00397\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ esmREG-\/>EKR\ =\ 5U;}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (12)\ */}}
+\DoxyCodeLine{00402\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00403\ \}}
+
+\end{DoxyCode}

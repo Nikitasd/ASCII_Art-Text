@@ -1,0 +1,275 @@
+\hypertarget{errata___s_s_w_f021__45_8c}{}\doxysection{errata\+\_\+\+SSWF021\+\_\+45.\+c File Reference}
+\label{errata___s_s_w_f021__45_8c}\index{errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}}
+
+
+errata for PLLs  
+
+
+{\ttfamily \#include \char`\"{}errata\+\_\+\+SSWF021\+\_\+45\+\_\+defs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}errata\+\_\+\+SSWF021\+\_\+45.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32 \mbox{\hyperlink{errata___s_s_w_f021__45_8c_a65f41e6db5a56ece93889c1e7cd38608}{\+\_\+errata\+\_\+\+SSWF021\+\_\+45\+\_\+both\+\_\+plls}} (uint32 count)
+\begin{DoxyCompactList}\small\item\em This handles the errata for PLL1 and PLL2. This function is called in device startup. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{errata___s_s_w_f021__45_8c_af60adf7f2da8747f0b818985e0114fdf}{\+\_\+errata\+\_\+\+SSWF021\+\_\+45\+\_\+pll1}} (uint32 count)
+\begin{DoxyCompactList}\small\item\em This handles the errata for PLL1. This function is called in device startup. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{errata___s_s_w_f021__45_8c_adf66e0e8c4b57050667fc6084a4ce4c4}{\+\_\+errata\+\_\+\+SSWF021\+\_\+45\+\_\+pll2}} (uint32 count)
+\begin{DoxyCompactList}\small\item\em This handles the errata for PLL2. This function is called in device startup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+errata for PLLs 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{errata___s_s_w_f021__45_8c_a65f41e6db5a56ece93889c1e7cd38608}\label{errata___s_s_w_f021__45_8c_a65f41e6db5a56ece93889c1e7cd38608}} 
+\index{errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}!\_errata\_SSWF021\_45\_both\_plls@{\_errata\_SSWF021\_45\_both\_plls}}
+\index{\_errata\_SSWF021\_45\_both\_plls@{\_errata\_SSWF021\_45\_both\_plls}!errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}}
+\doxysubsubsection{\texorpdfstring{\_errata\_SSWF021\_45\_both\_plls()}{\_errata\_SSWF021\_45\_both\_plls()}}
+{\footnotesize\ttfamily uint32 \+\_\+errata\+\_\+\+SSWF021\+\_\+45\+\_\+both\+\_\+plls (\begin{DoxyParamCaption}\item[{uint32}]{count }\end{DoxyParamCaption})}
+
+
+
+This handles the errata for PLL1 and PLL2. This function is called in device startup. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em count} & \+: Number of retries until both PLLs are locked successfully Minimum value recommended is 5\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 = Success (the PLL or both PLLs have successfully locked and then been disabled) 1 = PLL1 failed to successfully lock in \char`\"{}count\char`\"{} tries 2 = PLL2 failed to successfully lock in \char`\"{}count\char`\"{} tries 3 = Neither PLL1 nor PLL2 successfully locked in \char`\"{}count\char`\"{} tries 4 = The workaround function was not able to disable at least one of the PLLs. The most likely reason is that a PLL is already being used as a clock source. This can be caused by the workaround function being called from the wrong place in the code. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ uint32\ failCode,retries,clkCntlSav;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{/*\ save\ CLKCNTL\ */}}
+\DoxyCodeLine{00064\ \ \ \ \ clkCntlSav\ =\ systemREG1-\/>CLKCNTL;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{/*\ First\ set\ VCLK2\ =\ HCLK\ */}\ }
+\DoxyCodeLine{00066\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ clkCntlSav\ \&\ 0x000F0100U;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{/*\ Now\ set\ VCLK\ =\ HCLK\ and\ enable\ peripherals\ */}}
+\DoxyCodeLine{00068\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ SYS\_CLKCNTRL\_PENA;}
+\DoxyCodeLine{00069\ \ \ \ \ failCode\ =\ 0U;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{for}(retries\ =\ 0U;(retries\ <\ count);retries++)}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ failCode\ =\ 0U;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PLL1\ and\ PLL2\ */}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ failCode\ =\ disable\_plls(SYS\_CLKSRC\_PLL1\ |\ SYS\_CLKSRC\_PLL2);\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(failCode\ !=\ 0U)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ Global\ Status\ Register\ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ systemREG1-\/>GBLSTAT\ =\ 0x00000301U;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ ESM\ PLL\ slip\ flags\ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ ESM\_SR1\_PLL1SLIP;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ ESM\_SR4\_PLL2SLIP;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ both\ PLLs\ to\ OSCIN/1*27/(2*1)\ */}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ systemREG1-\/>PLLCTL1\ =\ 0x20001A00U;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ systemREG1-\/>PLLCTL2\ =\ 0x3FC0723DU;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ systemREG2-\/>PLLCTL3\ =\ 0x20001A00U;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ systemREG1-\/>CSDISCLR\ =\ \ \ \ SYS\_CLKSRC\_PLL1\ |\ SYS\_CLKSRC\_PLL2;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ (PLL1\ valid\ or\ PLL1\ slip)\ and\ (PLL2\ valid\ or\ PLL2\ slip)\ */}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ \ ((((systemREG1-\/>CSVSTAT\ \&\ SYS\_CLKSRC\_PLL1)\ ==\ 0U)\ \&\&\ ((esmREG-\/>SR1[0U]\ \&\ ESM\_SR1\_PLL1SLIP)\ ==\ 0U))\ ||}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((systemREG1-\/>CSVSTAT\ \&\ SYS\_CLKSRC\_PLL2)\ ==\ 0U)\ \&\&\ ((esmREG-\/>SR4[0U]\ \&\ ESM\_SR4\_PLL2SLIP)\ ==\ 0U)))}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ PLL1\ valid,\ check\ the\ frequency\ */}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((esmREG-\/>SR1[0U]\ \&\ ESM\_SR1\_PLL1SLIP)\ !=\ 0U)\ ||\ ((systemREG1-\/>GBLSTAT\ \&\ 0x00000300U)\ !=\ 0U))}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ 1U;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ check\_frequency(dcc1CNT1\_CLKSRC\_PLL1);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ PLL2\ valid,\ check\ the\ frequency\ */}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((esmREG-\/>SR4[0U]\ \&\ ESM\_SR4\_PLL2SLIP)\ !=\ 0U)\ ||\ ((systemREG1-\/>GBLSTAT\ \&\ 0x00000300U)\ !=\ 0U))}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ 2U;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ (check\_frequency(dcc1CNT1\_CLKSRC\_PLL2)\ <<\ 1U);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (failCode\ ==\ 0U)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{/*\ To\ avoid\ MISRA\ violation\ 382S\  }}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ \ \ \ (void)missing\ for\ discarded\ return\ value\ */}\ \ }
+\DoxyCodeLine{00121\ \ \ \ \ failCode\ =\ disable\_plls(SYS\_CLKSRC\_PLL1\ |\ SYS\_CLKSRC\_PLL2);}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{/*\ restore\ CLKCNTL,\ VCLKR\ and\ PENA\ first\ */}}
+\DoxyCodeLine{00123\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ (clkCntlSav\ \&\ 0x000F0100U);}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{/*\ restore\ CLKCNTL,\ VCLK2R\ */}}
+\DoxyCodeLine{00125\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ clkCntlSav;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ failCode;}
+\DoxyCodeLine{00127\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{errata___s_s_w_f021__45_8c_af60adf7f2da8747f0b818985e0114fdf}\label{errata___s_s_w_f021__45_8c_af60adf7f2da8747f0b818985e0114fdf}} 
+\index{errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}!\_errata\_SSWF021\_45\_pll1@{\_errata\_SSWF021\_45\_pll1}}
+\index{\_errata\_SSWF021\_45\_pll1@{\_errata\_SSWF021\_45\_pll1}!errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}}
+\doxysubsubsection{\texorpdfstring{\_errata\_SSWF021\_45\_pll1()}{\_errata\_SSWF021\_45\_pll1()}}
+{\footnotesize\ttfamily uint32 \+\_\+errata\+\_\+\+SSWF021\+\_\+45\+\_\+pll1 (\begin{DoxyParamCaption}\item[{uint32}]{count }\end{DoxyParamCaption})}
+
+
+
+This handles the errata for PLL1. This function is called in device startup. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em count} & \+: Number of retries until both PLL1 is locked successfully Minimum value recommended is 5\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 = Success (the PLL or both PLLs have successfully locked and then been disabled) 1 = PLL1 failed to successfully lock in \char`\"{}count\char`\"{} tries 2 = PLL2 failed to successfully lock in \char`\"{}count\char`\"{} tries 3 = Neither PLL1 nor PLL2 successfully locked in \char`\"{}count\char`\"{} tries 4 = The workaround function was not able to disable at least one of the PLLs. The most likely reason is that a PLL is already being used as a clock source. This can be caused by the workaround function being called from the wrong place in the code. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ uint32\ failCode,retries,clkCntlSav;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{/*\ save\ CLKCNTL\ */}}
+\DoxyCodeLine{00146\ \ \ \ \ clkCntlSav\ =\ systemREG1-\/>CLKCNTL;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{/*\ First\ set\ VCLK2\ =\ HCLK\ */}\ }
+\DoxyCodeLine{00148\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ clkCntlSav\ \&\ 0x000F0100U;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{/*\ Now\ set\ VCLK\ =\ HCLK\ and\ enable\ peripherals\ */}}
+\DoxyCodeLine{00150\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ SYS\_CLKCNTRL\_PENA;}
+\DoxyCodeLine{00151\ \ \ \ \ failCode\ =\ 0U;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{for}(retries\ =\ 0U;(retries\ <\ count);retries++)}
+\DoxyCodeLine{00153\ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ failCode\ =\ 0U;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PLL1\ */}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ failCode\ =\ disable\_plls(SYS\_CLKSRC\_PLL1);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(failCode\ !=\ 0U)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ Global\ Status\ Register\ */}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ systemREG1-\/>GBLSTAT\ =\ 0x00000301U;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ ESM\ PLL\ slip\ flags\ */}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ esmREG-\/>SR1[0U]\ =\ ESM\_SR1\_PLL1SLIP;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ \ PLL1\ to\ OSCIN/1*27/(2*1)\ */}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ systemREG1-\/>PLLCTL1\ =\ 0x20001A00U;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ systemREG1-\/>PLLCTL2\ =\ 0x3FC0723DU;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ systemREG1-\/>CSDISCLR\ =\ \ \ \ SYS\_CLKSRC\_PLL1;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ PLL1\ valid\ or\ PLL1\ slip*/}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(((systemREG1-\/>CSVSTAT\ \&\ SYS\_CLKSRC\_PLL1)\ ==\ 0U)\ \&\&\ ((esmREG-\/>SR1[0U]\ \&\ ESM\_SR1\_PLL1SLIP)\ ==\ 0U))}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ PLL1\ valid,\ check\ the\ frequency\ */}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((esmREG-\/>SR1[0U]\ \&\ ESM\_SR1\_PLL1SLIP)\ !=\ 0U)\ ||\ ((systemREG1-\/>GBLSTAT\ \&\ 0x00000300U)\ !=\ 0U))}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ 1U;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ check\_frequency(dcc1CNT1\_CLKSRC\_PLL1);}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (failCode\ ==\ 0U)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{comment}{/*\ To\ avoid\ MISRA\ violation\ 382S\  }}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ \ \ (void)missing\ for\ discarded\ return\ value\ */}\ \ }
+\DoxyCodeLine{00191\ \ \ \ \ failCode\ =\ disable\_plls(SYS\_CLKSRC\_PLL1);}
+\DoxyCodeLine{00192\ \ \ \ \ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{/*\ restore\ CLKCNTL,\ VCLKR\ and\ PENA\ first\ */}}
+\DoxyCodeLine{00194\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ (clkCntlSav\ \&\ 0x000F0100U);}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{/*\ restore\ CLKCNTL,\ VCLK2R\ */}}
+\DoxyCodeLine{00196\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ clkCntlSav;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{return}\ failCode;}
+\DoxyCodeLine{00198\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{errata___s_s_w_f021__45_8c_adf66e0e8c4b57050667fc6084a4ce4c4}\label{errata___s_s_w_f021__45_8c_adf66e0e8c4b57050667fc6084a4ce4c4}} 
+\index{errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}!\_errata\_SSWF021\_45\_pll2@{\_errata\_SSWF021\_45\_pll2}}
+\index{\_errata\_SSWF021\_45\_pll2@{\_errata\_SSWF021\_45\_pll2}!errata\_SSWF021\_45.c@{errata\_SSWF021\_45.c}}
+\doxysubsubsection{\texorpdfstring{\_errata\_SSWF021\_45\_pll2()}{\_errata\_SSWF021\_45\_pll2()}}
+{\footnotesize\ttfamily uint32 \+\_\+errata\+\_\+\+SSWF021\+\_\+45\+\_\+pll2 (\begin{DoxyParamCaption}\item[{uint32}]{count }\end{DoxyParamCaption})}
+
+
+
+This handles the errata for PLL2. This function is called in device startup. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em count} & \+: Number of retries until PLL2 is locked successfully Minimum value recommended is 5\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 = Success (the PLL or both PLLs have successfully locked and then been disabled) 1 = PLL1 failed to successfully lock in \char`\"{}count\char`\"{} tries 2 = PLL2 failed to successfully lock in \char`\"{}count\char`\"{} tries 3 = Neither PLL1 nor PLL2 successfully locked in \char`\"{}count\char`\"{} tries 4 = The workaround function was not able to disable at least one of the PLLs. The most likely reason is that a PLL is already being used as a clock source. This can be caused by the workaround function being called from the wrong place in the code. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ uint32\ failCode,retries,clkCntlSav;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{/*\ save\ CLKCNTL\ */}}
+\DoxyCodeLine{00217\ \ \ \ \ clkCntlSav\ =\ systemREG1-\/>CLKCNTL;}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{comment}{/*\ First\ set\ VCLK2\ =\ HCLK\ */}\ }
+\DoxyCodeLine{00219\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ clkCntlSav\ \&\ 0x000F0100U;}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{/*\ Now\ set\ VCLK\ =\ HCLK\ and\ enable\ peripherals\ */}}
+\DoxyCodeLine{00221\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ SYS\_CLKCNTRL\_PENA;}
+\DoxyCodeLine{00222\ \ \ \ \ failCode\ =\ 0U;}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{for}(retries\ =\ 0U;(retries\ <\ count);retries++)}
+\DoxyCodeLine{00224\ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ failCode\ =\ 0U;}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Disable\ PLL2\ */}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ failCode\ =\ disable\_plls(SYS\_CLKSRC\_PLL2);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(failCode\ !=\ 0U)}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ Global\ Status\ Register\ */}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ systemREG1-\/>GBLSTAT\ =\ 0x00000301U;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ ESM\ PLL\ slip\ flags\ */}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ esmREG-\/>SR4[0U]\ =\ ESM\_SR4\_PLL2SLIP;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ PLL2\ to\ OSCIN/1*27/(2*1)\ */}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ systemREG2-\/>PLLCTL3\ =\ 0x20001A00U;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ systemREG1-\/>CSDISCLR\ =\ SYS\_CLKSRC\_PLL2;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ PLL2\ valid\ or\ PLL2\ slip\ */}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (((systemREG1-\/>CSVSTAT\ \&\ SYS\_CLKSRC\_PLL2)\ ==\ 0U)\ \&\&\ ((esmREG-\/>SR4[0U]\ \&\ ESM\_SR4\_PLL2SLIP)\ ==\ 0U))}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ PLL2\ valid,\ check\ the\ frequency\ */}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((esmREG-\/>SR4[0U]\ \&\ ESM\_SR4\_PLL2SLIP)\ !=\ 0U)\ ||\ ((systemREG1-\/>GBLSTAT\ \&\ 0x00000300U)\ !=\ 0U))}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ 2U;}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ failCode\ |=\ (check\_frequency(dcc1CNT1\_CLKSRC\_PLL2)\ <<\ 1U);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (failCode\ ==\ 0U)}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{/*\ To\ avoid\ MISRA\ violation\ 382S\  }}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ \ \ \ \ \ (void)missing\ for\ discarded\ return\ value\ */}\ \ }
+\DoxyCodeLine{00261\ \ \ \ \ failCode\ =\ disable\_plls(SYS\_CLKSRC\_PLL2);}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{comment}{/*\ restore\ CLKCNTL,\ VCLKR\ and\ PENA\ first\ */}}
+\DoxyCodeLine{00263\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ (clkCntlSav\ \&\ 0x000F0100U);}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{/*\ restore\ CLKCNTL,\ VCLK2R\ */}}
+\DoxyCodeLine{00265\ \ \ \ \ systemREG1-\/>CLKCNTL\ =\ clkCntlSav;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{return}\ failCode;}
+\DoxyCodeLine{00267\ \}}
+
+\end{DoxyCode}

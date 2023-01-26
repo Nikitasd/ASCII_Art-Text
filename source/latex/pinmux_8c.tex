@@ -1,0 +1,129 @@
+\hypertarget{pinmux_8c}{}\doxysection{pinmux.\+c File Reference}
+\label{pinmux_8c}\index{pinmux.c@{pinmux.c}}
+
+
+PINMUX Driver Implementation File.  
+
+
+{\ttfamily \#include \char`\"{}pinmux.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pinmux_8c_a31fa55f119f05af77919d700548b643e}\label{pinmux_8c_a31fa55f119f05af77919d700548b643e}} 
+\#define {\bfseries PINMUX\+\_\+\+SET}(REG,  BALLID,  MUX)~            (pin\+Mux\+Reg-\/$>$PINMMR\#\#REG = (pin\+Mux\+Reg-\/$>$PINMMR\#\#REG \& PINMUX\+\_\+\+BALL\+\_\+\#\#BALLID\#\#\+\_\+\+MASK) $\vert$ (PINMUX\+\_\+\+BALL\+\_\+\#\#BALLID\#\#\+\_\+\#\#MUX))
+\item 
+\mbox{\Hypertarget{pinmux_8c_a9c7439f913ae7f334226784a8f354d8b}\label{pinmux_8c_a9c7439f913ae7f334226784a8f354d8b}} 
+\#define {\bfseries PINMUX\+\_\+\+GIOB\+\_\+\+DISABLE\+\_\+\+HET2\+\_\+\+ENABLE}~            (pin\+Mux\+Reg-\/$>$PINMMR29 = (pin\+Mux\+Reg-\/$>$PINMMR29 \& PINMUX\+\_\+\+GIOB\+\_\+\+DISABLE\+\_\+\+HET2\+\_\+\+MASK) $\vert$ PINMUX\+\_\+\+GIOB\+\_\+\+DISABLE\+\_\+\+HET2)
+\item 
+\mbox{\Hypertarget{pinmux_8c_ac320cac5f9d3df53fc90620f52e7aebe}\label{pinmux_8c_ac320cac5f9d3df53fc90620f52e7aebe}} 
+\#define {\bfseries PINMUX\+\_\+\+ALT\+\_\+\+ADC\+\_\+\+TRIGGER\+\_\+\+SELECT}(num)~            (pin\+Mux\+Reg-\/$>$PINMMR30 = (pin\+Mux\+Reg-\/$>$PINMMR30 \& PINMUX\+\_\+\+ALT\+\_\+\+ADC\+\_\+\+TRIGGER\+\_\+\+MASK) $\vert$ (PINMUX\+\_\+\+ALT\+\_\+\+ADC\+\_\+\+TRIGGER\+\_\+\#\#num))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pinmux_8c_a8fac89d371c9be80b507da3c31144423}{mux\+Init}} (void)
+\item 
+void \mbox{\hyperlink{pinmux_8c_ae1d5925bc43dd10efb0529ed8fea7e5d}{pinmux\+Get\+Config\+Value}} (pinmux\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PINMUX Driver Implementation File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pinmux_8c_a8fac89d371c9be80b507da3c31144423}\label{pinmux_8c_a8fac89d371c9be80b507da3c31144423}} 
+\index{pinmux.c@{pinmux.c}!muxInit@{muxInit}}
+\index{muxInit@{muxInit}!pinmux.c@{pinmux.c}}
+\doxysubsubsection{\texorpdfstring{muxInit()}{muxInit()}}
+{\footnotesize\ttfamily void mux\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (1)\ */}}
+\DoxyCodeLine{00084\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Pin\ Muxing\ */}}
+\DoxyCodeLine{00087\ \ \ \ \ kickerReg-\/>KICKER0\ =\ 0x83E70B13U;}
+\DoxyCodeLine{00088\ \ \ \ \ kickerReg-\/>KICKER1\ =\ 0x95A4F1E0U;}
+\DoxyCodeLine{00089\ \ \ \ \ }
+\DoxyCodeLine{00090\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (2)\ */}}
+\DoxyCodeLine{00091\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ pinMuxReg-\/>PINMMR0\ =\ PINMUX\_PIN\_1\_GIOA\_0;}
+\DoxyCodeLine{00094\ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ pinMuxReg-\/>PINMMR1\ =\ PINMUX\_PIN\_2\_GIOA\_1\ |\ PINMUX\_PIN\_5\_GIOA\_2\ |\ PINMUX\_PIN\_8\_GIOA\_3\ |\ PINMUX\_PIN\_9\_GIOA\_4;}
+\DoxyCodeLine{00096\ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ pinMuxReg-\/>PINMMR2\ =\ PINMUX\_PIN\_10\_GIOA\_5\ |\ PINMUX\_PIN\_12\_GIOA\_6\ |\ PINMUX\_PIN\_18\_GIOA\_7;}
+\DoxyCodeLine{00098\ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ pinMuxReg-\/>PINMMR3\ =\ PINMUX\_PIN\_27\_MIBSPI1nCS\_2\ |\ PINMUX\_PIN\_36\_SPI3CLK\ |\ PINMUX\_PIN\_37\_SPI3nENA;}
+\DoxyCodeLine{00100\ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ pinMuxReg-\/>PINMMR4\ =\ PINMUX\_PIN\_38\_SPI3nCS\_0\ |\ PINMUX\_PIN\_39\_MIBSPI1nCS\_3\ |\ PINMUX\_PIN\_58\_ADEVT;}
+\DoxyCodeLine{00102\ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ pinMuxReg-\/>PINMMR5\ =\ PINMUX\_PIN\_68\_MIBSPI1nENA;}
+\DoxyCodeLine{00104\ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ pinMuxReg-\/>PINMMR6\ =\ PINMUX\_PIN\_93\_MIBSPI1nCS\_1;}
+\DoxyCodeLine{00106\ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ }
+\DoxyCodeLine{00108\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00109\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00110\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Pin\ Muxing\ */}}
+\DoxyCodeLine{00112\ \ \ \ \ kickerReg-\/>KICKER0\ =\ 0x00000000U;}
+\DoxyCodeLine{00113\ \ \ \ \ kickerReg-\/>KICKER1\ =\ 0x00000000U;}
+\DoxyCodeLine{00114\ \ \ \ \ }
+\DoxyCodeLine{00115\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (4)\ */}}
+\DoxyCodeLine{00116\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00117\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pinmux_8c_ae1d5925bc43dd10efb0529ed8fea7e5d}\label{pinmux_8c_ae1d5925bc43dd10efb0529ed8fea7e5d}} 
+\index{pinmux.c@{pinmux.c}!pinmuxGetConfigValue@{pinmuxGetConfigValue}}
+\index{pinmuxGetConfigValue@{pinmuxGetConfigValue}!pinmux.c@{pinmux.c}}
+\doxysubsubsection{\texorpdfstring{pinmuxGetConfigValue()}{pinmuxGetConfigValue()}}
+{\footnotesize\ttfamily void pinmux\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{pinmux\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00140\ \ \ \ \ \{\textcolor{comment}{/*\ Do\ not\ pass\ Initial\ Value\ as\ parameter\ */}}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00143\ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR0\ \ =\ pinMuxReg-\/>PINMMR0;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR1\ \ =\ pinMuxReg-\/>PINMMR1;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR2\ \ =\ pinMuxReg-\/>PINMMR2;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR3\ \ =\ pinMuxReg-\/>PINMMR3;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR4\ \ =\ pinMuxReg-\/>PINMMR4;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR5\ \ =\ pinMuxReg-\/>PINMMR5;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PINMMR6\ \ =\ pinMuxReg-\/>PINMMR6;}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \}}
+
+\end{DoxyCode}

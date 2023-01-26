@@ -1,0 +1,849 @@
+\hypertarget{sys__pcr_8c}{}\doxysection{sys\+\_\+pcr.\+c File Reference}
+\label{sys__pcr_8c}\index{sys\_pcr.c@{sys\_pcr.c}}
+
+
+PCR Driver Implementation File.  
+
+
+{\ttfamily \#include \char`\"{}sys\+\_\+pcr.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sys__pcr_8c_a679957e2193edaa80b99e729846cbd7b}{peripheral\+\_\+\+Frame\+\_\+\+Protection\+\_\+\+Set}} (peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t peripheral\+\_\+\+Frame)
+\begin{DoxyCompactList}\small\item\em Set the peripheral protection of the selected frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_ad5d3f7152cb9a997621d25ea347ec799}{peripheral\+\_\+\+Frame\+\_\+\+Protection\+\_\+\+Clr}} (peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t peripheral\+\_\+\+Frame)
+\begin{DoxyCompactList}\small\item\em Clear the peripheral protection of the selected frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a9d02d103ab548f8fb9714662b2142c87}{peripheral\+\_\+\+Frame\+\_\+\+Powerdown\+\_\+\+Set}} (peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t peripheral\+\_\+\+Frame)
+\begin{DoxyCompactList}\small\item\em Take the selected peripheral to powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a4d766343724f5d75811c840a8205f271}{peripheral\+\_\+\+Frame\+\_\+\+Powerdown\+\_\+\+Clr}} (peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t peripheral\+\_\+\+Frame)
+\begin{DoxyCompactList}\small\item\em Bring the selected peripheral frame out of powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a892f9898707985e8b43511056370d9e9}{peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Prot\+\_\+\+Set}} (peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Set the peripheral memory protection of the selected frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_af333f465489e49c0be59c30001fc13ab}{peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Prot\+\_\+\+Clr}} (peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Clear the peripheral memory protection of the selected frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a237b7fbf1df7dc1ca66b9353e49d6804}{peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Pwrdwn\+\_\+\+Set}} (peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Take the selected peripheral memory frame to powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_af6b86c171c83977f822e2516d592908e}{peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Pwrdwn\+\_\+\+Clr}} (peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Bring the selected peripheral Memory frame out of powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a3aa6fff20c4727bc0f47bd11b6fb0f67}{peripheral\+\_\+\+Protection\+\_\+\+Set}} (peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Quad\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Set the peripheral protection of all the selected frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_aed96b83b57b010e429bb206a5a132fc5}{peripheral\+\_\+\+Protection\+\_\+\+Clr}} (peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Quad\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Clear the peripheral protection of all the selected frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a05485660e4052e6dc39bdf799c1d230c}{peripheral\+\_\+\+Powerdown\+\_\+\+Set}} (peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Quad\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Take all the selected peripheral frame to powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_ad7decd98e2ec454e10faa3bc47ea41c5}{peripheral\+\_\+\+Powerdown\+\_\+\+Clr}} (peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Quad\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Bring all the selected peripheral frame out of powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_ac91d838fa6f00ac05cad5548544b35ae}{peripheral\+\_\+\+Memory\+\_\+\+Protection\+\_\+\+Set}} (peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Set the peripheral memory protection of all the selected frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a197fab609f970467d21e7260e105b40f}{peripheral\+\_\+\+Memory\+\_\+\+Protection\+\_\+\+Clr}} (peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Clear the peripheral memory protection of all the selected frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_afad4ba777fed7174769ebea7f0d4d09a}{peripheral\+\_\+\+Memory\+\_\+\+Powerdown\+\_\+\+Set}} (peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Take all the selected peripheral memory frame to powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a0d579027ce66548a6d5615d1f91f6609}{peripheral\+\_\+\+Memory\+\_\+\+Powerdown\+\_\+\+Clr}} (peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t peripheral\+\_\+\+Memory\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Bring all the selected peripheral Memory frame out of powerdown. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a7fa9e8dbf4d9c74ac6ed4702de31ec5b}{peripheral\+\_\+\+Powerdown\+\_\+\+Status}} (peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t $\ast$peripheral\+\_\+\+Quad\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Get the powerdown status of the peripheral frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_aa1755d9e0a3ef6ff63591408fa3474e7}{peripheral\+\_\+\+Protection\+\_\+\+Status}} (peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t $\ast$peripheral\+\_\+\+Quad\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Get the protection status of the peripheral frames. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a0400e27e52f6494c19216c6093773e7d}{peripheral\+\_\+\+Memory\+\_\+\+Protection\+\_\+\+Status}} (peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t $\ast$peripheral\+\_\+\+Memory\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Get the protection set of all the peripheral Memory frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a29d72393ecbf549e97dce6a69e1ab0dc}{peripheral\+\_\+\+Memory\+\_\+\+Powerdown\+\_\+\+Status}} (peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t $\ast$peripheral\+\_\+\+Memory\+\_\+\+CS)
+\begin{DoxyCompactList}\small\item\em Get the powerdown status of all the peripheral Memory frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__pcr_8c_a018d04d417591bbe03342ec34a043781}{pcr\+Get\+Config\+Value}} (pcr\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PCR Driver Implementation File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys__pcr_8c_a018d04d417591bbe03342ec34a043781}\label{sys__pcr_8c_a018d04d417591bbe03342ec34a043781}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!pcrGetConfigValue@{pcrGetConfigValue}}
+\index{pcrGetConfigValue@{pcrGetConfigValue}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{pcrGetConfigValue()}{pcrGetConfigValue()}}
+{\footnotesize\ttfamily void pcr\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{pcr\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00705\ \{}
+\DoxyCodeLine{00706\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00707\ \ \ \ \ \{\textcolor{comment}{/*\ Do\ not\ pass\ Initial\ value\ as\ parameter\ as\ there\ is\ no\ PCR\ initialization\ API\ */}}
+\DoxyCodeLine{00708\ \ \ \ \ \}}
+\DoxyCodeLine{00709\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00710\ \ \ \ \ \{}
+\DoxyCodeLine{00711\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PMPROTSET0\ \ \ \ =\ pcrREG-\/>PMPROTSET0;}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PMPROTSET1\ \ \ \ =\ pcrREG-\/>PMPROTSET1;}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PPROTSET0\ \ \ \ \ =\ pcrREG-\/>PPROTSET0;}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PPROTSET1\ \ \ \ \ =\ pcrREG-\/>PPROTSET1;}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PPROTSET2\ \ \ \ \ =\ pcrREG-\/>PPROTSET2;}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PPROTSET3\ \ \ \ \ =\ pcrREG-\/>PPROTSET3;}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PCSPWRDWNSET0\ =\ pcrREG-\/>PCSPWRDWNSET0;}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PCSPWRDWNSET1\ =\ pcrREG-\/>PCSPWRDWNSET1;}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PSPWRDWNSET0\ \ =\ pcrREG-\/>PSPWRDWNSET0;}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PSPWRDWNSET1\ \ =\ pcrREG-\/>PSPWRDWNSET1;}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PSPWRDWNSET2\ \ =\ pcrREG-\/>PSPWRDWNSET2;}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PSPWRDWNSET3\ \ =\ pcrREG-\/>PSPWRDWNSET3;}
+\DoxyCodeLine{00724\ \ \ \ \ \}}
+\DoxyCodeLine{00725\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a4d766343724f5d75811c840a8205f271}\label{sys__pcr_8c_a4d766343724f5d75811c840a8205f271}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Frame\_Powerdown\_Clr@{peripheral\_Frame\_Powerdown\_Clr}}
+\index{peripheral\_Frame\_Powerdown\_Clr@{peripheral\_Frame\_Powerdown\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Frame\_Powerdown\_Clr()}{peripheral\_Frame\_Powerdown\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Frame\+\_\+\+Powerdown\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t}]{peripheral\+\_\+\+Frame }\end{DoxyParamCaption})}
+
+
+
+Bring the selected peripheral frame out of powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Frame} & -\/ Peripheral frame to be taken out of powerdown\\
+\hline
+\end{DoxyParams}
+This function will bring the selected peripheral frame out of powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00195\ \{}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (11)\ */}}
+\DoxyCodeLine{00198\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00201\ \ \ \ \ uint32\ Quarant\_selct;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Frame.Peripheral\_CS\ >>\ 3U);}
+\DoxyCodeLine{00204\ \ \ \ \ Quarant\_selct\ \ =\ (uint32)(peripheral\_Frame.Peripheral\_Quadrant\ <<\ ((peripheral\_Frame.Peripheral\_CS\ \&\ 7U)\ <<\ 2U));}
+\DoxyCodeLine{00205\ \ \ \ \ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 3U)}
+\DoxyCodeLine{00207\ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNCLR3\ =\ Quarant\_selct;}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 2U)}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNCLR2\ =\ Quarant\_selct;}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00215\ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNCLR1\ =\ Quarant\_selct;}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00219\ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNCLR0\ =\ Quarant\_selct;}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (12)\ */}}
+\DoxyCodeLine{00223\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00224\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a9d02d103ab548f8fb9714662b2142c87}\label{sys__pcr_8c_a9d02d103ab548f8fb9714662b2142c87}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Frame\_Powerdown\_Set@{peripheral\_Frame\_Powerdown\_Set}}
+\index{peripheral\_Frame\_Powerdown\_Set@{peripheral\_Frame\_Powerdown\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Frame\_Powerdown\_Set()}{peripheral\_Frame\_Powerdown\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Frame\+\_\+\+Powerdown\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t}]{peripheral\+\_\+\+Frame }\end{DoxyParamCaption})}
+
+
+
+Take the selected peripheral to powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Frame} & -\/ Peripheral frame to be taken to powerdown\\
+\hline
+\end{DoxyParams}
+This function will set the selected peripheral frame to powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \{}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (8)\ */}}
+\DoxyCodeLine{00153\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00156\ \ \ \ \ uint32\ Quarant\_selct;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Frame.Peripheral\_CS\ >>\ 3U);}
+\DoxyCodeLine{00159\ \ \ \ \ Quarant\_selct\ \ =\ (uint32)(peripheral\_Frame.Peripheral\_Quadrant\ <<\ ((peripheral\_Frame.Peripheral\_CS\ \&\ 7U)\ <<\ 2U));}
+\DoxyCodeLine{00160\ \ \ \ \ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 3U)}
+\DoxyCodeLine{00162\ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNSET3\ =\ Quarant\_selct;}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 2U)}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNSET2\ =\ Quarant\_selct;}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00170\ \ \ \ \ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNSET1\ =\ Quarant\_selct;}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00174\ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ pcrREG-\/>PSPWRDWNSET0\ =\ Quarant\_selct;}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ }
+\DoxyCodeLine{00178\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (9)\ */}}
+\DoxyCodeLine{00179\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_ad5d3f7152cb9a997621d25ea347ec799}\label{sys__pcr_8c_ad5d3f7152cb9a997621d25ea347ec799}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Frame\_Protection\_Clr@{peripheral\_Frame\_Protection\_Clr}}
+\index{peripheral\_Frame\_Protection\_Clr@{peripheral\_Frame\_Protection\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Frame\_Protection\_Clr()}{peripheral\_Frame\_Protection\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Frame\+\_\+\+Protection\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t}]{peripheral\+\_\+\+Frame }\end{DoxyParamCaption})}
+
+
+
+Clear the peripheral protection of the selected frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Frame} & -\/ Peripheral frame to be out of protection\\
+\hline
+\end{DoxyParams}
+This function clears the protection set for the selected frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (5)\ */}}
+\DoxyCodeLine{00108\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00111\ \ \ \ \ uint32\ Quarant\_selct;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Frame.Peripheral\_CS\ >>\ 3U);}
+\DoxyCodeLine{00114\ \ \ \ \ Quarant\_selct\ \ =\ (uint32)(peripheral\_Frame.Peripheral\_Quadrant\ <<\ ((peripheral\_Frame.Peripheral\_CS\ \&\ 7U)\ <<\ 2U));}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 3U)}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTCLR3\ =\ Quarant\_selct;}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 2U)}
+\DoxyCodeLine{00121\ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTCLR2\ =\ Quarant\_selct;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00125\ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTCLR1\ =\ Quarant\_selct;}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00129\ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTCLR0\ =\ Quarant\_selct;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ }
+\DoxyCodeLine{00133\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (6)\ */}}
+\DoxyCodeLine{00134\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a679957e2193edaa80b99e729846cbd7b}\label{sys__pcr_8c_a679957e2193edaa80b99e729846cbd7b}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Frame\_Protection\_Set@{peripheral\_Frame\_Protection\_Set}}
+\index{peripheral\_Frame\_Protection\_Set@{peripheral\_Frame\_Protection\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Frame\_Protection\_Set()}{peripheral\_Frame\_Protection\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Frame\+\_\+\+Protection\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Frame\+\_\+\+Select\+\_\+t}]{peripheral\+\_\+\+Frame }\end{DoxyParamCaption})}
+
+
+
+Set the peripheral protection of the selected frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Frame} & -\/ Peripheral frame to be protected\\
+\hline
+\end{DoxyParams}
+This function sets the protection for the selected frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (2)\ */}}
+\DoxyCodeLine{00063\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00066\ \ \ \ \ uint32\ Quarant\_selct;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Frame.Peripheral\_CS\ >>\ 3U);}
+\DoxyCodeLine{00069\ \ \ \ \ Quarant\_selct\ \ =\ (uint32)(peripheral\_Frame.Peripheral\_Quadrant\ <<\ ((peripheral\_Frame.Peripheral\_CS\ \&\ 7U)\ <<\ 2U));}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 3U)}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTSET3\ =\ Quarant\_selct;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 2U)}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTSET2\ =\ Quarant\_selct;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTSET1\ =\ Quarant\_selct;}
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ pcrREG-\/>PPROTSET0\ =\ Quarant\_selct;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ }
+\DoxyCodeLine{00088\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00089\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_af333f465489e49c0be59c30001fc13ab}\label{sys__pcr_8c_af333f465489e49c0be59c30001fc13ab}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Mem\_Frame\_Prot\_Clr@{peripheral\_Mem\_Frame\_Prot\_Clr}}
+\index{peripheral\_Mem\_Frame\_Prot\_Clr@{peripheral\_Mem\_Frame\_Prot\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Mem\_Frame\_Prot\_Clr()}{peripheral\_Mem\_Frame\_Prot\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Prot\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Clear the peripheral memory protection of the selected frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS} & -\/ Peripheral memory frame to be cleared from protection\\
+\hline
+\end{DoxyParams}
+This function clears the protection set for the selected peripheral memory frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274\ \{}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (17)\ */}}
+\DoxyCodeLine{00277\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Memory\_Frame\_CS\ >>\ 5U);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00284\ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ pcrREG-\/>PMPROTCLR1\ =\ (uint32)1U\ <<\ (peripheral\_Memory\_Frame\_CS\ \&\ 0xFU);}
+\DoxyCodeLine{00286\ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00288\ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ pcrREG-\/>PMPROTCLR0\ =\ (uint32)1U\ <<\ peripheral\_Memory\_Frame\_CS;}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (18)\ */}}
+\DoxyCodeLine{00293\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00294\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a892f9898707985e8b43511056370d9e9}\label{sys__pcr_8c_a892f9898707985e8b43511056370d9e9}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Mem\_Frame\_Prot\_Set@{peripheral\_Mem\_Frame\_Prot\_Set}}
+\index{peripheral\_Mem\_Frame\_Prot\_Set@{peripheral\_Mem\_Frame\_Prot\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Mem\_Frame\_Prot\_Set()}{peripheral\_Mem\_Frame\_Prot\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Prot\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Set the peripheral memory protection of the selected frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS} & -\/ Peripheral memory frame to be protected\\
+\hline
+\end{DoxyParams}
+This function sets the protection for the selected peripheral memory frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (14)\ */}}
+\DoxyCodeLine{00242\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Memory\_Frame\_CS\ >>\ 5U);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00249\ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ pcrREG-\/>PMPROTSET1\ =\ (uint32)1U\ <<\ (peripheral\_Memory\_Frame\_CS\ \&\ 0xFU);}
+\DoxyCodeLine{00251\ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00253\ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ pcrREG-\/>PMPROTSET0\ =\ (uint32)1U\ <<\ peripheral\_Memory\_Frame\_CS;}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ }
+\DoxyCodeLine{00257\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (15)\ */}}
+\DoxyCodeLine{00258\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00259\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_af6b86c171c83977f822e2516d592908e}\label{sys__pcr_8c_af6b86c171c83977f822e2516d592908e}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Mem\_Frame\_Pwrdwn\_Clr@{peripheral\_Mem\_Frame\_Pwrdwn\_Clr}}
+\index{peripheral\_Mem\_Frame\_Pwrdwn\_Clr@{peripheral\_Mem\_Frame\_Pwrdwn\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Mem\_Frame\_Pwrdwn\_Clr()}{peripheral\_Mem\_Frame\_Pwrdwn\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Pwrdwn\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Bring the selected peripheral Memory frame out of powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS} & -\/ Peripheral memory frame to be taken out of powerdown\\
+\hline
+\end{DoxyParams}
+This function will bring the selected peripheral memory frame out of powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00344\ \{}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (23)\ */}}
+\DoxyCodeLine{00347\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Memory\_Frame\_CS\ >>\ 5U);}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00354\ \ \ \ \ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ pcrREG-\/>PCSPWRDWNCLR0\ =\ (uint32)1U\ <<\ (peripheral\_Memory\_Frame\_CS\ \&\ 0xFU);}
+\DoxyCodeLine{00356\ \ \ \ \ \}}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00358\ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ pcrREG-\/>PCSPWRDWNCLR1\ =\ (uint32)1U\ <<\ peripheral\_Memory\_Frame\_CS;}
+\DoxyCodeLine{00360\ \ \ \ \ \}}
+\DoxyCodeLine{00361\ \ \ \ \ }
+\DoxyCodeLine{00362\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (24)\ */}}
+\DoxyCodeLine{00363\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00364\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a237b7fbf1df7dc1ca66b9353e49d6804}\label{sys__pcr_8c_a237b7fbf1df7dc1ca66b9353e49d6804}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Mem\_Frame\_Pwrdwn\_Set@{peripheral\_Mem\_Frame\_Pwrdwn\_Set}}
+\index{peripheral\_Mem\_Frame\_Pwrdwn\_Set@{peripheral\_Mem\_Frame\_Pwrdwn\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Mem\_Frame\_Pwrdwn\_Set()}{peripheral\_Mem\_Frame\_Pwrdwn\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Mem\+\_\+\+Frame\+\_\+\+Pwrdwn\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+Frame\+\_\+\+CS\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Take the selected peripheral memory frame to powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+Frame\+\_\+\+CS} & -\/ Peripheral memory frame to be taken to powerdown\\
+\hline
+\end{DoxyParams}
+This function will set the selected peripheral memory frame to powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00309\ \{}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (20)\ */}}
+\DoxyCodeLine{00312\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ uint32\ chip\_select\_grp;}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ chip\_select\_grp\ =\ (peripheral\_Memory\_Frame\_CS\ >>\ 5U);}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{if}\ (chip\_select\_grp\ >=\ 1U)}
+\DoxyCodeLine{00319\ \ \ \ \ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ pcrREG-\/>PCSPWRDWNSET0\ =\ (uint32)1U\ <<\ (peripheral\_Memory\_Frame\_CS\ \&\ 0xFU);}
+\DoxyCodeLine{00321\ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00323\ \ \ \ \ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ pcrREG-\/>PCSPWRDWNSET1\ =\ (uint32)1U\ <<\ peripheral\_Memory\_Frame\_CS;}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ }
+\DoxyCodeLine{00327\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (21)\ */}}
+\DoxyCodeLine{00328\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00329\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a0d579027ce66548a6d5615d1f91f6609}\label{sys__pcr_8c_a0d579027ce66548a6d5615d1f91f6609}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Memory\_Powerdown\_Clr@{peripheral\_Memory\_Powerdown\_Clr}}
+\index{peripheral\_Memory\_Powerdown\_Clr@{peripheral\_Memory\_Powerdown\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Memory\_Powerdown\_Clr()}{peripheral\_Memory\_Powerdown\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Memory\+\_\+\+Powerdown\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Bring all the selected peripheral Memory frame out of powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+CS} & -\/ Peripheral memory frames to be taken out of powerdown\\
+\hline
+\end{DoxyParams}
+This function will bring all the selected peripheral memory frame out of powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00562\ \{}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (47)\ */}}
+\DoxyCodeLine{00565\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ pcrREG-\/>PCSPWRDWNSET0\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS0\_31;}
+\DoxyCodeLine{00568\ \ \ \ \ pcrREG-\/>PCSPWRDWNCLR0\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS32\_63;}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (48)\ */}}
+\DoxyCodeLine{00571\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00572\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_afad4ba777fed7174769ebea7f0d4d09a}\label{sys__pcr_8c_afad4ba777fed7174769ebea7f0d4d09a}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Memory\_Powerdown\_Set@{peripheral\_Memory\_Powerdown\_Set}}
+\index{peripheral\_Memory\_Powerdown\_Set@{peripheral\_Memory\_Powerdown\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Memory\_Powerdown\_Set()}{peripheral\_Memory\_Powerdown\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Memory\+\_\+\+Powerdown\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Take all the selected peripheral memory frame to powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+CS} & -\/ Peripheral memory frames to be taken to powerdown\\
+\hline
+\end{DoxyParams}
+This function will set all the selected peripheral memory frame to powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00537\ \{}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (44)\ */}}
+\DoxyCodeLine{00540\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ pcrREG-\/>PCSPWRDWNSET0\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS0\_31;}
+\DoxyCodeLine{00543\ \ \ \ \ pcrREG-\/>PCSPWRDWNSET1\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS32\_63;}
+\DoxyCodeLine{00544\ \ \ \ \ }
+\DoxyCodeLine{00545\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (45)\ */}}
+\DoxyCodeLine{00546\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00547\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a29d72393ecbf549e97dce6a69e1ab0dc}\label{sys__pcr_8c_a29d72393ecbf549e97dce6a69e1ab0dc}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Memory\_Powerdown\_Status@{peripheral\_Memory\_Powerdown\_Status}}
+\index{peripheral\_Memory\_Powerdown\_Status@{peripheral\_Memory\_Powerdown\_Status}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Memory\_Powerdown\_Status()}{peripheral\_Memory\_Powerdown\_Status()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Memory\+\_\+\+Powerdown\+\_\+\+Status (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t $\ast$}]{peripheral\+\_\+\+Memory\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Get the powerdown status of all the peripheral Memory frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+CS} & Peripheral memory frames powerdown status\\
+\hline
+\end{DoxyParams}
+This function gets the powerdown status of all the peripheral Memory frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00670\ \{}
+\DoxyCodeLine{00671\ }
+\DoxyCodeLine{00672\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (59)\ */}}
+\DoxyCodeLine{00673\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00675\ \ \ \ \ peripheral\_Memory\_CS-\/>Peripheral\_Mem\_CS0\_31\ =\ pcrREG-\/>PCSPWRDWNSET0;}
+\DoxyCodeLine{00676\ \ \ \ \ peripheral\_Memory\_CS-\/>Peripheral\_Mem\_CS32\_63\ =\ pcrREG-\/>PCSPWRDWNSET1;}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (60)\ */}}
+\DoxyCodeLine{00679\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a197fab609f970467d21e7260e105b40f}\label{sys__pcr_8c_a197fab609f970467d21e7260e105b40f}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Memory\_Protection\_Clr@{peripheral\_Memory\_Protection\_Clr}}
+\index{peripheral\_Memory\_Protection\_Clr@{peripheral\_Memory\_Protection\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Memory\_Protection\_Clr()}{peripheral\_Memory\_Protection\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Memory\+\_\+\+Protection\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Clear the peripheral memory protection of all the selected frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+CS} & -\/ Peripheral memory frames to be cleared from protection\\
+\hline
+\end{DoxyParams}
+This function clears the protection set for all the selected peripheral memory frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00512\ \{}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (41)\ */}}
+\DoxyCodeLine{00515\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \ pcrREG-\/>PMPROTCLR0\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS0\_31;}
+\DoxyCodeLine{00518\ \ \ \ \ pcrREG-\/>PMPROTCLR1\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS32\_63;}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (42)\ */}}
+\DoxyCodeLine{00521\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00522\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_ac91d838fa6f00ac05cad5548544b35ae}\label{sys__pcr_8c_ac91d838fa6f00ac05cad5548544b35ae}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Memory\_Protection\_Set@{peripheral\_Memory\_Protection\_Set}}
+\index{peripheral\_Memory\_Protection\_Set@{peripheral\_Memory\_Protection\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Memory\_Protection\_Set()}{peripheral\_Memory\_Protection\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Memory\+\_\+\+Protection\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Memory\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Set the peripheral memory protection of all the selected frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+CS} & -\/ Peripheral memory frames to be protected\\
+\hline
+\end{DoxyParams}
+This function sets the protection for all the selected peripheral memory frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00487\ \{}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (38)\ */}}
+\DoxyCodeLine{00490\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \ \ \ \ pcrREG-\/>PMPROTSET0\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS0\_31;}
+\DoxyCodeLine{00493\ \ \ \ \ pcrREG-\/>PMPROTSET1\ =\ peripheral\_Memory\_CS.Peripheral\_Mem\_CS32\_63;}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (39)\ */}}
+\DoxyCodeLine{00496\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00497\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a0400e27e52f6494c19216c6093773e7d}\label{sys__pcr_8c_a0400e27e52f6494c19216c6093773e7d}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Memory\_Protection\_Status@{peripheral\_Memory\_Protection\_Status}}
+\index{peripheral\_Memory\_Protection\_Status@{peripheral\_Memory\_Protection\_Status}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Memory\_Protection\_Status()}{peripheral\_Memory\_Protection\_Status()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Memory\+\_\+\+Protection\+\_\+\+Status (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Memory\+\_\+\+Chip\+Select\+\_\+t $\ast$}]{peripheral\+\_\+\+Memory\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Get the protection set of all the peripheral Memory frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em peripheral\+\_\+\+Memory\+\_\+\+CS} & Peripheral memory frames protection status\\
+\hline
+\end{DoxyParams}
+This function gets the protection status of all the peripheral Memory frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00643\ \{}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (56)\ */}}
+\DoxyCodeLine{00646\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}Hardware\ status\ bit\ read"{}\ */}}
+\DoxyCodeLine{00649\ \ \ \ \ peripheral\_Memory\_CS-\/>Peripheral\_Mem\_CS0\_31\ =\ pcrREG-\/>PMPROTSET0;}
+\DoxyCodeLine{00650\ \ \ \ \ peripheral\_Memory\_CS-\/>Peripheral\_Mem\_CS32\_63\ =\ pcrREG-\/>PMPROTSET1;}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00652\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (57)\ */}}
+\DoxyCodeLine{00653\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00655\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_ad7decd98e2ec454e10faa3bc47ea41c5}\label{sys__pcr_8c_ad7decd98e2ec454e10faa3bc47ea41c5}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Powerdown\_Clr@{peripheral\_Powerdown\_Clr}}
+\index{peripheral\_Powerdown\_Clr@{peripheral\_Powerdown\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Powerdown\_Clr()}{peripheral\_Powerdown\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Powerdown\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Quad\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Bring all the selected peripheral frame out of powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Quad\+\_\+\+CS} & -\/ Peripheral frames to be taken out of powerdown\\
+\hline
+\end{DoxyParams}
+This function will bring all the selected peripheral frame out of powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00460\ \{}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (35)\ */}}
+\DoxyCodeLine{00463\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR0\ =\ peripheral\_Quad\_CS.Peripheral\_Quad0\_3\_CS0\_7;}
+\DoxyCodeLine{00466\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR1\ =\ peripheral\_Quad\_CS.Peripheral\_Quad4\_7\_CS8\_15;}
+\DoxyCodeLine{00467\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR2\ =\ peripheral\_Quad\_CS.Peripheral\_Quad8\_11\_CS16\_23;}
+\DoxyCodeLine{00468\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR3\ =\ peripheral\_Quad\_CS.Peripheral\_Quad12\_15\_CS24\_31;}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (36)\ */}}
+\DoxyCodeLine{00471\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00472\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a05485660e4052e6dc39bdf799c1d230c}\label{sys__pcr_8c_a05485660e4052e6dc39bdf799c1d230c}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Powerdown\_Set@{peripheral\_Powerdown\_Set}}
+\index{peripheral\_Powerdown\_Set@{peripheral\_Powerdown\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Powerdown\_Set()}{peripheral\_Powerdown\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Powerdown\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Quad\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Take all the selected peripheral frame to powerdown. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Quad\+\_\+\+CS} & -\/ Peripheral frames to be taken to powerdown\\
+\hline
+\end{DoxyParams}
+This function will set all the selected peripheral frame to powerdown. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00433\ \{}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (32)\ */}}
+\DoxyCodeLine{00436\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ pcrREG-\/>PSPWRDWNSET0\ =\ peripheral\_Quad\_CS.Peripheral\_Quad0\_3\_CS0\_7;}
+\DoxyCodeLine{00439\ \ \ \ \ pcrREG-\/>PSPWRDWNSET1\ =\ peripheral\_Quad\_CS.Peripheral\_Quad4\_7\_CS8\_15;}
+\DoxyCodeLine{00440\ \ \ \ \ pcrREG-\/>PSPWRDWNSET2\ =\ peripheral\_Quad\_CS.Peripheral\_Quad8\_11\_CS16\_23;}
+\DoxyCodeLine{00441\ \ \ \ \ pcrREG-\/>PSPWRDWNSET3\ =\ peripheral\_Quad\_CS.Peripheral\_Quad12\_15\_CS24\_31;}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (33)\ */}}
+\DoxyCodeLine{00444\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00445\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a7fa9e8dbf4d9c74ac6ed4702de31ec5b}\label{sys__pcr_8c_a7fa9e8dbf4d9c74ac6ed4702de31ec5b}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Powerdown\_Status@{peripheral\_Powerdown\_Status}}
+\index{peripheral\_Powerdown\_Status@{peripheral\_Powerdown\_Status}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Powerdown\_Status()}{peripheral\_Powerdown\_Status()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Powerdown\+\_\+\+Status (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t $\ast$}]{peripheral\+\_\+\+Quad\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Get the powerdown status of the peripheral frames. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em peripheral\+\_\+\+Quad\+\_\+\+CS} & Peripheral frames power down status\\
+\hline
+\end{DoxyParams}
+This function gets the powerdown status of the peripheral frames. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00587\ \{}
+\DoxyCodeLine{00588\ }
+\DoxyCodeLine{00589\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (50)\ */}}
+\DoxyCodeLine{00590\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00592\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad0\_3\_CS0\_7\ \ \ \ \ \ =\ pcrREG-\/>PSPWRDWNSET0;}
+\DoxyCodeLine{00593\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad4\_7\_CS8\_15\ \ \ \ \ =\ pcrREG-\/>PSPWRDWNSET1;\ }
+\DoxyCodeLine{00594\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad8\_11\_CS16\_23\ \ \ =\ pcrREG-\/>PSPWRDWNSET2;\ }
+\DoxyCodeLine{00595\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad12\_15\_CS24\_31\ \ =\ pcrREG-\/>PSPWRDWNSET3;\ }
+\DoxyCodeLine{00596\ }
+\DoxyCodeLine{00597\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (51)\ */}}
+\DoxyCodeLine{00598\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_aed96b83b57b010e429bb206a5a132fc5}\label{sys__pcr_8c_aed96b83b57b010e429bb206a5a132fc5}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Protection\_Clr@{peripheral\_Protection\_Clr}}
+\index{peripheral\_Protection\_Clr@{peripheral\_Protection\_Clr}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Protection\_Clr()}{peripheral\_Protection\_Clr()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Protection\+\_\+\+Clr (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Quad\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Clear the peripheral protection of all the selected frames. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Quad\+\_\+\+CS} & -\/ All Peripheral frames to be out of protection.\\
+\hline
+\end{DoxyParams}
+This function clears the protection set for all the selected frame. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00406\ \{}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00409\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ pcrREG-\/>PPROTCLR0\ =\ peripheral\_Quad\_CS.Peripheral\_Quad0\_3\_CS0\_7;}
+\DoxyCodeLine{00412\ \ \ \ \ pcrREG-\/>PPROTCLR1\ =\ peripheral\_Quad\_CS.Peripheral\_Quad4\_7\_CS8\_15;}
+\DoxyCodeLine{00413\ \ \ \ \ pcrREG-\/>PPROTCLR2\ =\ peripheral\_Quad\_CS.Peripheral\_Quad8\_11\_CS16\_23;}
+\DoxyCodeLine{00414\ \ \ \ \ pcrREG-\/>PPROTCLR3\ =\ peripheral\_Quad\_CS.Peripheral\_Quad12\_15\_CS24\_31;}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (30)\ */}}
+\DoxyCodeLine{00417\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00418\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_a3aa6fff20c4727bc0f47bd11b6fb0f67}\label{sys__pcr_8c_a3aa6fff20c4727bc0f47bd11b6fb0f67}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Protection\_Set@{peripheral\_Protection\_Set}}
+\index{peripheral\_Protection\_Set@{peripheral\_Protection\_Set}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Protection\_Set()}{peripheral\_Protection\_Set()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Protection\+\_\+\+Set (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t}]{peripheral\+\_\+\+Quad\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Set the peripheral protection of all the selected frames. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peripheral\+\_\+\+Quad\+\_\+\+CS} & -\/ All Peripheral frames to be protected\\
+\hline
+\end{DoxyParams}
+This function sets the protection for all the selected frames. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00379\ \{}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (26)\ */}}
+\DoxyCodeLine{00382\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ pcrREG-\/>PPROTSET0\ =\ peripheral\_Quad\_CS.Peripheral\_Quad0\_3\_CS0\_7;}
+\DoxyCodeLine{00385\ \ \ \ \ pcrREG-\/>PPROTSET1\ =\ peripheral\_Quad\_CS.Peripheral\_Quad4\_7\_CS8\_15;}
+\DoxyCodeLine{00386\ \ \ \ \ pcrREG-\/>PPROTSET2\ =\ peripheral\_Quad\_CS.Peripheral\_Quad8\_11\_CS16\_23;}
+\DoxyCodeLine{00387\ \ \ \ \ pcrREG-\/>PPROTSET3\ =\ peripheral\_Quad\_CS.Peripheral\_Quad12\_15\_CS24\_31;}
+\DoxyCodeLine{00388\ \ \ \ \ }
+\DoxyCodeLine{00389\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (27)\ */}}
+\DoxyCodeLine{00390\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00391\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__pcr_8c_aa1755d9e0a3ef6ff63591408fa3474e7}\label{sys__pcr_8c_aa1755d9e0a3ef6ff63591408fa3474e7}} 
+\index{sys\_pcr.c@{sys\_pcr.c}!peripheral\_Protection\_Status@{peripheral\_Protection\_Status}}
+\index{peripheral\_Protection\_Status@{peripheral\_Protection\_Status}!sys\_pcr.c@{sys\_pcr.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_Protection\_Status()}{peripheral\_Protection\_Status()}}
+{\footnotesize\ttfamily void peripheral\+\_\+\+Protection\+\_\+\+Status (\begin{DoxyParamCaption}\item[{peripheral\+\_\+\+Quad\+\_\+\+Chip\+Select\+\_\+t $\ast$}]{peripheral\+\_\+\+Quad\+\_\+\+CS }\end{DoxyParamCaption})}
+
+
+
+Get the protection status of the peripheral frames. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em peripheral\+\_\+\+Quad\+\_\+\+CS} & Peripheral frames protection status\\
+\hline
+\end{DoxyParams}
+This function gets the protection status of the peripheral frames. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00615\ \{}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00617\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (53)\ */}}
+\DoxyCodeLine{00618\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00619\ }
+\DoxyCodeLine{00620\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad0\_3\_CS0\_7\ \ \ \ \ =\ pcrREG-\/>PPROTSET0;\ }
+\DoxyCodeLine{00621\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad4\_7\_CS8\_15\ \ \ \ =\ pcrREG-\/>PPROTSET1;\ }
+\DoxyCodeLine{00622\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad8\_11\_CS16\_23\ \ =\ pcrREG-\/>PPROTSET2;\ }
+\DoxyCodeLine{00623\ \ \ \ \ peripheral\_Quad\_CS-\/>Peripheral\_Quad12\_15\_CS24\_31\ =\ pcrREG-\/>PPROTSET3;}
+\DoxyCodeLine{00624\ }
+\DoxyCodeLine{00625\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (54)\ */}}
+\DoxyCodeLine{00626\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \}}
+
+\end{DoxyCode}

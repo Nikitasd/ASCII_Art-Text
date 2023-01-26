@@ -1,0 +1,737 @@
+\hypertarget{system_8c}{}\doxysection{system.\+c File Reference}
+\label{system_8c}\index{system.c@{system.c}}
+
+
+System Driver Source File.  
+
+
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+selftest.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+pcr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pinmux.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{system_8c_a45f46deb7644048176d5e9347afb939a}{setup\+PLL}} (void)
+\item 
+void \mbox{\hyperlink{system_8c_aaa231cc5e90591363431c63f15360567}{trim\+LPO}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize LPO trim values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{system_8c_a4490b16ad7d041537868dc9732b3dac2}{setup\+Flash}} (void)
+\item 
+void \mbox{\hyperlink{system_8c_a57d84f612fd0d9fec4cd8ac58b5d10c3}{periph\+Init}} (void)
+\item 
+void \mbox{\hyperlink{system_8c_aa26c333cac9e8481986232eb8f0d9244}{map\+Clocks}} (void)
+\item 
+void \mbox{\hyperlink{system_8c_ab11a117f1e08391f23d1da05930e7acf}{system\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes System Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{system_8c_af970bbab0b866f007e84e236cb1654e9}{system\+Power\+Down}} (uint32 mode)
+\item 
+void \mbox{\hyperlink{system_8c_ab3c7742b0b313a8ac595a0ae677c3ccc}{system\+Get\+Config\+Value}} (system\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{system_8c_afa983f739f63d48487aec38706af5a6f}{tcmflash\+Get\+Config\+Value}} (tcmflash\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{system_8c_ac61ec208839bdc4fec42ea50268b4db3}{sram\+Get\+Config\+Value}} (sram\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{system_8c_ac357ba2b9a5627af15fa7be057fffd06}{custom\+Trim\+LPO}} (void)
+\begin{DoxyCompactList}\small\item\em custom function to initilize LPO trim values \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+System Driver Source File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01
+\end{DoxyVersion}
+This file contains\+:
+\begin{DoxyItemize}
+\item API Functions
+\end{DoxyItemize}which are relevant for the System driver. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{system_8c_ac357ba2b9a5627af15fa7be057fffd06}\label{system_8c_ac357ba2b9a5627af15fa7be057fffd06}} 
+\index{system.c@{system.c}!customTrimLPO@{customTrimLPO}}
+\index{customTrimLPO@{customTrimLPO}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{customTrimLPO()}{customTrimLPO()}}
+{\footnotesize\ttfamily custom\+Trim\+LPO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+custom function to initilize LPO trim values 
+
+This function initializes default LPO trim values if OTP value is 0XFFFF, user can also write their own code to handle this case . 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00666\ \{}
+\DoxyCodeLine{00667\ \ \ \ \ \textcolor{comment}{/*\ User\ can\ write\ logic\ to\ handle\ the\ case\ where\ LPO\ trim\ is\ set\ to\ 0xFFFFu\ */}}
+\DoxyCodeLine{00668\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00669\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00670\ \ \ \ \ }
+\DoxyCodeLine{00671\ \ \ \ \ \textcolor{comment}{/*\ Load\ default\ trimLPO\ value\ */}}
+\DoxyCodeLine{00672\ \ \ \ \ \ systemREG1-\/>LPOMONCTL\ \ \ =\ (uint32)((uint32)1U\ <<\ 24U)}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)16U\ <<\ 8U)}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)16U);}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00676\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (30)\ */}}
+\DoxyCodeLine{00677\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00678\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_aa26c333cac9e8481986232eb8f0d9244}\label{system_8c_aa26c333cac9e8481986232eb8f0d9244}} 
+\index{system.c@{system.c}!mapClocks@{mapClocks}}
+\index{mapClocks@{mapClocks}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{mapClocks()}{mapClocks()}}
+{\footnotesize\ttfamily void map\+Clocks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries{Initialize}} {\bfseries{Clock}} {\bfseries{Tree\+:}} 
+
+
+\begin{DoxyItemize}
+\item Disable / Enable clock domain
+\item Wait for until clocks are locked
+\item Map device clock domains to desired sources and configure top-\/level dividers
+\item All clock domains are working off the default clock sources until now
+\item The below assignments can be easily modified using the HALCo\+Gen GUI
+\item Setup GCLK, HCLK and VCLK clock source for normal operation, power down mode and after wakeup
+\item Setup RTICLK1 and RTICLK2 clocks
+\item Setup asynchronous peripheral clock sources for AVCLK1 and AVCLK2
+\item Setup synchronous peripheral clock dividers for VCLK1, VCLK2, VCLK3
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ uint32\ SYS\_CSVSTAT,\ SYS\_CSDIS;}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (11)\ */}}
+\DoxyCodeLine{00243\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00247\ \ \ \ \ systemREG1-\/>CDDIS\ =\ (uint32)((uint32)0U\ <<\ 4U\ )\ \textcolor{comment}{/*\ AVCLK1,\ 1\ -\/\ OFF,\ 0\ -\/\ ON\ */}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 5U\ )\ \textcolor{comment}{/*\ AVCLK2,\ 1\ -\/\ OFF,\ 0\ -\/\ ON\ */}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 8U\ )\ \textcolor{comment}{/*\ VCLK3,\ 1\ -\/\ OFF,\ 0\ -\/\ ON\ */}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)\ \textcolor{comment}{/*\ AVCLK3,\ 1\ -\/\ OFF,\ 0\ -\/\ ON\ */}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 11U);\ \textcolor{comment}{/*\ AVCLK4,\ 1\ -\/\ OFF,\ 0\ -\/\ ON\ */}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{comment}{/*\ Work\ Around\ for\ Errata\ SYS\#46: }}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ \ \ \ \ *\ Errata\ Description: }}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ \ \ Clock\ Source\ Switching\ Not\ Qualified\ with\ Clock\ Source\ Enable\ And\ Clock\ Source\ Valid }}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ \ \ \ \ *\ Workaround: }}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ \ \ Always\ check\ the\ CSDIS\ register\ to\ make\ sure\ the\ clock\ source\ is\ turned\ on\ and\ check }}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ \ \ \ *\ the\ CSVSTAT\ register\ to\ make\ sure\ the\ clock\ source\ is\ valid.\ Then\ write\ to\ GHVSRC\ to\ switch\ the\ clock. }}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00263\ \ \ \ \ SYS\_CSVSTAT\ =\ systemREG1-\/>CSVSTAT;}
+\DoxyCodeLine{00264\ \ \ \ \ SYS\_CSDIS\ =\ systemREG1-\/>CSDIS;}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{while}\ ((SYS\_CSVSTAT\ \&\ ((SYS\_CSDIS\ \string^\ 0xFFU)\ \&\ 0xFFU))\ !=\ ((SYS\_CSDIS\ \string^\ 0xFFU)\ \&\ 0xFFU))}
+\DoxyCodeLine{00266\ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ SYS\_CSVSTAT\ =\ systemREG1-\/>CSVSTAT;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ SYS\_CSDIS\ =\ systemREG1-\/>CSDIS;}
+\DoxyCodeLine{00269\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (12)\ */}}
+\DoxyCodeLine{00272\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00279\ \ \ \ \ systemREG1-\/>GHVSRC\ =\ (uint32)((uint32)SYS\_OSC\ <<\ 24U)}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_OSC\ <<\ 16U)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_PLL1\ <<\ 0U);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00284\ \ \ \ \ systemREG1-\/>RCLKSRC\ =\ (uint32)((uint32)1U\ <<\ 24U)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_VCLK\ <<\ 16U)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 8U)}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_VCLK\ <<\ 0U);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00290\ \ \ \ \ systemREG1-\/>VCLKASRC\ =\ (uint32)((uint32)SYS\_VCLK\ <<\ 8U)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_VCLK\ <<\ 0U);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00294\ \ \ \ \ systemREG1-\/>CLKCNTL\ \ =\ (systemREG1-\/>CLKCNTL\ \&\ 0xF0FFFFFFU)}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U);}
+\DoxyCodeLine{00296\ \ \ \ \ systemREG1-\/>CLKCNTL\ \ =\ (systemREG1-\/>CLKCNTL\ \&\ 0xFFF0FFFFU)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (13)\ */}}
+\DoxyCodeLine{00300\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{comment}{/*\ Now\ the\ PLLs\ are\ locked\ and\ the\ PLL\ outputs\ can\ be\ sped\ up\ */}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{comment}{/*\ The\ R-\/divider\ was\ programmed\ to\ be\ 0xF.\ Now\ this\ divider\ is\ changed\ to\ programmed\ value\ */}}
+\DoxyCodeLine{00304\ \ \ \ \ systemREG1-\/>PLLCTL1\ =\ (systemREG1-\/>PLLCTL1\ \&\ 0xE0FFFFFFU)\ |\ (uint32)((uint32)(2U\ -\/\ 1U)\ <<\ 24U);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Frequency\ modulation\ */}}
+\DoxyCodeLine{00307\ \ \ \ \ systemREG1-\/>PLLCTL2\ |=\ 0x00000000U;}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (14)\ */}}
+\DoxyCodeLine{00310\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_a57d84f612fd0d9fec4cd8ac58b5d10c3}\label{system_8c_a57d84f612fd0d9fec4cd8ac58b5d10c3}} 
+\index{system.c@{system.c}!periphInit@{periphInit}}
+\index{periphInit@{periphInit}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{periphInit()}{periphInit()}}
+{\footnotesize\ttfamily void periph\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyItemize}
+\item Disable Peripherals before peripheral powerup
+\item Release peripherals from reset and enable clocks to all peripherals
+\item Power-\/up all peripherals
+\item Enable Peripherals
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00212\ \{}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (9)\ */}}
+\DoxyCodeLine{00215\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00218\ \ \ \ \ systemREG1-\/>CLKCNTL\ \&=\ 0xFFFFFEFFU;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00222\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR0\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00223\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR1\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00224\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR2\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00225\ \ \ \ \ pcrREG-\/>PSPWRDWNCLR3\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00228\ \ \ \ \ systemREG1-\/>CLKCNTL\ |=\ 0x00000100U;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (10)\ */}}
+\DoxyCodeLine{00231\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_a4490b16ad7d041537868dc9732b3dac2}\label{system_8c_a4490b16ad7d041537868dc9732b3dac2}} 
+\index{system.c@{system.c}!setupFlash@{setupFlash}}
+\index{setupFlash@{setupFlash}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{setupFlash()}{setupFlash()}}
+{\footnotesize\ttfamily void setup\+Flash (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyItemize}
+\item Setup flash read mode, address wait states and data wait states
+\item Setup flash access wait states for bank 7
+\item Disable write access to flash state machine registers
+\item Setup flash bank power modes
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00176\ \{}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (6)\ */}}
+\DoxyCodeLine{00179\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00182\ \ \ \ \ flashWREG-\/>FRDCNTL\ =\ \ 0x00000000U}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 8U)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 4U)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)1U;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00188\ \ \ \ \ FSM\_WR\_ENA\_HL\ \ \ \ =\ 0x5U;}
+\DoxyCodeLine{00189\ \ \ \ \ EEPROM\_CONFIG\_HL\ =\ 0x00000002U}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)3U\ <<\ 16U)\ ;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (7)\ */}}
+\DoxyCodeLine{00193\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00196\ \ \ \ \ FSM\_WR\_ENA\_HL\ =\ 0xAU;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00199\ \ \ \ \ flashWREG-\/>FBFALLBACK\ =\ 0x00000000U}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_ACTIVE\ <<\ 14U)\ \textcolor{comment}{/*\ BANK\ 7\ */}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)SYS\_ACTIVE\ <<\ 0U);\ \textcolor{comment}{/*\ BANK\ 0\ */}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (8)\ */}}
+\DoxyCodeLine{00204\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_a45f46deb7644048176d5e9347afb939a}\label{system_8c_a45f46deb7644048176d5e9347afb939a}} 
+\index{system.c@{system.c}!setupPLL@{setupPLL}}
+\index{setupPLL@{setupPLL}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{setupPLL()}{setupPLL()}}
+{\footnotesize\ttfamily void setup\+PLL (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyItemize}
+\item Configure PLL control registers
+\end{DoxyItemize}
+
+{\bfseries{Initialize}} {\bfseries{Pll1\+:}} 
+
+
+\begin{DoxyItemize}
+\item Setup pll control register 1\+:
+\item Setup reset on oscillator slip
+\item Setup bypass on pll slip
+\item setup Pll output clock divider to max before Lock
+\item Setup reset on oscillator fail
+\item Setup reference clock divider
+\item Setup Pll multiplier
+\item Setup pll control register 2
+\item Setup spreading rate
+\item Setup bandwidth adjustment
+\item Setup internal Pll output divider
+\item Setup spreading amount
+\item Enable PLL(s) to start up or Lock
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00078\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{/*\ Disable\ PLL1\ and\ PLL2\ */}}
+\DoxyCodeLine{00081\ \ \ \ \ systemREG1-\/>CSDISSET\ =\ 0x00000002U;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{while}((systemREG1-\/>CSDIS\ \&\ 0x2U)\ !=\ 0x2U)}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{/*\ Clear\ Global\ Status\ Register\ */}}
+\DoxyCodeLine{00089\ \ \ \ \ systemREG1-\/>GBLSTAT\ =\ 0x301U;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00102\ \ \ \ \ systemREG1-\/>PLLCTL1\ =\ \ (uint32)0x00000000U}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)0x20000000U}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)((uint32)0x1FU\ <<\ 24U)}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)0x00000000U}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)((uint32)(6U\ -\/\ 1U)<<\ 16U)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)(0x7700U);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00115\ \ \ \ \ systemREG1-\/>PLLCTL2\ =\ \ (uint32)((uint32)255U\ <<\ 22U)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)((uint32)7U\ <<\ 12U)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)((uint32)(2U\ -\/\ 1U)\ <<\ 9U)}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ (uint32)61U;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ \ \ \ \ systemREG1-\/>CSDIS\ =\ 0x00000000U}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ 0x00000000U}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ 0x00000008U}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ 0x00000080U}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ 0x00000000U}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ 0x00000040U}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ 0x00000000U;}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_ac61ec208839bdc4fec42ea50268b4db3}\label{system_8c_ac61ec208839bdc4fec42ea50268b4db3}} 
+\index{system.c@{system.c}!sramGetConfigValue@{sramGetConfigValue}}
+\index{sramGetConfigValue@{sramGetConfigValue}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{sramGetConfigValue()}{sramGetConfigValue()}}
+{\footnotesize\ttfamily void sram\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{sram\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00625\ \{}
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00627\ \ \ \ \ \{}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMCTRL[0U]\ =\ SRAM\_RAMCTRL\_CONFIGVALUE;}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTHRESHOLD[0U]\ =\ SRAM\_RAMTHRESHOLD\_CONFIGVALUE;}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMINTCTRL[0U]\ =\ SRAM\_RAMINTCTRL\_CONFIGVALUE;}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTEST[0U]\ =\ SRAM\_RAMTEST\_CONFIGVALUE;}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMADDRDECVECT[0U]\ =\ SRAM\_RAMADDRDECVECT\_CONFIGVALUE;}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMCTRL[1U]\ =\ SRAM\_RAMCTRL\_CONFIGVALUE;}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTHRESHOLD[1U]\ =\ SRAM\_RAMTHRESHOLD\_CONFIGVALUE;}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMINTCTRL[1U]\ =\ SRAM\_RAMINTCTRL\_CONFIGVALUE;}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTEST[1U]\ =\ SRAM\_RAMTEST\_CONFIGVALUE;}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMADDRDECVECT[1U]\ =\ SRAM\_RAMADDRDECVECT\_CONFIGVALUE;}
+\DoxyCodeLine{00639\ \ \ \ \ \}}
+\DoxyCodeLine{00640\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00641\ \ \ \ \ \{}
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMCTRL[0U]\ =\ tcram1REG-\/>RAMCTRL;}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTHRESHOLD[0U]\ =\ tcram1REG-\/>RAMTHRESHOLD;}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMINTCTRL[0U]\ =\ tcram1REG-\/>RAMINTCTRL;}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTEST[0U]\ =\ tcram1REG-\/>RAMTEST;}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMADDRDECVECT[0U]\ =\ tcram1REG-\/>RAMADDRDECVECT;}
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMCTRL[1U]\ =\ tcram2REG-\/>RAMCTRL;}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTHRESHOLD[1U]\ =\ tcram2REG-\/>RAMTHRESHOLD;}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMINTCTRL[1U]\ =\ tcram2REG-\/>RAMINTCTRL;}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMTEST[1U]\ =\ tcram2REG-\/>RAMTEST;}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMADDRDECVECT[1U]\ =\ tcram2REG-\/>RAMADDRDECVECT;}
+\DoxyCodeLine{00655\ \ \ \ \ \}}
+\DoxyCodeLine{00656\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_ab3c7742b0b313a8ac595a0ae677c3ccc}\label{system_8c_ab3c7742b0b313a8ac595a0ae677c3ccc}} 
+\index{system.c@{system.c}!systemGetConfigValue@{systemGetConfigValue}}
+\index{systemGetConfigValue@{systemGetConfigValue}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{systemGetConfigValue()}{systemGetConfigValue()}}
+{\footnotesize\ttfamily void system\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{system\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00472\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00474\ \ \ \ \ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC1\ =\ SYS\_SYSPC1\_CONFIGVALUE;}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC2\ =\ SYS\_SYSPC2\_CONFIGVALUE;}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC7\ =\ SYS\_SYSPC7\_CONFIGVALUE;}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC8\ =\ SYS\_SYSPC8\_CONFIGVALUE;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC9\ =\ SYS\_SYSPC9\_CONFIGVALUE;}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CSDIS\ =\ SYS\_CSDIS\_CONFIGVALUE;}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CDDIS\ =\ SYS\_CDDIS\_CONFIGVALUE;}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GHVSRC\ =\ SYS\_GHVSRC\_CONFIGVALUE;}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_VCLKASRC\ =\ SYS\_VCLKASRC\_CONFIGVALUE;}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RCLKSRC\ =\ SYS\_RCLKSRC\_CONFIGVALUE;}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MSTGCR\ =\ SYS\_MSTGCR\_CONFIGVALUE;}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MINITGCR\ =\ SYS\_MINITGCR\_CONFIGVALUE;}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MSINENA\ =\ SYS\_MSINENA\_CONFIGVALUE;}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PLLCTL1\ =\ SYS\_PLLCTL1\_CONFIGVALUE\_2;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PLLCTL2\ =\ SYS\_PLLCTL2\_CONFIGVALUE;}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_UERFLAG\ =\ SYS\_UERFLAG\_CONFIGVALUE;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(LPO\_TRIM\_VALUE\ !=\ 0xFFFFU)}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_LPOMONCTL\ =\ SYS\_LPOMONCTL\_CONFIGVALUE\_1;}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_LPOMONCTL\ =\ SYS\_LPOMONCTL\_CONFIGVALUE\_2;}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CLKTEST\ =\ SYS\_CLKTEST\_CONFIGVALUE;}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DFTCTRLREG1\ =\ SYS\_DFTCTRLREG1\_CONFIGVALUE;}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DFTCTRLREG2\ =\ SYS\_DFTCTRLREG2\_CONFIGVALUE;}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GPREG1\ =\ SYS\_GPREG1\_CONFIGVALUE;}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMGCR\ =\ SYS\_RAMGCR\_CONFIGVALUE;}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_BMMCR1\ =\ SYS\_BMMCR1\_CONFIGVALUE;}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MMUGCR\ =\ SYS\_MMUGCR\_CONFIGVALUE;}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CLKCNTL\ =\ SYS\_CLKCNTL\_CONFIGVALUE;}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ECPCNTL\ =\ SYS\_ECPCNTL\_CONFIGVALUE;}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DEVCR1\ =\ SYS\_DEVCR1\_CONFIGVALUE;}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSECR\ =\ SYS\_SYSECR\_CONFIGVALUE;}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCCLKDIV\ =\ SYS2\_STCCLKDIV\_CONFIGVALUE;}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CLKSLIP\ =\ SYS2\_CLKSLIP\_CONFIGVALUE;}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_EFC\_CTLEN\ =\ SYS2\_EFC\_CTLEN\_CONFIGVALUE;}
+\DoxyCodeLine{00515\ \ \ \ \ \}}
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00517\ \ \ \ \ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC1\ =\ systemREG1-\/>SYSPC1;}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC2\ =\ systemREG1-\/>SYSPC2;}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC7\ =\ systemREG1-\/>SYSPC7;}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC8\ =\ systemREG1-\/>SYSPC8;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSPC9\ =\ systemREG1-\/>SYSPC9;}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CSDIS\ =\ systemREG1-\/>CSDIS;}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CDDIS\ =\ systemREG1-\/>CDDIS;}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GHVSRC\ =\ systemREG1-\/>GHVSRC;}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_VCLKASRC\ =\ systemREG1-\/>VCLKASRC;}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RCLKSRC\ =\ systemREG1-\/>RCLKSRC;}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MSTGCR\ =\ systemREG1-\/>MSTGCR;}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MINITGCR\ =\ systemREG1-\/>MINITGCR;}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MSINENA\ =\ systemREG1-\/>MSINENA;}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PLLCTL1\ =\ systemREG1-\/>PLLCTL1;}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PLLCTL2\ =\ systemREG1-\/>PLLCTL2;}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_UERFLAG\ =\ systemREG1-\/>SYSPC10;}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_LPOMONCTL\ =\ systemREG1-\/>LPOMONCTL;}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CLKTEST\ =\ systemREG1-\/>CLKTEST;}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DFTCTRLREG1\ =\ systemREG1-\/>DFTCTRLREG1;}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DFTCTRLREG2\ =\ systemREG1-\/>DFTCTRLREG2;}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GPREG1\ =\ systemREG1-\/>GPREG1;}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_RAMGCR\ =\ systemREG1-\/>RAMGCR;}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_BMMCR1\ =\ systemREG1-\/>BMMCR1;}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_MMUGCR\ =\ systemREG1-\/>CPURSTCR;}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CLKCNTL\ =\ systemREG1-\/>CLKCNTL;}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_ECPCNTL\ =\ systemREG1-\/>ECPCNTL;}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_DEVCR1\ =\ systemREG1-\/>DEVCR1;}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SYSECR\ =\ systemREG1-\/>SYSECR;}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_STCCLKDIV\ =\ systemREG2-\/>STCCLKDIV;}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_CLKSLIP\ =\ systemREG2-\/>CLKSLIP;}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_EFC\_CTLEN\ =\ systemREG2-\/>EFC\_CTLEN;}
+\DoxyCodeLine{00552\ \ \ \ \ \}}
+\DoxyCodeLine{00553\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_ab11a117f1e08391f23d1da05930e7acf}\label{system_8c_ab11a117f1e08391f23d1da05930e7acf}} 
+\index{system.c@{system.c}!systemInit@{systemInit}}
+\index{systemInit@{systemInit}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{systemInit()}{systemInit()}}
+{\footnotesize\ttfamily void system\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes System Driver. 
+
+This function initializes the System driver. 
+\begin{DoxyItemize}
+\item Set up flash address and data wait states based on the target CPU clock frequency The number of address and data wait states for the target CPU clock frequency are specified in the specific part\textquotesingle{}s datasheet.
+\item Configure the LPO such that HF LPO is as close to 10MHz as possible
+\item Wait for PLLs to start up and map clock domains to desired clock sources
+\item set ECLK pins functional mode
+\item set ECLK pins default output value
+\item set ECLK pins output direction
+\item set ECLK pins open drain enable
+\item set ECLK pins pullup/pulldown enable
+\item set ECLK pins pullup/pulldown select
+\item Setup ECLK
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00318\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ uint32\ efcCheckStatus;}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (15)\ */}}
+\DoxyCodeLine{00322\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{comment}{/*\ Configure\ PLL\ control\ registers\ and\ enable\ PLLs. }}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ \ \ \ \ *\ The\ PLL\ takes\ (127\ +\ 1024\ *\ NR)\ oscillator\ cycles\ to\ acquire\ lock. }}
+\DoxyCodeLine{00326\ \textcolor{comment}{\ \ \ \ \ *\ This\ initialization\ sequence\ performs\ all\ the\ tasks\ that\ are\ not }}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ \ \ \ \ *\ required\ to\ be\ done\ at\ full\ application\ speed\ while\ the\ PLL\ locks. }}
+\DoxyCodeLine{00328\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{system_8c_a45f46deb7644048176d5e9347afb939a}{setupPLL}}();}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (16)\ */}}
+\DoxyCodeLine{00332\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{/*\ Run\ eFuse\ controller\ start-\/up\ checks\ and\ start\ eFuse\ controller\ ECC\ self-\/test. }}
+\DoxyCodeLine{00335\ \textcolor{comment}{\ \ \ \ \ *\ This\ includes\ a\ check\ for\ the\ eFuse\ controller\ error\ outputs\ to\ be\ stuck-\/at-\/zero. }}
+\DoxyCodeLine{00336\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00337\ \ \ \ \ efcCheckStatus\ =\ \mbox{\hyperlink{sys__selftest_8c_a646eb27315f3ce47edde97c563389f76}{efcCheck}}();}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (17)\ */}}
+\DoxyCodeLine{00340\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{comment}{/*\ Enable\ clocks\ to\ peripherals\ and\ release\ peripheral\ reset\ */}}
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{system_8c_a57d84f612fd0d9fec4cd8ac58b5d10c3}{periphInit}}();}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (18)\ */}}
+\DoxyCodeLine{00346\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{comment}{/*\ Configure\ device-\/level\ multiplexing\ and\ I/O\ multiplexing\ */}}
+\DoxyCodeLine{00349\ \ \ \ \ muxInit();}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (19)\ */}}
+\DoxyCodeLine{00352\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{if}(efcCheckStatus\ ==\ 0U)}
+\DoxyCodeLine{00355\ \ \ \ \ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ eFuse\ controller\ self-\/test\ to\ complete\ and\ check\ results\ */}}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sys__selftest_8c_ad44409ae54516ba10303dd5c011f4fa6}{checkefcSelfTest}}()\ ==\ FALSE)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ eFuse\ controller\ ECC\ logic\ self-\/test\ failed\ */}}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(EFCCHECK\_FAIL1);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ device\ operation\ is\ not\ reliable\ */}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(efcCheckStatus\ ==\ 2U)}
+\DoxyCodeLine{00363\ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ eFuse\ controller\ self-\/test\ to\ complete\ and\ check\ results\ */}}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{sys__selftest_8c_ad44409ae54516ba10303dd5c011f4fa6}{checkefcSelfTest}}()\ ==\ FALSE)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ eFuse\ controller\ ECC\ logic\ self-\/test\ failed\ */}}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(EFCCHECK\_FAIL1);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ device\ operation\ is\ not\ reliable\ */}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ae96e990763ae7d45bd55ea5a27299a47}{selftestFailNotification}}(EFCCHECK\_FAIL2);}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00375\ \ \ \ \ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{comment}{/*\ Empty\ */}}
+\DoxyCodeLine{00377\ \ \ \ \ \}}
+\DoxyCodeLine{00378\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (20)\ */}}
+\DoxyCodeLine{00379\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00385\ \ \ \ \ \mbox{\hyperlink{system_8c_a4490b16ad7d041537868dc9732b3dac2}{setupFlash}}();}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (21)\ */}}
+\DoxyCodeLine{00388\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00391\ \ \ \ \ \mbox{\hyperlink{system_8c_aaa231cc5e90591363431c63f15360567}{trimLPO}}();}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (23)\ */}}
+\DoxyCodeLine{00396\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{system_8c_aa26c333cac9e8481986232eb8f0d9244}{mapClocks}}();}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (24)\ */}}
+\DoxyCodeLine{00402\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00405\ \ \ \ \ systemREG1-\/>SYSPC1\ =\ 0U;}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00408\ \ \ \ \ systemREG1-\/>SYSPC4\ =\ 0U;}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00411\ \ \ \ \ systemREG1-\/>SYSPC2\ =\ 1U;}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00414\ \ \ \ \ systemREG1-\/>SYSPC7\ =\ 0U;}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00417\ \ \ \ \ systemREG1-\/>SYSPC8\ =\ 0U;}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00420\ \ \ \ \ systemREG1-\/>SYSPC9\ =\ 1U;}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00423\ \ \ \ \ systemREG1-\/>ECPCNTL\ =\ (uint32)((uint32)0U\ <<\ 24U)}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 23U)}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)(8U\ -\/\ 1U)\ \&\ 0xFFFFU);}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (25)\ */}}
+\DoxyCodeLine{00428\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00429\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_af970bbab0b866f007e84e236cb1654e9}\label{system_8c_af970bbab0b866f007e84e236cb1654e9}} 
+\index{system.c@{system.c}!systemPowerDown@{systemPowerDown}}
+\index{systemPowerDown@{systemPowerDown}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{systemPowerDown()}{systemPowerDown()}}
+{\footnotesize\ttfamily void system\+Power\+Down (\begin{DoxyParamCaption}\item[{uint32}]{mode }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00435\ \{}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (26)\ */}}
+\DoxyCodeLine{00438\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{comment}{/*\ Disable\ clock\ sources\ */}}
+\DoxyCodeLine{00441\ \ \ \ \ systemREG1-\/>CSDISSET\ =\ mode\ \&\ 0x000000FFU;}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{comment}{/*\ Disable\ clock\ domains\ */}}
+\DoxyCodeLine{00444\ \ \ \ \ systemREG1-\/>CDDIS\ =\ (mode\ >>\ 8U)\ \&\ 0x00000FFFU;}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{comment}{/*\ Idle\ CPU\ */}}
+\DoxyCodeLine{00447\ \ \ \ \ \_gotoCPUIdle\_();}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (27)\ */}}
+\DoxyCodeLine{00450\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_afa983f739f63d48487aec38706af5a6f}\label{system_8c_afa983f739f63d48487aec38706af5a6f}} 
+\index{system.c@{system.c}!tcmflashGetConfigValue@{tcmflashGetConfigValue}}
+\index{tcmflashGetConfigValue@{tcmflashGetConfigValue}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{tcmflashGetConfigValue()}{tcmflashGetConfigValue()}}
+{\footnotesize\ttfamily void tcmflash\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{tcmflash\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00570\ \{}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00572\ \ \ \ \ \{}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FRDCNTL\ =\ TCMFLASH\_FRDCNTL\_CONFIGVALUE;}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACCTRL1\ =\ TCMFLASH\_FEDACCTRL1\_CONFIGVALUE;}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACCTRL2\ =\ TCMFLASH\_FEDACCTRL2\_CONFIGVALUE;}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACSDIS\ =\ TCMFLASH\_FEDACSDIS\_CONFIGVALUE;}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBPROT\ =\ TCMFLASH\_FBPROT\_CONFIGVALUE;}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBSE\ =\ TCMFLASH\_FBSE\_CONFIGVALUE;}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBAC\ =\ TCMFLASH\_FBAC\_CONFIGVALUE;}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBFALLBACK\ =\ TCMFLASH\_FBFALLBACK\_CONFIGVALUE;}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FPAC1\ =\ TCMFLASH\_FPAC1\_CONFIGVALUE;}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FPAC2\ =\ TCMFLASH\_FPAC2\_CONFIGVALUE;}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FMAC\ =\ TCMFLASH\_FMAC\_CONFIGVALUE;}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FLOCK\ =\ TCMFLASH\_FLOCK\_CONFIGVALUE;}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FDIAGCTRL\ =\ TCMFLASH\_FDIAGCTRL\_CONFIGVALUE;}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACSDIS2\ =\ TCMFLASH\_FEDACSDIS2\_CONFIGVALUE;}
+\DoxyCodeLine{00587\ \ \ \ \ \}}
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00589\ \ \ \ \ \{}
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FRDCNTL\ =\ flashWREG-\/>FRDCNTL;}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACCTRL1\ =\ flashWREG-\/>FEDACCTRL1;}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACCTRL2\ =\ flashWREG-\/>FEDACCTRL2;}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACSDIS\ =\ flashWREG-\/>FEDACSDIS;}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBPROT\ =\ flashWREG-\/>FBPROT;}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBSE\ =\ flashWREG-\/>FBSE;}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBAC\ =\ flashWREG-\/>FBAC;}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FBFALLBACK\ =\ flashWREG-\/>FBFALLBACK;}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FPAC1\ =\ flashWREG-\/>FPAC1;}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FPAC2\ =\ flashWREG-\/>FPAC2;}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FMAC\ =\ flashWREG-\/>FMAC;}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FLOCK\ =\ flashWREG-\/>FLOCK;}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FDIAGCTRL\ =\ flashWREG-\/>FDIAGCTRL;}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FEDACSDIS2\ =\ flashWREG-\/>FEDACSDIS2;}
+\DoxyCodeLine{00605\ \ \ \ \ \}}
+\DoxyCodeLine{00606\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{system_8c_aaa231cc5e90591363431c63f15360567}\label{system_8c_aaa231cc5e90591363431c63f15360567}} 
+\index{system.c@{system.c}!trimLPO@{trimLPO}}
+\index{trimLPO@{trimLPO}!system.c@{system.c}}
+\doxysubsubsection{\texorpdfstring{trimLPO()}{trimLPO()}}
+{\footnotesize\ttfamily void trim\+LPO (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialize LPO trim values. 
+
+Load TRIM values from OTP if present else call \mbox{\hyperlink{system_8c_ac357ba2b9a5627af15fa7be057fffd06}{custom\+Trim\+LPO()}} function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ uint32\ u32clocktestConfig;}
+\DoxyCodeLine{00142\ \textcolor{comment}{/*\ Save\ user\ clocktest\ register\ configuration\ */}}
+\DoxyCodeLine{00143\ u32clocktestConfig\ =\ systemREG1-\/>CLKTEST;}
+\DoxyCodeLine{00144\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (4)\ */}}
+\DoxyCodeLine{00145\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{/*The\ TRM\ states\ OTP\ TRIM\ value\ should\ be\ stepped\ to\ avoid\ large\ changes\ in\ the\ HF\ LPO\ clock\ that\ would\ result\ in\ a\ LPOCLKMON\ fault.\ At\ issue\ is\ the\ TRM\ does\ not\ specify\ what\ the\ maximum\ step\ is\ so\ there\ is\ no\ metric\ to\ use\ for\ the\ SW\ implementation\ -\/\ the\ routine\ can\ temporarily\ disable\ the\ LPOCLKMON\ range\ check\ so\ the\ sudden\ change\ will\ not\ cause\ a\ fault.*/}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{/*\ Disable\ clock\ range\ detection*/}}
+\DoxyCodeLine{00148\ \ \ \ \ systemREG1-\/>CLKTEST\ =\ (systemREG1-\/>CLKTEST\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0x1U\ <<\ 24U))\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\ ((uint32)(\string~((uint32)0x1U\ <<\ 25U)));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}(LPO\_TRIM\_VALUE\ !=\ 0xFFFFU)}
+\DoxyCodeLine{00154\ \ \ \ \ \{}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ systemREG1-\/>LPOMONCTL\ \ =\ (uint32)((uint32)1U\ <<\ 24U)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)LPO\_TRIM\_VALUE);}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00160\ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{system_8c_ac357ba2b9a5627af15fa7be057fffd06}{customTrimLPO}}();}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{/*\ Restore\ the\ user\ clocktest\ register\ value\ configuration\ */}}
+\DoxyCodeLine{00165\ \ \ \ \ systemREG1-\/>CLKTEST\ =\ u32clocktestConfig;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (5)\ */}}
+\DoxyCodeLine{00168\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \}}
+
+\end{DoxyCode}

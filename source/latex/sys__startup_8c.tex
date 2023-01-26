@@ -1,0 +1,617 @@
+\hypertarget{sys__startup_8c}{}\doxysection{sys\+\_\+startup.\+c File Reference}
+\label{sys__startup_8c}\index{sys\_startup.c@{sys\_startup.c}}
+
+
+Startup Source File.  
+
+
+{\ttfamily \#include \char`\"{}sys\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+vim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+core.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+selftest.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mibspi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}errata\+\_\+\+SSWF021\+\_\+45.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sys__startup_8c_abdd5d3d570a09049fb780e4aa2f0d3ac}\label{sys__startup_8c_abdd5d3d570a09049fb780e4aa2f0d3ac}} 
+\#define {\bfseries PLL\+\_\+\+RETRIES}~5U
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sys__startup_8c_aec7e99b36d0a6545da73dfb87a218cc5}\label{sys__startup_8c_aec7e99b36d0a6545da73dfb87a218cc5}} 
+void {\bfseries \+\_\+\+\_\+\+TI\+\_\+auto\+\_\+init} (void)
+\item 
+int \mbox{\hyperlink{sys__startup_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Application main function. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sys__startup_8c_af6c7a20d8fefdac0e6474ee91cf996c1}\label{sys__startup_8c_af6c7a20d8fefdac0e6474ee91cf996c1}} 
+void {\bfseries exit} (int \+\_\+status)
+\item 
+void \mbox{\hyperlink{sys__startup_8c_ae563f2c5cfd261a0c6e186d8375a3972}{handle\+PLLLock\+Fail}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles PLL lock fail. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sys__startup_8c_a3c8534f5781f4cf53ffbeb6d35880b27}{\+\_\+c\+\_\+int00}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Startup Source File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01
+\end{DoxyVersion}
+This file contains\+:
+\begin{DoxyItemize}
+\item Include Files
+\item Type Definitions
+\item External Functions
+\item VIM RAM Setup
+\item Startup Routine
+\end{DoxyItemize}which are relevant for the Startup. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys__startup_8c_a3c8534f5781f4cf53ffbeb6d35880b27}\label{sys__startup_8c_a3c8534f5781f4cf53ffbeb6d35880b27}} 
+\index{sys\_startup.c@{sys\_startup.c}!\_c\_int00@{\_c\_int00}}
+\index{\_c\_int00@{\_c\_int00}!sys\_startup.c@{sys\_startup.c}}
+\doxysubsubsection{\texorpdfstring{\_c\_int00()}{\_c\_int00()}}
+{\footnotesize\ttfamily void \+\_\+c\+\_\+int00 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \{\ \ \ \ }
+\DoxyCodeLine{00102\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (5)\ */}}
+\DoxyCodeLine{00103\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ Core\ Registers\ to\ avoid\ CCM\ Error\ */}}
+\DoxyCodeLine{00106\ \ \ \ \ \_coreInitRegisters\_();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (6)\ */}}
+\DoxyCodeLine{00109\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ Stack\ Pointers\ */}}
+\DoxyCodeLine{00112\ \ \ \ \ \_coreInitStackPointer\_();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (7)\ */}}
+\DoxyCodeLine{00115\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{/*\ Enable\ CPU\ Event\ Export\ */}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{/*\ This\ allows\ the\ CPU\ to\ signal\ any\ single-\/bit\ or\ double-\/bit\ errors\ detected }}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ *\ by\ its\ ECC\ logic\ for\ accesses\ to\ program\ flash\ or\ data\ RAM. }}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00121\ \ \ \ \ \_coreEnableEventBusExport\_();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (11)\ */}}
+\DoxyCodeLine{00124\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Workaround\ for\ Errata\ CORTEXR4\ 66\ */}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \_errata\_CORTEXR4\_66\_();}
+\DoxyCodeLine{00128\ \ \ \ \ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{/*\ Reset\ handler:\ the\ following\ instructions\ read\ from\ the\ system\ exception\ status\ register }}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ \ *\ to\ identify\ the\ cause\ of\ the\ CPU\ reset. }}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{/*\ check\ for\ power-\/on\ reset\ condition\ */}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ ((SYS\_EXCEPTION\ \&\ POWERON\_RESET)\ !=\ 0U)}
+\DoxyCodeLine{00136\ \ \ \ \ \{\ \ \ \ \ \ \ }
+\DoxyCodeLine{00137\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (12)\ */}}
+\DoxyCodeLine{00138\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Add\ condition\ to\ check\ whether\ PLL\ can\ be\ started\ successfully\ */}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{errata___s_s_w_f021__45_8c_af60adf7f2da8747f0b818985e0114fdf}{\_errata\_SSWF021\_45\_pll1}}(PLL\_RETRIES)\ !=\ 0U)}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Put\ system\ in\ a\ safe\ state\ */}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sys__startup_8c_ae563f2c5cfd261a0c6e186d8375a3972}{handlePLLLockFail}}();}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ all\ reset\ status\ flags\ */}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ SYS\_EXCEPTION\ =\ 0xFFFFU;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (13)\ */}}
+\DoxyCodeLine{00149\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00150\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (14)\ */}}
+\DoxyCodeLine{00151\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00152\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (15)\ */}}
+\DoxyCodeLine{00153\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \textcolor{comment}{/*\ continue\ with\ normal\ start-\/up\ sequence\ */}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((SYS\_EXCEPTION\ \&\ OSC\_FAILURE\_RESET)\ !=\ 0U)}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reset\ caused\ due\ to\ oscillator\ failure. }}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ Add\ user\ code\ here\ to\ handle\ oscillator\ failure\ */}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (16)\ */}}
+\DoxyCodeLine{00163\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((SYS\_EXCEPTION\ \&\ WATCHDOG\_RESET)\ !=0U)}
+\DoxyCodeLine{00167\ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reset\ caused\ due\  }}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \ 1)\ windowed\ watchdog\ violation\ -\/\ Add\ user\ code\ here\ to\ handle\ watchdog\ violation. }}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ \ 2)\ ICEPICK\ Reset\ -\/\ After\ loading\ code\ via\ CCS\ /\ System\ Reset\ through\ CCS }}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ WatchDog\ Status\ register\ */}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(WATCHDOG\_STATUS\ !=\ 0U)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Add\ user\ code\ here\ to\ handle\ watchdog\ violation.\ */}\ }
+\DoxyCodeLine{00176\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (17)\ */}}
+\DoxyCodeLine{00177\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ Watchdog\ reset\ flag\ in\ Exception\ Status\ register\ */}\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ SYS\_EXCEPTION\ =\ WATCHDOG\_RESET;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (18)\ */}}
+\DoxyCodeLine{00183\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ ICEPICK\ reset\ flag\ in\ Exception\ Status\ register\ */}\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ SYS\_EXCEPTION\ =\ ICEPICK\_RESET;}
+\DoxyCodeLine{00189\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (19)\ */}}
+\DoxyCodeLine{00190\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((SYS\_EXCEPTION\ \&\ CPU\_RESET)\ !=0U)}
+\DoxyCodeLine{00195\ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reset\ caused\ due\ to\ CPU\ reset. }}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ \ \ \ \ CPU\ reset\ can\ be\ caused\ by\ CPU\ self-\/test\ completion,\ or }}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ \ \ \ \ \ \ \ by\ toggling\ the\ "{}CPU\ RESET"{}\ bit\ of\ the\ CPU\ Reset\ Control\ Register.\ */}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (20)\ */}}
+\DoxyCodeLine{00201\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ all\ reset\ status\ flags\ */}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ SYS\_EXCEPTION\ =\ CPU\_RESET;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (21)\ */}}
+\DoxyCodeLine{00207\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((SYS\_EXCEPTION\ \&\ SW\_RESET)\ !=\ 0U)}
+\DoxyCodeLine{00212\ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reset\ caused\ due\ to\ software\ reset. }}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ \ \ \ \ \ \ \ Add\ user\ code\ to\ handle\ software\ reset.\ */}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00216\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (22)\ */}}
+\DoxyCodeLine{00217\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00220\ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Reset\ caused\ by\ nRST\ being\ driven\ low\ externally. }}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ \ \ \ \ \ \ \ Add\ user\ code\ to\ handle\ external\ reset.\ */}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (23)\ */}}
+\DoxyCodeLine{00225\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ there\ were\ ESM\ group3\ errors\ during\ power-\/up. }}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ \ \ \ \ *\ These\ could\ occur\ during\ eFuse\ auto-\/load\ or\ during\ reads\ from\ flash\ OTP }}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ \ \ \ \ *\ during\ power-\/up.\ Device\ operation\ is\ not\ reliable\ and\ not\ recommended }}
+\DoxyCodeLine{00231\ \textcolor{comment}{\ \ \ \ \ *\ in\ this\ case. }}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ \ \ \ \ *\ An\ ESM\ group3\ error\ only\ drives\ the\ nERROR\ pin\ low.\ An\ external\ circuit }}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ \ \ \ \ *\ that\ monitors\ the\ nERROR\ pin\ must\ take\ the\ appropriate\ action\ to\ ensure\ that }}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ \ \ \ \ *\ the\ system\ is\ placed\ in\ a\ safe\ state,\ as\ determined\ by\ the\ application. }}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{if}\ ((esmREG-\/>SR1[2])\ !=\ 0U)}
+\DoxyCodeLine{00237\ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (24)\ */}}
+\DoxyCodeLine{00239\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 5\ C\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 26\ S\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}for(;;)\ can\ be\ removed\ by\ adding\ "{}\#\ if\ 0"{}\ and\ "{}\#\ endif"{}\ in\ the\ user\ codes\ above\ and\ below"{}\ */}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00246\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (25)\ */}}
+\DoxyCodeLine{00247\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (26)\ */}}
+\DoxyCodeLine{00251\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ System\ -\/\ Clock,\ Flash\ settings\ with\ Efuse\ self\ check\ */}}
+\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{system_8c_ab11a117f1e08391f23d1da05930e7acf}{systemInit}}();}
+\DoxyCodeLine{00255\ \ \ \ \ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{comment}{/*\ Workaround\ for\ Errata\ PBIST\#4\ */}}
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a1f3b71a00b6347cb5f7f6eb922c36c9e}{errata\_PBIST\_4}}();}
+\DoxyCodeLine{00258\ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{/*\ Run\ a\ diagnostic\ check\ on\ the\ memory\ self-\/test\ controller. }}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ \ \ \ *\ This\ function\ chooses\ a\ RAM\ test\ algorithm\ and\ runs\ it\ on\ an\ on-\/chip\ ROM. }}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ \ \ \ \ *\ The\ memory\ self-\/test\ is\ expected\ to\ fail.\ The\ function\ ensures\ that\ the\ PBIST\ controller }}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ \ \ \ \ *\ is\ capable\ of\ detecting\ and\ indicating\ a\ memory\ self-\/test\ failure. }}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00264\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ac9b7e2d9da2b5166a9ea002d431e54ef}{pbistSelfCheck}}();\ }
+\DoxyCodeLine{00265\ \ \ \ \ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{comment}{/*\ Run\ PBIST\ on\ STC\ ROM\ */}}
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}{pbistRun}}((uint32)STC\_ROM\_PBIST\_RAM\_GROUP,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32)PBIST\_TripleReadSlow\ |\ (uint32)PBIST\_TripleReadFast));}
+\DoxyCodeLine{00269\ \ \ \ \ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ PBIST\ for\ STC\ ROM\ to\ be\ completed\ */}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}{pbistIsTestCompleted}}()\ !=\ TRUE)}
+\DoxyCodeLine{00273\ \ \ \ \ \{\ }
+\DoxyCodeLine{00274\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}\ }
+\DoxyCodeLine{00275\ \ \ \ \ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ PBIST\ on\ STC\ ROM\ passed\ the\ self-\/test\ */}}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}{pbistIsTestPassed}}()\ !=\ TRUE)}
+\DoxyCodeLine{00278\ \ \ \ \ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PBIST\ and\ STC\ ROM\ failed\ the\ self-\/test. }}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Need\ custom\ handler\ to\ check\ the\ memory\ failure }}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ and\ to\ take\ the\ appropriate\ next\ step. }}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ pbistFail();}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00287\ \ \ \ \ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ disable\ memory\ self-\/test\ mode\ */}}
+\DoxyCodeLine{00289\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}{pbistStop}}();}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{comment}{/*\ Run\ PBIST\ on\ PBIST\ ROM\ */}}
+\DoxyCodeLine{00292\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}{pbistRun}}((uint32)PBIST\_ROM\_PBIST\_RAM\_GROUP,}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32)PBIST\_TripleReadSlow\ |\ (uint32)PBIST\_TripleReadFast));}
+\DoxyCodeLine{00294\ \ \ \ \ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ PBIST\ for\ PBIST\ ROM\ to\ be\ completed\ */}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}{pbistIsTestCompleted}}()\ !=\ TRUE)}
+\DoxyCodeLine{00298\ \ \ \ \ \{\ }
+\DoxyCodeLine{00299\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}\ }
+\DoxyCodeLine{00300\ \ \ \ \ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ PBIST\ ROM\ passed\ the\ self-\/test\ */}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}{pbistIsTestPassed}}()\ !=\ TRUE)}
+\DoxyCodeLine{00303\ \ \ \ \ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PBIST\ and\ STC\ ROM\ failed\ the\ self-\/test. }}
+\DoxyCodeLine{00305\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Need\ custom\ handler\ to\ check\ the\ memory\ failure }}
+\DoxyCodeLine{00306\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ and\ to\ take\ the\ appropriate\ next\ step. }}
+\DoxyCodeLine{00307\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ pbistFail();}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \}\ }
+\DoxyCodeLine{00312\ \ \ \ \ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ disable\ memory\ self-\/test\ mode\ */}}
+\DoxyCodeLine{00314\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}{pbistStop}}();\ \ \ }
+\DoxyCodeLine{00315\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00316\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (31)\ */}}
+\DoxyCodeLine{00319\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{comment}{/*\ Disable\ RAM\ ECC\ before\ doing\ PBIST\ for\ Main\ RAM\ */}}
+\DoxyCodeLine{00322\ \ \ \ \ \_coreDisableRamEcc\_();}
+\DoxyCodeLine{00323\ \ \ \ \ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{comment}{/*\ Run\ PBIST\ on\ CPU\ RAM. }}
+\DoxyCodeLine{00325\ \textcolor{comment}{\ \ \ \ \ *\ The\ PBIST\ controller\ needs\ to\ be\ configured\ separately\ for\ single-\/port\ and\ dual-\/port\ SRAMs. }}
+\DoxyCodeLine{00326\ \textcolor{comment}{\ \ \ \ \ *\ The\ CPU\ RAM\ is\ a\ single-\/port\ memory.\ The\ actual\ "{}RAM\ Group"{}\ for\ all\ on-\/chip\ SRAMs\ is\ defined\ in\ the }}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ \ \ \ \ *\ device\ datasheet. }}
+\DoxyCodeLine{00328\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}{pbistRun}}(0x00000020U,\ \textcolor{comment}{/*\ ESRAM\ Single\ Port\ PBIST\ */}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)PBIST\_March13N\_SP);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (32)\ */}}
+\DoxyCodeLine{00333\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ PBIST\ for\ CPU\ RAM\ to\ be\ completed\ */}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}{pbistIsTestCompleted}}()\ !=\ TRUE)}
+\DoxyCodeLine{00338\ \ \ \ \ \{\ }
+\DoxyCodeLine{00339\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00340\ \ \ \ \ }
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (33)\ */}}
+\DoxyCodeLine{00343\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00344\ \ \ \ \ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ CPU\ RAM\ passed\ the\ self-\/test\ */}}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}{pbistIsTestPassed}}()\ !=\ TRUE)}
+\DoxyCodeLine{00347\ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ CPU\ RAM\ failed\ the\ self-\/test. }}
+\DoxyCodeLine{00349\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Need\ custom\ handler\ to\ check\ the\ memory\ failure }}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ and\ to\ take\ the\ appropriate\ next\ step. }}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00352\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (34)\ */}}
+\DoxyCodeLine{00353\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ pbistFail();}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00357\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (35)\ */}}
+\DoxyCodeLine{00358\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (36)\ */}}
+\DoxyCodeLine{00362\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ disable\ memory\ self-\/test\ mode\ */}}
+\DoxyCodeLine{00365\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}{pbistStop}}();}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ }
+\DoxyCodeLine{00368\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (37)\ */}}
+\DoxyCodeLine{00369\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ CPU\ RAM. }}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ \ \ \ \ *\ This\ function\ uses\ the\ system\ module's\ hardware\ for\ auto-\/initialization\ of\ memories\ and\ their }}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ \ \ \ \ *\ associated\ protection\ schemes.\ The\ CPU\ RAM\ is\ initialized\ by\ setting\ bit\ 0\ of\ the\ MSIENA\ register. }}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ \ \ \ \ *\ Hence\ the\ value\ 0x1\ passed\ to\ the\ function. }}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ \ \ \ \ *\ This\ function\ will\ initialize\ the\ entire\ CPU\ RAM\ and\ the\ corresponding\ ECC\ locations. }}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00378\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a3184dfe0846903e1111348942160dfe7}{memoryInit}}(0x1U);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (38)\ */}}
+\DoxyCodeLine{00381\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00382\ \ \ \ \ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{comment}{/*\ Enable\ ECC\ checking\ for\ TCRAM\ accesses. }}
+\DoxyCodeLine{00384\ \textcolor{comment}{\ \ \ \ \ *\ This\ function\ enables\ the\ CPU's\ ECC\ logic\ for\ accesses\ to\ B0TCM\ and\ B1TCM. }}
+\DoxyCodeLine{00385\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00386\ \ \ \ \ \_coreEnableRamEcc\_();}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (39)\ */}}
+\DoxyCodeLine{00389\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{comment}{/*\ Start\ PBIST\ on\ all\ dual-\/port\ memories\ */}}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{comment}{/*\ NOTE\ :\ Please\ Refer\ DEVICE\ DATASHEET\ for\ the\ list\ of\ Supported\ Dual\ port\ Memories. }}
+\DoxyCodeLine{00393\ \textcolor{comment}{\ \ \ \ \ \ \ PBIST\ test\ performed\ only\ on\ the\ user\ selected\ memories\ in\ HALCoGen's\ GUI\ SAFETY\ INIT\ tab. }}
+\DoxyCodeLine{00394\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00395\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_ad5fcc064d8d51dda635d83235cf37e3e}{pbistRun}}(\ \ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ EMAC\ RAM\ */}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ USB\ RAM\ */}\ \ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ DMA\ RAM\ */}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000200U\ \ \ \ \textcolor{comment}{/*\ VIM\ RAM\ */}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000040U\ \ \ \ \textcolor{comment}{/*\ MIBSPI1\ RAM\ */}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ MIBSPI3\ RAM\ */}}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ MIBSPI5\ RAM\ */}}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000004U\ \ \ \ \textcolor{comment}{/*\ CAN1\ RAM\ */}}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000008U\ \ \ \ \textcolor{comment}{/*\ CAN2\ RAM\ */}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ CAN3\ RAM\ */}}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000400U\ \ \ \ \textcolor{comment}{/*\ ADC1\ RAM\ */}}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ ADC2\ RAM\ */}}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00001000U\ \ \ \ \textcolor{comment}{/*\ HET1\ RAM\ */}}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ HET2\ RAM\ */}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00002000U\ \ \ \ \textcolor{comment}{/*\ HTU1\ RAM\ */}}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ HTU2\ RAM\ */}}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ RTP\ RAM\ */}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)0x00000000U\ \ \ \ \textcolor{comment}{/*\ FRAY\ RAM\ */}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ ,(uint32)\ PBIST\_March13N\_DP);}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (40)\ */}}
+\DoxyCodeLine{00416\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{comment}{/*\ Test\ the\ CPU\ ECC\ mechanism\ for\ RAM\ accesses. }}
+\DoxyCodeLine{00419\ \textcolor{comment}{\ \ \ \ \ *\ The\ checkBxRAMECC\ functions\ cause\ deliberate\ single-\/bit\ and\ double-\/bit\ errors\ in\ TCRAM\ accesses }}
+\DoxyCodeLine{00420\ \textcolor{comment}{\ \ \ \ \ *\ by\ corrupting\ 1\ or\ 2\ bits\ in\ the\ ECC.\ Reading\ from\ the\ TCRAM\ location\ with\ a\ 2-\/bit\ error }}
+\DoxyCodeLine{00421\ \textcolor{comment}{\ \ \ \ \ *\ in\ the\ ECC\ causes\ a\ data\ abort\ exception.\ The\ data\ abort\ handler\ is\ written\ to\ look\ for }}
+\DoxyCodeLine{00422\ \textcolor{comment}{\ \ \ \ \ *\ deliberately\ caused\ exception\ and\ to\ return\ the\ code\ execution\ to\ the\ instruction }}
+\DoxyCodeLine{00423\ \textcolor{comment}{\ \ \ \ \ *\ following\ the\ one\ that\ caused\ the\ abort. }}
+\DoxyCodeLine{00424\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00425\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a421594cf13d3b5ca42435c5a5604721c}{checkRAMECC}}();}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (41)\ */}}
+\DoxyCodeLine{00428\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00429\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (43)\ */}}
+\DoxyCodeLine{00430\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{comment}{/*\ Wait\ for\ PBIST\ for\ CPU\ RAM\ to\ be\ completed\ */}}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{sys__selftest_8c_a2675f441b1c7bbadd9877cfd586bf959}{pbistIsTestCompleted}}()\ !=\ TRUE)}
+\DoxyCodeLine{00435\ \ \ \ \ \{\ }
+\DoxyCodeLine{00436\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00437\ \ \ \ \ }
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (44)\ */}}
+\DoxyCodeLine{00440\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ CPU\ RAM\ passed\ the\ self-\/test\ */}}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{sys__selftest_8c_a975a794505ddcaf5d1c68e7a229fc8ae}{pbistIsTestPassed}}()\ !=\ TRUE)}
+\DoxyCodeLine{00444\ \ \ \ \ \{}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (45)\ */}}
+\DoxyCodeLine{00447\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ CPU\ RAM\ failed\ the\ self-\/test. }}
+\DoxyCodeLine{00450\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Need\ custom\ handler\ to\ check\ the\ memory\ failure }}
+\DoxyCodeLine{00451\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ and\ to\ take\ the\ appropriate\ next\ step. }}
+\DoxyCodeLine{00452\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00453\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (46)\ */}}
+\DoxyCodeLine{00454\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ pbistFail();}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00458\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (47)\ */}}
+\DoxyCodeLine{00459\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00460\ \ \ \ \ \}}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (48)\ */}}
+\DoxyCodeLine{00463\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{comment}{/*\ Disable\ PBIST\ clocks\ and\ disable\ memory\ self-\/test\ mode\ */}}
+\DoxyCodeLine{00466\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a1ea172c81d7549cd8181de098a91b752}{pbistStop}}();}
+\DoxyCodeLine{00467\ \ \ \ \ }
+\DoxyCodeLine{00468\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (55)\ */}}
+\DoxyCodeLine{00469\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{comment}{/*\ Release\ the\ MibSPI1\ modules\ from\ local\ reset. }}
+\DoxyCodeLine{00472\ \textcolor{comment}{\ \ \ \ \ *\ This\ will\ cause\ the\ MibSPI1\ RAMs\ to\ get\ initialized\ along\ with\ the\ parity\ memory. }}
+\DoxyCodeLine{00473\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00474\ \ \ \ \ \ mibspiREG1-\/>GCR0\ =\ 0x1U;}
+\DoxyCodeLine{00475\ \ \ \ \ \ }
+\DoxyCodeLine{00476\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (56)\ */}}
+\DoxyCodeLine{00477\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{comment}{/*\ Enable\ parity\ on\ selected\ RAMs\ */}}
+\DoxyCodeLine{00480\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_af9ecd48548d7a3d98d5dcc44d1e7ca51}{enableParity}}();}
+\DoxyCodeLine{00481\ \ \ \ \ }
+\DoxyCodeLine{00482\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ all\ on-\/chip\ SRAMs\ except\ for\ MibSPIx\ RAMs }}
+\DoxyCodeLine{00483\ \textcolor{comment}{\ \ \ \ \ *\ The\ MibSPIx\ modules\ have\ their\ own\ auto-\/initialization\ mechanism\ which\ is\ triggered }}
+\DoxyCodeLine{00484\ \textcolor{comment}{\ \ \ \ \ *\ as\ soon\ as\ the\ modules\ are\ brought\ out\ of\ local\ reset. }}
+\DoxyCodeLine{00485\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{comment}{/*\ The\ system\ module\ auto-\/init\ will\ hang\ on\ the\ MibSPI\ RAM\ if\ the\ module\ is\ still\ in\ local\ reset. }}
+\DoxyCodeLine{00487\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{comment}{/*\ NOTE\ :\ Please\ Refer\ DEVICE\ DATASHEET\ for\ the\ list\ of\ Supported\ Memories\ and\ their\ channel\ numbers. }}
+\DoxyCodeLine{00489\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ Memory\ Initialization\ is\ perfomed\ only\ on\ the\ user\ selected\ memories\ in\ HALCoGen's\ GUI\ SAFETY\ INIT\ tab. }}
+\DoxyCodeLine{00490\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00491\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a3184dfe0846903e1111348942160dfe7}{memoryInit}}(\ (uint32)((uint32)0U\ <<\ 1U)\ \ \ \ \textcolor{comment}{/*\ DMA\ RAM\ */}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 2U)\ \ \ \ \textcolor{comment}{/*\ VIM\ RAM\ */}}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 5U)\ \ \ \ \textcolor{comment}{/*\ CAN1\ RAM\ */}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 6U)\ \ \ \ \textcolor{comment}{/*\ CAN2\ RAM\ */}}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 10U)\ \ \ \textcolor{comment}{/*\ CAN3\ RAM\ */}}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 8U)\ \ \ \ \textcolor{comment}{/*\ ADC1\ RAM\ */}}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 14U)\ \ \ \textcolor{comment}{/*\ ADC2\ RAM\ */}}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 3U)\ \ \ \ \textcolor{comment}{/*\ HET1\ RAM\ */}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 4U)\ \ \ \ \textcolor{comment}{/*\ HTU1\ RAM\ */}}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 15U)\ \ \ \textcolor{comment}{/*\ HET2\ RAM\ */}}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 16U)\ \ \ \textcolor{comment}{/*\ HTU2\ RAM\ */}}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{comment}{/*\ Disable\ parity\ */}}
+\DoxyCodeLine{00505\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a15b66d583493adf7dc0ce8e3a89f00f5}{disableParity}}();}
+\DoxyCodeLine{00506\ \ \ \ \ }
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{comment}{/*\ Test\ the\ parity\ protection\ mechanism\ for\ peripheral\ RAMs }}
+\DoxyCodeLine{00508\ \textcolor{comment}{\ \ \ \ \ \ \ NOTE\ :\ Please\ Refer\ DEVICE\ DATASHEET\ for\ the\ list\ of\ Supported\ Memories\ with\ parity. }}
+\DoxyCodeLine{00509\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Parity\ Self\ check\ is\ perfomed\ only\ on\ the\ user\ selected\ memories\ in\ HALCoGen's\ GUI\ SAFETY\ INIT\ tab. }}
+\DoxyCodeLine{00510\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (57)\ */}}
+\DoxyCodeLine{00513\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00514\ \ \ \ \ \ }
+\DoxyCodeLine{00515\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a66f658578435dc4d3984c76a3d2ed959}{het1ParityCheck}}();}
+\DoxyCodeLine{00516\ \ \ \ \ }
+\DoxyCodeLine{00517\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (58)\ */}}
+\DoxyCodeLine{00518\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a5f69665c7b7abb003cfb4a314ce1e943}{htu1ParityCheck}}();}
+\DoxyCodeLine{00521\ \ \ \ \ }
+\DoxyCodeLine{00522\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (61)\ */}}
+\DoxyCodeLine{00523\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a0267c576250cc80c1ffafae379fcd937}{adc1ParityCheck}}();}
+\DoxyCodeLine{00526\ \ \ \ \ }
+\DoxyCodeLine{00527\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (63)\ */}}
+\DoxyCodeLine{00528\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a034e78d72a2a9231d27d78256d3d194e}{can1ParityCheck}}();}
+\DoxyCodeLine{00531\ \ \ \ \ }
+\DoxyCodeLine{00532\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (64)\ */}}
+\DoxyCodeLine{00533\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00534\ }
+\DoxyCodeLine{00535\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a0b4bb222e016b734e702da6a1ec5ab8a}{can2ParityCheck}}();}
+\DoxyCodeLine{00536\ \ \ \ \ }
+\DoxyCodeLine{00537\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (66)\ */}}
+\DoxyCodeLine{00538\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_af7297818ebd5ffd62488091aa9633bf9}{vimParityCheck}}();}
+\DoxyCodeLine{00541\ \ \ \ \ }
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (68)\ */}}
+\DoxyCodeLine{00544\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Hardware\ status\ bit\ read\ check"{}\ */}}
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keywordflow}{while}\ ((mibspiREG1-\/>FLG\ \&\ 0x01000000U)\ ==\ 0x01000000U)}
+\DoxyCodeLine{00548\ \ \ \ \ \{\ }
+\DoxyCodeLine{00549\ \ \ \ \ \}\textcolor{comment}{/*\ Wait\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{comment}{/*\ wait\ for\ MibSPI1\ RAM\ to\ complete\ initialization\ */}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (69)\ */}}
+\DoxyCodeLine{00553\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \ \ \ \ \mbox{\hyperlink{sys__selftest_8c_a050e0c2257b541e651eb35d32f10c98d}{mibspi1ParityCheck}}();}
+\DoxyCodeLine{00556\ \ \ \ \ }
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00558\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (72)\ */}}
+\DoxyCodeLine{00559\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00560\ \ \ \ \ }
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{comment}{/*\ Enable\ IRQ\ offset\ via\ Vic\ controller\ */}}
+\DoxyCodeLine{00562\ \ \ \ \ \_coreEnableIrqVicOffset\_();}
+\DoxyCodeLine{00563\ \ \ \ \ }
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (73)\ */}}
+\DoxyCodeLine{00566\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00568\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ VIM\ table\ */}}
+\DoxyCodeLine{00569\ \ \ \ \ \mbox{\hyperlink{sys__vim_8c_a894b6f212b72787bfa97f1ac62877167}{vimInit}}();\ \ \ \ }
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (74)\ */}}
+\DoxyCodeLine{00572\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{comment}{/*\ Configure\ system\ response\ to\ error\ conditions\ signaled\ to\ the\ ESM\ group1\ */}}
+\DoxyCodeLine{00575\ \ \ \ \ \textcolor{comment}{/*\ This\ function\ can\ be\ configured\ from\ the\ ESM\ tab\ of\ HALCoGen\ */}}
+\DoxyCodeLine{00576\ \ \ \ \ \mbox{\hyperlink{esm_8c_a3ebbcbb33cba761eba56edcf1aeb9961}{esmInit}}();}
+\DoxyCodeLine{00577\ \ \ \ \ \textcolor{comment}{/*\ initialize\ copy\ table\ */}}
+\DoxyCodeLine{00578\ \ \ \ \ \_\_TI\_auto\_init();}
+\DoxyCodeLine{00579\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (75)\ */}}
+\DoxyCodeLine{00580\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00581\ \ \ \ \ }
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{comment}{/*\ call\ the\ application\ */}}
+\DoxyCodeLine{00583\ \textcolor{comment}{/*SAFETYMCUSW\ 296\ S\ MR:8.6\ <APPROVED>\ "{}Startup\ code(library\ functions\ at\ block\ scope)"{}\ */}}
+\DoxyCodeLine{00584\ \textcolor{comment}{/*SAFETYMCUSW\ 326\ S\ MR:8.2\ <APPROVED>\ "{}Startup\ code(Declaration\ for\ main\ in\ library)"{}\ */}}
+\DoxyCodeLine{00585\ \textcolor{comment}{/*SAFETYMCUSW\ 60\ D\ MR:8.8\ <APPROVED>\ "{}Startup\ code(Declaration\ for\ main\ in\ library;Only\ doing\ an\ extern\ for\ the\ same)"{}\ */}}
+\DoxyCodeLine{00586\ \ \ \ \ \mbox{\hyperlink{sys__startup_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}();}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (76)\ */}}
+\DoxyCodeLine{00589\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00590\ \textcolor{comment}{/*SAFETYMCUSW\ 122\ S\ MR:20.11\ <APPROVED>\ "{}Startup\ code(exit\ and\ abort\ need\ to\ be\ present)"{}\ */}}
+\DoxyCodeLine{00591\ \ \ \ \ exit(0);}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00593\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (77)\ */}}
+\DoxyCodeLine{00594\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00595\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__startup_8c_ae563f2c5cfd261a0c6e186d8375a3972}\label{sys__startup_8c_ae563f2c5cfd261a0c6e186d8375a3972}} 
+\index{sys\_startup.c@{sys\_startup.c}!handlePLLLockFail@{handlePLLLockFail}}
+\index{handlePLLLockFail@{handlePLLLockFail}!sys\_startup.c@{sys\_startup.c}}
+\doxysubsubsection{\texorpdfstring{handlePLLLockFail()}{handlePLLLockFail()}}
+{\footnotesize\ttfamily void handle\+PLLLock\+Fail (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles PLL lock fail. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00603\ \{}
+\DoxyCodeLine{00604\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (79)\ */}}
+\DoxyCodeLine{00605\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00606\ \ \ \ \ \textcolor{keywordflow}{while}(1)}
+\DoxyCodeLine{00607\ \ \ \ \ \{}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00609\ \ \ \ \ \}}
+\DoxyCodeLine{00610\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (80)\ */}}
+\DoxyCodeLine{00611\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00612\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys__startup_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{sys__startup_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{sys\_startup.c@{sys\_startup.c}!main@{main}}
+\index{main@{main}!sys\_startup.c@{sys\_startup.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Application main function. 
+
+\begin{DoxyNote}{Note}
+This function is empty by default.
+\end{DoxyNote}
+This function is called after startup. The user can use this function to implement the application. \begin{DoxyNote}{Note}
+This function is empty by default. Initialization SCI(\+UART) Initialization SCI interrupt
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{sci_8c_ae8a1d6b7274ed1af263d57fab032096a}{sciInit}}();}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ SCI\_RX\_INT);}
+\DoxyCodeLine{00080\ \ \ \ \ \_enable\_IRQ();}
+\DoxyCodeLine{00081\ \ \ \ \ Ascii\_Converter\_First\_Recieve();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{while}(1)\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ae78a8df95d87cc1c2d98fd52e1a0ce5a}{Ascii\_Converter\_Enable\_Convert}}();}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}

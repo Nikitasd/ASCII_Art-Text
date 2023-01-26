@@ -1,0 +1,62 @@
+\hypertarget{sys__main_8c}{}\doxysection{sys\+\_\+main.\+c File Reference}
+\label{sys__main_8c}\index{sys\_main.c@{sys\_main.c}}
+
+
+Application main file.  
+
+
+{\ttfamily \#include \char`\"{}sci.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}stdint.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Ascii\+\_\+\+Convert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+common.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sys__main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Application main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application main file. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01
+\end{DoxyVersion}
+This file contains an empty main function, which can be used for the application. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys__main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\label{sys__main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}} 
+\index{sys\_main.c@{sys\_main.c}!main@{main}}
+\index{main@{main}!sys\_main.c@{sys\_main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Application main function. 
+
+\begin{DoxyNote}{Note}
+This function is empty by default.
+\end{DoxyNote}
+This function is called after startup. The user can use this function to implement the application. \begin{DoxyNote}{Note}
+This function is empty by default. Initialization SCI(\+UART) Initialization SCI interrupt
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{sci_8c_ae8a1d6b7274ed1af263d57fab032096a}{sciInit}}();}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ SCI\_RX\_INT);}
+\DoxyCodeLine{00080\ \ \ \ \ \_enable\_IRQ();}
+\DoxyCodeLine{00081\ \ \ \ \ Ascii\_Converter\_First\_Recieve();}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{while}(1)\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ae78a8df95d87cc1c2d98fd52e1a0ce5a}{Ascii\_Converter\_Enable\_Convert}}();}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}

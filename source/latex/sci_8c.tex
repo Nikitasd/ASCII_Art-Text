@@ -1,0 +1,858 @@
+\hypertarget{sci_8c}{}\doxysection{sci.\+c File Reference}
+\label{sci_8c}\index{sci.c@{sci.c}}
+
+
+SCI Driver Implementation File.  
+
+
+{\ttfamily \#include \char`\"{}sci.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sys\+\_\+vim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bfseries g\+\_\+sci\+Transfer}
+\begin{DoxyCompactList}\small\item\em Interrupt mode globals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sci_8c_ae8a1d6b7274ed1af263d57fab032096a}{sci\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the SCI Driver. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a2bf2ae4e9ca71949190dd967b406b931}{sci\+Set\+Functional}} (sci\+BASE\+\_\+t $\ast$sci, uint32 port)
+\begin{DoxyCompactList}\small\item\em Change functional behavior of pins at runtime. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a35d4f604e2151ca596b1e0fcca6f5606}{sci\+Set\+Baudrate}} (sci\+BASE\+\_\+t $\ast$sci, uint32 baud)
+\begin{DoxyCompactList}\small\item\em Change baudrate at runtime. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{sci_8c_aafd91cc5c28a92fa211e96e06b3fc34c}{sci\+Is\+Tx\+Ready}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Check if Tx buffer empty. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a8803e9ddc05ea93c80a768d0fc0eab16}{sci\+Send\+Byte}} (sci\+BASE\+\_\+t $\ast$sci, uint8 byte)
+\begin{DoxyCompactList}\small\item\em Send Byte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a0a24e75961adf4102892d78e9620c042}{sci\+Send}} (sci\+BASE\+\_\+t $\ast$sci, uint32 length, uint8 $\ast$data)
+\begin{DoxyCompactList}\small\item\em Send Data. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{sci_8c_a030ca3a9ad5bf48a7215be9d4078ad49}{sci\+Is\+Rx\+Ready}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Check if Rx buffer full. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{sci_8c_abb100a9163984ca6c9a69133b8eba657}{sci\+Is\+Idle\+Detected}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Check if Idle Period is Detected. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{sci_8c_a36cb42a55bca0fe4e76f3b994fb6dfc4}{sci\+Rx\+Error}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Return Rx Error flags. \end{DoxyCompactList}\item 
+uint32 \mbox{\hyperlink{sci_8c_aec2932431dfdcdef7c3aba3da9cf4fe7}{sci\+Receive\+Byte}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Receive Byte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a2452fb07e6ad52632e100fed774f9087}{sci\+Receive}} (sci\+BASE\+\_\+t $\ast$sci, uint32 length, uint8 $\ast$data)
+\begin{DoxyCompactList}\small\item\em Receive Data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a36302e2a67c26b3557c66ccb267c1760}{sci\+Enable\+Loopback}} (sci\+BASE\+\_\+t $\ast$sci, loop\+Back\+Type\+\_\+t Loopbacktype)
+\begin{DoxyCompactList}\small\item\em Enable Loopback mode for self test. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_ae6568eda24f29b1b31bd09a5f665b5f8}{sci\+Disable\+Loopback}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Enable Loopback mode for self test. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_ad14ca1b90c313254407d318eceaa1f46}{sci\+Enable\+Notification}} (sci\+BASE\+\_\+t $\ast$sci, uint32 flags)
+\begin{DoxyCompactList}\small\item\em Enable interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a9f1a39a5272682dbd101ddcbbbdc8193}{sci\+Disable\+Notification}} (sci\+BASE\+\_\+t $\ast$sci, uint32 flags)
+\begin{DoxyCompactList}\small\item\em Disable interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a695b0bd0cb87fd2a0542f784fc94aa06}{sci\+Enter\+Reset\+State}} (sci\+BASE\+\_\+t $\ast$sci)
+\begin{DoxyCompactList}\small\item\em Enter reset state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a3ec6735d45ea69caf0abe5919f04d538}{sci\+Exit\+Reset\+State}} (sci\+BASE\+\_\+t $\ast$sci)
+\item 
+void \mbox{\hyperlink{sci_8c_a2418574fe9c3d642db1f134926ac6934}{scilin\+Get\+Config\+Value}} (sci\+\_\+config\+\_\+reg\+\_\+t $\ast$config\+\_\+reg, config\+\_\+value\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Get the initial or current values of the SCILIN ( SCI2) configuration registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sci_8c_a8068218df1b05a56cfad35be668c34a2}{lin\+High\+Level\+Interrupt}} (void)
+\begin{DoxyCompactList}\small\item\em Level 0 Interrupt for SCILIN. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SCI Driver Implementation File. 
+
+\begin{DoxyDate}{Date}
+11-\/Dec-\/2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+04.\+07.\+01 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sci_8c_a8068218df1b05a56cfad35be668c34a2}\label{sci_8c_a8068218df1b05a56cfad35be668c34a2}} 
+\index{sci.c@{sci.c}!linHighLevelInterrupt@{linHighLevelInterrupt}}
+\index{linHighLevelInterrupt@{linHighLevelInterrupt}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{linHighLevelInterrupt()}{linHighLevelInterrupt()}}
+{\footnotesize\ttfamily void lin\+High\+Level\+Interrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Level 0 Interrupt for SCILIN. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00677\ \{}
+\DoxyCodeLine{00678\ \ \ \ \ uint32\ vec\ =\ scilinREG-\/>INTVECT0;}
+\DoxyCodeLine{00679\ \ \ \ \ uint8\ byte;}
+\DoxyCodeLine{00680\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (29)\ */}}
+\DoxyCodeLine{00681\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keywordflow}{switch}\ (vec)}
+\DoxyCodeLine{00684\ \ \ \ \ \{}
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keywordflow}{case}\ 1U:}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_WAKE\_INT);}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00688\ \ \ \ \ \textcolor{keywordflow}{case}\ 3U:}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_PE\_INT);}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00691\ \ \ \ \ \textcolor{keywordflow}{case}\ 6U:}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_FE\_INT);}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00694\ \ \ \ \ \textcolor{keywordflow}{case}\ 7U:}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_BREAK\_INT);}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{keywordflow}{case}\ 9U:}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_OE\_INT);}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00701\ \ \ \ \ \textcolor{keywordflow}{case}\ 11U:}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ receive\ */}}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{byte}\ =\ (uint8)(scilinREG-\/>RD\ \&\ 0x000000FFU);}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (g\_sciTransfer\_t.rx\_length\ >\ 0U)}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *g\_sciTransfer\_t.rx\_data\ =\ byte;}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 567\ S\ MR:17.1,17.4\ <APPROVED>\ "{}Pointer\ increment\ needed"{}\ */}}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.rx\_data++;}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.rx\_length-\/-\/;}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (g\_sciTransfer\_t.rx\_length\ ==\ 0U)}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_RX\_INT);}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00718\ \ \ \ \ \textcolor{keywordflow}{case}\ 12U:}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ transmit\ */}}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 30\ S\ MR:12.2,12.3\ <APPROVED>\ "{}Used\ for\ data\ count\ in\ Transmit/Receive\ polling\ and\ Interrupt\ mode"{}\ */}}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ -\/-\/g\_sciTransfer\_t.tx\_length;}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((g\_sciTransfer\_t.tx\_length)\ >\ 0U)}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \ \ \ \ uint8\ txdata\ =\ *g\_sciTransfer\_t.tx\_data;}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \ \ \ \ scilinREG-\/>TD\ =\ (uint32)(txdata);}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 567\ S\ MR:17.1,17.4\ <APPROVED>\ "{}Pointer\ increment\ needed"{}\ */}}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.tx\_data++;}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ scilinREG-\/>CLEARINT\ =\ SCI\_TX\_INT;}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_ascii___convert_8c_ac25800424a38ab1b3b0960f6b7cc4bc8}{sciNotification}}(scilinREG,\ (uint32)SCI\_TX\_INT);}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ phantom\ interrupt,\ clear\ flags\ and\ return\ */}}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ scilinREG-\/>FLR\ =\ \string~scilinREG-\/>SETINTLVL\ \&\ 0x07000303U;}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00740\ \ \ \ \ \}}
+\DoxyCodeLine{00741\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (30)\ */}}
+\DoxyCodeLine{00742\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00743\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_ae6568eda24f29b1b31bd09a5f665b5f8}\label{sci_8c_ae6568eda24f29b1b31bd09a5f665b5f8}} 
+\index{sci.c@{sci.c}!sciDisableLoopback@{sciDisableLoopback}}
+\index{sciDisableLoopback@{sciDisableLoopback}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciDisableLoopback()}{sciDisableLoopback()}}
+{\footnotesize\ttfamily void sci\+Disable\+Loopback (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Enable Loopback mode for self test. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address\\
+\hline
+\end{DoxyParams}
+This function disable the Loopback mode. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00521\ \{}
+\DoxyCodeLine{00522\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (21)\ */}}
+\DoxyCodeLine{00523\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00524\ \ \ \ \ }
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{comment}{/*\ Disable\ Loopback\ Mode\ */}}
+\DoxyCodeLine{00526\ \ \ \ \ sci-\/>IODFTCTRL\ =\ 0x00000500U;}
+\DoxyCodeLine{00527\ \ \ \ \ }
+\DoxyCodeLine{00528\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (22)\ */}}
+\DoxyCodeLine{00529\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00530\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a9f1a39a5272682dbd101ddcbbbdc8193}\label{sci_8c_a9f1a39a5272682dbd101ddcbbbdc8193}} 
+\index{sci.c@{sci.c}!sciDisableNotification@{sciDisableNotification}}
+\index{sciDisableNotification@{sciDisableNotification}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciDisableNotification()}{sciDisableNotification()}}
+{\footnotesize\ttfamily sci\+Disable\+Notification (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{flags }\end{DoxyParamCaption})}
+
+
+
+Disable interrupts. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & -\/ Interrupts to be disabled, can be ored value of\+: SCI\+\_\+\+FE\+\_\+\+INT -\/ framing error, SCI\+\_\+\+OE\+\_\+\+INT -\/ overrun error, SCI\+\_\+\+PE\+\_\+\+INT -\/ parity error, SCI\+\_\+\+RX\+\_\+\+INT -\/ receive buffer ready, SCI\+\_\+\+TX\+\_\+\+INT -\/ transmit buffer ready, SCI\+\_\+\+WAKE\+\_\+\+INT -\/ wakeup, SCI\+\_\+\+BREAK\+\_\+\+INT -\/ break detect \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00577\ \{}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (25)\ */}}
+\DoxyCodeLine{00580\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ \ \ g\_sciTransfer\_t.mode\ \&=\ (uint32)(\string~(flags\ \&\ (uint32)SCI\_TX\_INT));}
+\DoxyCodeLine{00583\ \ \ \ \ sci-\/>CLEARINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (flags\ \&\ (uint32)(\string~(uint32)(SCI\_TX\_INT)));}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (26)\ */}}
+\DoxyCodeLine{00586\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00587\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a36302e2a67c26b3557c66ccb267c1760}\label{sci_8c_a36302e2a67c26b3557c66ccb267c1760}} 
+\index{sci.c@{sci.c}!sciEnableLoopback@{sciEnableLoopback}}
+\index{sciEnableLoopback@{sciEnableLoopback}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciEnableLoopback()}{sciEnableLoopback()}}
+{\footnotesize\ttfamily void sci\+Enable\+Loopback (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{loop\+Back\+Type\+\_\+t}]{Loopbacktype }\end{DoxyParamCaption})}
+
+
+
+Enable Loopback mode for self test. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em Loopbacktype} & -\/ Digital or Analog\\
+\hline
+\end{DoxyParams}
+This function enables the Loopback mode for self test. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00496\ \{}
+\DoxyCodeLine{00497\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (19)\ */}}
+\DoxyCodeLine{00498\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00499\ \ \ \ \ }
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{comment}{/*\ Clear\ Loopback\ incase\ enabled\ already\ */}}
+\DoxyCodeLine{00501\ \ \ \ \ sci-\/>IODFTCTRL\ =\ 0U;}
+\DoxyCodeLine{00502\ \ \ \ \ }
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{comment}{/*\ Enable\ Loopback\ either\ in\ Analog\ or\ Digital\ Mode\ */}}
+\DoxyCodeLine{00504\ \ \ \ \ sci-\/>IODFTCTRL\ =\ (uint32)0x00000A00U}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)Loopbacktype\ <<\ 1U);}
+\DoxyCodeLine{00506\ \ \ \ \ }
+\DoxyCodeLine{00507\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (20)\ */}}
+\DoxyCodeLine{00508\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00509\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_ad14ca1b90c313254407d318eceaa1f46}\label{sci_8c_ad14ca1b90c313254407d318eceaa1f46}} 
+\index{sci.c@{sci.c}!sciEnableNotification@{sciEnableNotification}}
+\index{sciEnableNotification@{sciEnableNotification}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciEnableNotification()}{sciEnableNotification()}}
+{\footnotesize\ttfamily sci\+Enable\+Notification (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{flags }\end{DoxyParamCaption})}
+
+
+
+Enable interrupts. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & -\/ Interrupts to be enabled, can be ored value of\+: SCI\+\_\+\+FE\+\_\+\+INT -\/ framing error, SCI\+\_\+\+OE\+\_\+\+INT -\/ overrun error, SCI\+\_\+\+PE\+\_\+\+INT -\/ parity error, SCI\+\_\+\+RX\+\_\+\+INT -\/ receive buffer ready, SCI\+\_\+\+TX\+\_\+\+INT -\/ transmit buffer ready, SCI\+\_\+\+WAKE\+\_\+\+INT -\/ wakeup, SCI\+\_\+\+BREAK\+\_\+\+INT -\/ break detect \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00548\ \{}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (23)\ */}}
+\DoxyCodeLine{00551\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ g\_sciTransfer\_t.mode\ |=\ (flags\ \&\ (uint32)SCI\_TX\_INT);}
+\DoxyCodeLine{00554\ \ \ \ \ sci-\/>SETINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ (flags\ \&\ (uint32)(\string~(uint32)(SCI\_TX\_INT)));}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (24)\ */}}
+\DoxyCodeLine{00557\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00558\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a695b0bd0cb87fd2a0542f784fc94aa06}\label{sci_8c_a695b0bd0cb87fd2a0542f784fc94aa06}} 
+\index{sci.c@{sci.c}!sciEnterResetState@{sciEnterResetState}}
+\index{sciEnterResetState@{sciEnterResetState}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciEnterResetState()}{sciEnterResetState()}}
+{\footnotesize\ttfamily sci\+Enter\+Reset\+State (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Enter reset state. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The SCI should only be configured while in reset state 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00598\ \{}
+\DoxyCodeLine{00599\ \ \ \ \ sci-\/>GCR1\ \&=\ 0xFFFFFF7FU;}
+\DoxyCodeLine{00600\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a3ec6735d45ea69caf0abe5919f04d538}\label{sci_8c_a3ec6735d45ea69caf0abe5919f04d538}} 
+\index{sci.c@{sci.c}!sciExitResetState@{sciExitResetState}}
+\index{sciExitResetState@{sciExitResetState}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciExitResetState()}{sciExitResetState()}}
+{\footnotesize\ttfamily void sci\+Exit\+Reset\+State (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00611\ \{}
+\DoxyCodeLine{00612\ \ \ \ \ sci-\/>GCR1\ |=\ 0x00000080U;}
+\DoxyCodeLine{00613\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_ae8a1d6b7274ed1af263d57fab032096a}\label{sci_8c_ae8a1d6b7274ed1af263d57fab032096a}} 
+\index{sci.c@{sci.c}!sciInit@{sciInit}}
+\index{sciInit@{sciInit}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciInit()}{sciInit()}}
+{\footnotesize\ttfamily void sci\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the SCI Driver. 
+
+This function initializes the SCI module. {\bfseries{initialize}} {\bfseries{SCILIN}} 
+
+
+\begin{DoxyItemize}
+\item bring SCI out of reset
+\item Disable all interrupts
+\item global control 1
+\item set baudrate
+\item transmission length
+\item set SCI pins functional mode
+\item set SCI pins default output value
+\item set SCI pins output direction
+\item set SCI pins open drain enable
+\item set SCI pins pullup/pulldown enable
+\item set SCI pins pullup/pulldown select
+\item set interrupt level
+\item set interrupt enable
+\item initialize global transfer variables
+\item Finaly start SCILIN
+\end{DoxyItemize}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (2)\ */}}
+\DoxyCodeLine{00077\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00082\ \ \ \ \ scilinREG-\/>GCR0\ =\ 0U;}
+\DoxyCodeLine{00083\ \ \ \ \ scilinREG-\/>GCR0\ =\ 1U;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ \ \ \ \ scilinREG-\/>CLEARINT\ \ \ \ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00087\ \ \ \ \ scilinREG-\/>CLEARINTLVL\ =\ 0xFFFFFFFFU;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \ \ scilinREG-\/>GCR1\ =\ (uint32)((uint32)1U\ <<\ 25U)\ \ \textcolor{comment}{/*\ enable\ transmit\ */}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 24U)\ \ \textcolor{comment}{/*\ enable\ receive\ */}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 5U)\ \ \ \textcolor{comment}{/*\ internal\ clock\ (device\ has\ no\ clock\ pin)\ */}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)(2U-\/1U)\ <<\ 4U)\ \ \textcolor{comment}{/*\ number\ of\ stop\ bits\ */}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 3U)\ \ \textcolor{comment}{/*\ even\ parity,\ otherwise\ odd\ */}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 2U)\ \ \textcolor{comment}{/*\ enable\ parity\ */}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 1U);\ \ \textcolor{comment}{/*\ asynchronous\ timing\ mode\ */}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ scilinREG-\/>BRS\ =\ 42U;\ \ \textcolor{comment}{/*\ baudrate\ */}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00102\ \ \ \ \ scilinREG-\/>FORMAT\ =\ 8U\ -\/\ 1U;\ \ \textcolor{comment}{/*\ length\ */}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \ \ scilinREG-\/>PIO0\ =\ (uint32)((uint32)1U\ <<\ 2U)\ \ \textcolor{comment}{/*\ tx\ pin\ */}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 1U);\ \textcolor{comment}{/*\ rx\ pin\ */}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00110\ \ \ \ \ scilinREG-\/>PIO3\ =\ (uint32)((uint32)0U\ <<\ 2U)\ \ \textcolor{comment}{/*\ tx\ pin\ */}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U);\ \textcolor{comment}{/*\ rx\ pin\ */}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00115\ \ \ \ \ scilinREG-\/>PIO1\ =\ (uint32)((uint32)0U\ <<\ 2U)\ \ \textcolor{comment}{/*\ tx\ pin\ */}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U);\ \textcolor{comment}{/*\ rx\ pin\ */}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00120\ \ \ \ \ scilinREG-\/>PIO6\ =\ (uint32)((uint32)0U\ <<\ 2U)\ \ \textcolor{comment}{/*\ tx\ pin\ */}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U);\ \textcolor{comment}{/*\ rx\ pin\ */}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00125\ \ \ \ \ scilinREG-\/>PIO7\ =\ (uint32)((uint32)0U\ <<\ 2U)\ \ \textcolor{comment}{/*\ tx\ pin\ */}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U);\ \textcolor{comment}{/*\ rx\ pin\ */}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00130\ \ \ \ \ scilinREG-\/>PIO8\ =\ (uint32)((uint32)1U\ <<\ 2U)\ \ \textcolor{comment}{/*\ tx\ pin\ */}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 1U);\ \textcolor{comment}{/*\ rx\ pin\ */}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00135\ \ \ \ \ scilinREG-\/>SETINTLVL\ =\ (uint32)((uint32)0U\ <<\ 26U)\ \ \textcolor{comment}{/*\ Framing\ error\ */}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)\ \ \textcolor{comment}{/*\ Overrun\ error\ */}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)\ \ \textcolor{comment}{/*\ Parity\ error\ */}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 9U)\ \ \textcolor{comment}{/*\ Receive\ */}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 8U)\ \ \textcolor{comment}{/*\ Transmit\ */}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U)\ \ \textcolor{comment}{/*\ Wakeup\ */}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 0U);\ \ \textcolor{comment}{/*\ Break\ detect\ */}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00144\ \ \ \ \ scilinREG-\/>SETINT\ =\ (uint32)((uint32)0U\ <<\ 26U)\ \ \textcolor{comment}{/*\ Framing\ error\ */}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 25U)\ \ \textcolor{comment}{/*\ Overrun\ error\ */}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 24U)\ \ \textcolor{comment}{/*\ Parity\ error\ */}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)1U\ <<\ 9U)\ \ \textcolor{comment}{/*\ Receive\ */}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U\ <<\ 1U)\ \ \textcolor{comment}{/*\ Wakeup\ */}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ (uint32)((uint32)0U);\ \ \textcolor{comment}{/*\ Break\ detect\ */}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00152\ \ \ \ \ g\_sciTransfer\_t.mode\ \ \ \ \ \ =\ (uint32)0U\ <<\ 8U;}
+\DoxyCodeLine{00153\ \ \ \ \ g\_sciTransfer\_t.tx\_length\ =\ 0U;}
+\DoxyCodeLine{00154\ \ \ \ \ g\_sciTransfer\_t.rx\_length\ =\ 0U;}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00157\ \ \ \ \ scilinREG-\/>GCR1\ |=\ 0x80U;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (3)\ */}}
+\DoxyCodeLine{00160\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00161\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_abb100a9163984ca6c9a69133b8eba657}\label{sci_8c_abb100a9163984ca6c9a69133b8eba657}} 
+\index{sci.c@{sci.c}!sciIsIdleDetected@{sciIsIdleDetected}}
+\index{sciIsIdleDetected@{sciIsIdleDetected}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciIsIdleDetected()}{sciIsIdleDetected()}}
+{\footnotesize\ttfamily uint32 sci\+Is\+Idle\+Detected (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Check if Idle Period is Detected. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Idle flag
+\end{DoxyReturn}
+Checks to see if the SCI Idle flag is set, returns 0 is flags not set otherwise will return the Ilde flag itself. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00370\ \{}
+\DoxyCodeLine{00371\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (14)\ */}}
+\DoxyCodeLine{00372\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordflow}{return}\ sci-\/>FLR\ \&\ (uint32)SCI\_IDLE;}
+\DoxyCodeLine{00375\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a030ca3a9ad5bf48a7215be9d4078ad49}\label{sci_8c_a030ca3a9ad5bf48a7215be9d4078ad49}} 
+\index{sci.c@{sci.c}!sciIsRxReady@{sciIsRxReady}}
+\index{sciIsRxReady@{sciIsRxReady}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciIsRxReady()}{sciIsRxReady()}}
+{\footnotesize\ttfamily uint32 sci\+Is\+Rx\+Ready (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Check if Rx buffer full. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Rx ready flag
+\end{DoxyReturn}
+Checks to see if the Rx buffer full flag is set, returns 0 is flags not set otherwise will return the Rx flag itself. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00350\ \{}
+\DoxyCodeLine{00351\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (13)\ */}}
+\DoxyCodeLine{00352\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{return}\ sci-\/>FLR\ \&\ (uint32)SCI\_RX\_INT;}
+\DoxyCodeLine{00355\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_aafd91cc5c28a92fa211e96e06b3fc34c}\label{sci_8c_aafd91cc5c28a92fa211e96e06b3fc34c}} 
+\index{sci.c@{sci.c}!sciIsTxReady@{sciIsTxReady}}
+\index{sciIsTxReady@{sciIsTxReady}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciIsTxReady()}{sciIsTxReady()}}
+{\footnotesize\ttfamily uint32 sci\+Is\+Tx\+Ready (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Check if Tx buffer empty. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The TX ready flag
+\end{DoxyReturn}
+Checks to see if the Tx buffer ready flag is set, returns 0 is flags not set otherwise will return the Tx flag itself. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00231\ \{}
+\DoxyCodeLine{00232\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (8)\ */}}
+\DoxyCodeLine{00233\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{return}\ sci-\/>FLR\ \&\ (uint32)SCI\_TX\_INT;}
+\DoxyCodeLine{00236\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a2418574fe9c3d642db1f134926ac6934}\label{sci_8c_a2418574fe9c3d642db1f134926ac6934}} 
+\index{sci.c@{sci.c}!scilinGetConfigValue@{scilinGetConfigValue}}
+\index{scilinGetConfigValue@{scilinGetConfigValue}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{scilinGetConfigValue()}{scilinGetConfigValue()}}
+{\footnotesize\ttfamily void scilin\+Get\+Config\+Value (\begin{DoxyParamCaption}\item[{sci\+\_\+config\+\_\+reg\+\_\+t $\ast$}]{config\+\_\+reg,  }\item[{config\+\_\+value\+\_\+type\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+
+
+Get the initial or current values of the SCILIN ( SCI2) configuration registers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$config\+\_\+reg} & pointer to the struct to which the initial or current value of the configuration registers need to be stored \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & whether initial or current value of the configuration registers need to be stored
+\begin{DoxyItemize}
+\item Initial\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\item Current\+Value\+: initial value of the configuration registers will be stored in the struct pointed by config\+\_\+reg
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+This function will copy the initial or current value (depending on the parameter \textquotesingle{}type\textquotesingle{}) of the configuration registers to the struct pointed by config\+\_\+reg 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00635\ \{}
+\DoxyCodeLine{00636\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ InitialValue)}
+\DoxyCodeLine{00637\ \ \ \ \ \{}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GCR0\ \ \ \ \ \ =\ SCILIN\_GCR0\_CONFIGVALUE;}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GCR1\ \ \ \ \ \ =\ SCILIN\_GCR1\_CONFIGVALUE;}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SETINT\ \ \ \ =\ SCILIN\_SETINT\_CONFIGVALUE;}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SETINTLVL\ =\ SCILIN\_SETINTLVL\_CONFIGVALUE;}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FORMAT\ \ \ \ =\ SCILIN\_FORMAT\_CONFIGVALUE;}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_BRS\ \ \ \ \ \ \ =\ SCILIN\_BRS\_CONFIGVALUE;}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO0\ \ \ \ \ \ =\ SCILIN\_PIO0\_CONFIGVALUE;}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO1\ \ \ \ \ \ =\ SCILIN\_PIO1\_CONFIGVALUE;}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO6\ \ \ \ \ \ =\ SCILIN\_PIO6\_CONFIGVALUE;}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO7\ \ \ \ \ \ =\ SCILIN\_PIO7\_CONFIGVALUE;}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO8\ \ \ \ \ \ =\ SCILIN\_PIO8\_CONFIGVALUE;\ }
+\DoxyCodeLine{00649\ \ \ \ \ \}}
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00651\ \ \ \ \ \{}
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 134\ S\ MR:12.2\ <APPROVED>\ "{}LDRA\ Tool\ issue"{}\ */}}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GCR0\ \ \ \ \ \ =\ scilinREG-\/>GCR0;}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_GCR1\ \ \ \ \ \ =\ scilinREG-\/>GCR1;\ }
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SETINT\ \ \ \ =\ scilinREG-\/>SETINT;\ }
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_SETINTLVL\ =\ scilinREG-\/>SETINTLVL;\ }
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_FORMAT\ \ \ \ =\ scilinREG-\/>FORMAT;\ }
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_BRS\ \ \ \ \ \ \ =\ scilinREG-\/>BRS;\ }
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO0\ \ \ \ \ \ =\ scilinREG-\/>PIO0;\ }
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO1\ \ \ \ \ \ =\ scilinREG-\/>PIO1;\ }
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO6\ \ \ \ \ \ =\ scilinREG-\/>PIO6;\ }
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO7\ \ \ \ \ \ =\ scilinREG-\/>PIO7;\ \ }
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ config\_reg-\/>CONFIG\_PIO8\ \ \ \ \ \ =\ scilinREG-\/>PIO8;\ }
+\DoxyCodeLine{00664\ \ \ \ \ \}}
+\DoxyCodeLine{00665\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a2452fb07e6ad52632e100fed774f9087}\label{sci_8c_a2452fb07e6ad52632e100fed774f9087}} 
+\index{sci.c@{sci.c}!sciReceive@{sciReceive}}
+\index{sciReceive@{sciReceive}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciReceive()}{sciReceive()}}
+{\footnotesize\ttfamily void sci\+Receive (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{length,  }\item[{uint8 $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Receive Data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & -\/ number of data words to transfer \\
+\hline
+\mbox{\texttt{ in}}  & {\em data} & -\/ pointer to data buffer to receive data\\
+\hline
+\end{DoxyParams}
+Receive a block of \textquotesingle{}length\textquotesingle{} bytes long and place it into the data buffer pointed to by \textquotesingle{}data\textquotesingle{}. If interrupts have been enabled the data is received using interrupt mode, otherwise polling mode is used. In interrupt mode receive is setup and the routine returns immediately, sci\+Receive must not be called again until the transfer is complete, when the sci\+Notification callback will be called. In polling mode, sci\+Receive will not return until the transfer is complete. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00449\ \{}
+\DoxyCodeLine{00450\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (17)\ */}}
+\DoxyCodeLine{00451\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordflow}{if}\ ((sci-\/>SETINT\ \&\ (uint32)SCI\_RX\_INT)\ ==\ (uint32)SCI\_RX\_INT)}
+\DoxyCodeLine{00454\ \ \ \ \ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ we\ are\ in\ interrupt\ mode\ */}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ error\ flags\ */}}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ sci-\/>FLR\ =\ ((uint32)\ SCI\_FE\_INT\ |\ (uint32)\ SCI\_OE\_INT\ |\ (uint32)\ SCI\_PE\_INT);}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.rx\_length\ =\ length;}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.rx\_data\ \ \ =\ data;}
+\DoxyCodeLine{00463\ \ \ \ \ \}}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00465\ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 30\ S\ MR:12.2,12.3\ <APPROVED>\ "{}Used\ for\ data\ count\ in\ Transmit/Receive\ polling\ and\ Interrupt\ mode"{}\ */}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (length\ >\ 0U)}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Potentially\ infinite\ loop\ found\ -\/\ Hardware\ Status\ check\ for\ execution\ sequence"{}\ */}}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((sci-\/>FLR\ \&\ (uint32)SCI\_RX\_INT)\ ==\ 0U)\ }
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ *data\ =\ (uint8)(sci-\/>RD\ \&\ 0x000000FFU);}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 567\ S\ MR:17.1,17.4\ <APPROVED>\ "{}Pointer\ operation\ required."{}\ */}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ length-\/-\/;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \}}
+\DoxyCodeLine{00481\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (18)\ */}}
+\DoxyCodeLine{00482\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00483\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_aec2932431dfdcdef7c3aba3da9cf4fe7}\label{sci_8c_aec2932431dfdcdef7c3aba3da9cf4fe7}} 
+\index{sci.c@{sci.c}!sciReceiveByte@{sciReceiveByte}}
+\index{sciReceiveByte@{sciReceiveByte}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciReceiveByte()}{sciReceiveByte()}}
+{\footnotesize\ttfamily uint32 sci\+Receive\+Byte (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Receive Byte. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Received byte
+\end{DoxyReturn}
+Receives a single byte in polling mode. If there is not a byte in the receive buffer the routine will wait until one is received. Use sci\+Is\+Rx\+Ready to check to see if the buffer is full to avoid waiting. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00417\ \{}
+\DoxyCodeLine{00418\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (16)\ */}}
+\DoxyCodeLine{00419\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Potentially\ infinite\ loop\ found\ -\/\ Hardware\ Status\ check\ for\ execution\ sequence"{}\ */}}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{while}\ ((sci-\/>FLR\ \&\ (uint32)SCI\_RX\_INT)\ ==\ 0U)\ }
+\DoxyCodeLine{00423\ \ \ \ \ \{\ }
+\DoxyCodeLine{00424\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordflow}{return}\ (sci-\/>RD\ \&\ (uint32)0x000000FFU);}
+\DoxyCodeLine{00427\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a36cb42a55bca0fe4e76f3b994fb6dfc4}\label{sci_8c_a36cb42a55bca0fe4e76f3b994fb6dfc4}} 
+\index{sci.c@{sci.c}!sciRxError@{sciRxError}}
+\index{sciRxError@{sciRxError}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciRxError()}{sciRxError()}}
+{\footnotesize\ttfamily uint32 sci\+Rx\+Error (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci }\end{DoxyParamCaption})}
+
+
+
+Return Rx Error flags. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Rx error flags
+\end{DoxyReturn}
+Returns the Rx framing, overrun and parity errors flags, also clears the error flags before returning. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00391\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ uint32\ status\ =\ (sci-\/>FLR\ \&\ ((uint32)SCI\_FE\_INT\ |\ (uint32)SCI\_OE\_INT\ |(uint32)SCI\_PE\_INT));}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (15)\ */}}
+\DoxyCodeLine{00395\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ sci-\/>FLR\ =\ ((uint32)SCI\_FE\_INT\ |\ (uint32)SCI\_OE\_INT\ |\ (uint32)SCI\_PE\_INT);}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{00399\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a0a24e75961adf4102892d78e9620c042}\label{sci_8c_a0a24e75961adf4102892d78e9620c042}} 
+\index{sci.c@{sci.c}!sciSend@{sciSend}}
+\index{sciSend@{sciSend}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciSend()}{sciSend()}}
+{\footnotesize\ttfamily void sci\+Send (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{length,  }\item[{uint8 $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Send Data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & -\/ number of data words to transfer \\
+\hline
+\mbox{\texttt{ in}}  & {\em data} & -\/ pointer to data to send\\
+\hline
+\end{DoxyParams}
+Send a block of data pointed to by \textquotesingle{}data\textquotesingle{} and \textquotesingle{}length\textquotesingle{} bytes long. If interrupts have been enabled the data is sent using interrupt mode, otherwise polling mode is used. In interrupt mode transmission of the first byte is started and the routine returns immediately, sci\+Send must not be called again until the transfer is complete, when the sci\+Notification callback will be called. In polling mode, sci\+Send will not return until the transfer is complete.
+
+\begin{DoxyNote}{Note}
+if data word is less than 8 bits, then the data must be left aligned in the data byte. 
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00290\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ uint8\ txdata;}
+\DoxyCodeLine{00292\ \ \ \ \ }
+\DoxyCodeLine{00293\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (11)\ */}}
+\DoxyCodeLine{00294\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00295\ \textcolor{comment}{/*SAFETYMCUSW\ 139\ S\ MR:13.7\ <APPROVED>\ "{}Mode\ variable\ is\ configured\ in\ sciEnableNotification()"{}\ */}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}\ ((g\_sciTransfer\_t.mode\ \&\ (uint32)SCI\_TX\_INT)\ !=\ 0U)}
+\DoxyCodeLine{00297\ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ we\ are\ in\ interrupt\ mode\ */}}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.tx\_length\ =\ length;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.tx\_data\ \ \ =\ data;}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ start\ transmit\ by\ sending\ first\ byte\ */}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ txdata\ =\ *g\_sciTransfer\_t.tx\_data;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ sci-\/>TD\ \ \ \ \ =\ (uint32)(txdata);}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 567\ S\ MR:17.1,17.4\ <APPROVED>\ "{}Pointer\ increment\ needed"{}\ */}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ g\_sciTransfer\_t.tx\_data++;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ sci-\/>SETINT\ =\ (uint32)SCI\_TX\_INT;}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00314\ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ send\ the\ data\ */}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (length\ >\ 0U)}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Potentially\ infinite\ loop\ found\ -\/\ Hardware\ Status\ check\ for\ execution\ sequence"{}\ */}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((sci-\/>FLR\ \&\ (uint32)SCI\_TX\_INT)\ ==\ 0U)}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ txdata\ =\ *data;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ sci-\/>TD\ =\ (uint32)(txdata);}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 45\ D\ MR:21.1\ <APPROVED>\ "{}Valid\ non\ NULL\ input\ parameters\ are\ only\ allowed\ in\ this\ driver"{}\ */}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 567\ S\ MR:17.1,17.4\ <APPROVED>\ "{}Pointer\ increment\ needed"{}\ */}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ length-\/-\/;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (12)\ */}}
+\DoxyCodeLine{00333\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00334\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a8803e9ddc05ea93c80a768d0fc0eab16}\label{sci_8c_a8803e9ddc05ea93c80a768d0fc0eab16}} 
+\index{sci.c@{sci.c}!sciSendByte@{sciSendByte}}
+\index{sciSendByte@{sciSendByte}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciSendByte()}{sciSendByte()}}
+{\footnotesize\ttfamily void sci\+Send\+Byte (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint8}]{byte }\end{DoxyParamCaption})}
+
+
+
+Send Byte. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em byte} & -\/ byte to transfer\\
+\hline
+\end{DoxyParams}
+Sends a single byte in polling mode, will wait in the routine until the transmit buffer is empty before sending the byte. Use sci\+Is\+Tx\+Ready to check for Tx buffer empty before calling sci\+Send\+Byte to avoid waiting. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00253\ \{}
+\DoxyCodeLine{00254\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (9)\ */}}
+\DoxyCodeLine{00255\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 28\ D\ MR:NA\ <APPROVED>\ "{}Potentially\ infinite\ loop\ found\ -\/\ Hardware\ Status\ check\ for\ execution\ sequence"{}\ */}}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{while}\ ((sci-\/>FLR\ \&\ (uint32)SCI\_TX\_INT)\ ==\ 0U)\ }
+\DoxyCodeLine{00259\ \ \ \ \ \{\ }
+\DoxyCodeLine{00260\ \ \ \ \ \}\ \textcolor{comment}{/*\ Wait\ */}}
+\DoxyCodeLine{00261\ \ \ \ \ sci-\/>TD\ =\ byte;}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (10)\ */}}
+\DoxyCodeLine{00264\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00265\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a35d4f604e2151ca596b1e0fcca6f5606}\label{sci_8c_a35d4f604e2151ca596b1e0fcca6f5606}} 
+\index{sci.c@{sci.c}!sciSetBaudrate@{sciSetBaudrate}}
+\index{sciSetBaudrate@{sciSetBaudrate}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciSetBaudrate()}{sciSetBaudrate()}}
+{\footnotesize\ttfamily void sci\+Set\+Baudrate (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{baud }\end{DoxyParamCaption})}
+
+
+
+Change baudrate at runtime. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em baud} & -\/ baudrate in Hz\\
+\hline
+\end{DoxyParams}
+Change the SCI baudrate at runtime. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00199\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ float64\ vclk\ =\ 80.000\ *\ 1000000.0;}
+\DoxyCodeLine{00201\ \ \ \ \ uint32\ f\ =\ ((sci-\/>GCR1\ \&\ 2U)\ ==\ 2U)\ ?\ 16U\ :\ 1U;}
+\DoxyCodeLine{00202\ \ \ \ \ uint32\ temp;}
+\DoxyCodeLine{00203\ \ \ \ \ float64\ temp2;}
+\DoxyCodeLine{00204\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (6)\ */}}
+\DoxyCodeLine{00205\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{comment}{/*SAFETYMCUSW\ 96\ S\ MR:6.1\ <APPROVED>\ "{}Calculations\ including\ int\ and\ float\ cannot\ be\ avoided"{}\ */}}
+\DoxyCodeLine{00208\ \ \ \ \ temp\ =\ (f*(baud));}
+\DoxyCodeLine{00209\ \ \ \ \ temp2\ =\ ((vclk)/((float64)temp))-\/1U;}
+\DoxyCodeLine{00210\ \ \ \ \ temp2\ =\ floor(temp2\ +\ 0.5F);\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Rounding-\/off\ to\ the\ closest\ integer\ */}}
+\DoxyCodeLine{00211\ \ \ \ \ sci-\/>BRS\ =\ (uint32)((uint32)temp2\ \&\ 0x00FFFFFFU);}
+\DoxyCodeLine{00212\ \ \ \ \ }
+\DoxyCodeLine{00213\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (7)\ */}}
+\DoxyCodeLine{00214\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00215\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sci_8c_a2bf2ae4e9ca71949190dd967b406b931}\label{sci_8c_a2bf2ae4e9ca71949190dd967b406b931}} 
+\index{sci.c@{sci.c}!sciSetFunctional@{sciSetFunctional}}
+\index{sciSetFunctional@{sciSetFunctional}!sci.c@{sci.c}}
+\doxysubsubsection{\texorpdfstring{sciSetFunctional()}{sciSetFunctional()}}
+{\footnotesize\ttfamily void sci\+Set\+Functional (\begin{DoxyParamCaption}\item[{sci\+BASE\+\_\+t $\ast$}]{sci,  }\item[{uint32}]{port }\end{DoxyParamCaption})}
+
+
+
+Change functional behavior of pins at runtime. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sci} & -\/ sci module base address \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & -\/ Value to write to PIO0 register\\
+\hline
+\end{DoxyParams}
+Change the value of the PCPIO0 register at runtime, this allows to dynamically change the functionality of the SCI pins between functional and GIO mode. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00177\ \{}
+\DoxyCodeLine{00178\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (4)\ */}}
+\DoxyCodeLine{00179\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ sci-\/>PIO0\ =\ port;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ (5)\ */}}
+\DoxyCodeLine{00184\ \textcolor{comment}{/*\ USER\ CODE\ END\ */}}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}
